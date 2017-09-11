@@ -1,0 +1,1116 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      2: JavaScript Review
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-1.1 JS Intro">
+      Lab-1.1 JS Intro
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="08">
+      08
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-1.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-1.2 JS Basics
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-1.1 JS Intro">
+        <h1>Objectives</h1>
+<p>Introducing the fundamentals of the javascript language, becoming familiar with some of the different sources of a selection of javascript resources. Explore Google Chrome&#39;s javascript-based tools. Understand basic types. Acquire an understanding of the roles that arrays and objects play in a javascript program. All using JetBrains&#39; WebStorm IDE.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>WebStorm IDE</h1>
+<h2>Preparation</h2>
+<p>So that we can programmatically enforce a style guide as we progressively develop our application it is necessary to install an application named <strong>jscs</strong>. Here are brief instructions to install the app in both Windows 10 and Mac OSX.</p>
+<h2>Install nodejs</h2>
+<p>Instructions here: </p>
+<ul>
+<li><a href="https://nodejs.org/">https://nodejs.org/</a></li>
+</ul>
+<h2>Install jscs</h2>
+<p>This must be done from a command shell - and relies on a successful node installation.</p>
+<pre><code>npm install jscs -g</code></pre>
+<h2>WebStorm installation &amp; configuration</h2>
+<p>Download and install <a href="https://www.jetbrains.com/webstorm/download/">WebStorm</a> version appropriate to your operating system.
+<img src="img/webstorm/01.png" alt="Figure 1: Download WebStorm"></p>
+<p>Follow the <a href="https://www.jetbrains.com/student/">JetBrains instructions</a> to obtain a free student license. For this you will require a valid academic student email address. Copy the license to a text file and save for future use.</p>
+<p><img src="img/webstorm/02.png" alt="Figure 2: Obtain free student JetBrains license"></p>
+<p>Once you have installed Webstorm, launch the application and:</p>
+<ul>
+<li>Register your application using the student license,</li>
+<li>Click the gear icon and select preferences in the context menu.
+<img src="img/webstorm/09.png" alt="Figure 3: Register WebStorm">
+<img src="img/webstorm/03.png" alt="Figure 4: Access WebStorm preferences via the gear at bottom right of splash screen"></li>
+</ul>
+<p>Select the Editor in the Preferences pane.
+<img src="img/webstorm/04.png" alt="Figure 5: Editor selected in Preferences pane"></p>
+<p>As shown in Figure 6, on the Preferences | Editor | Code Style | JavaScript pane, set the Tab size, Indent and Continuation indent to 2, 2 and 4 respectively.
+<img src="img/webstorm/05.png" alt="Figure 6: Preferences | Editor | Code Style | JavaScript"></p>
+<p>Download and save to a permanent location <a href="archive/jscsrc.zip">this customized JSCS config file archive</a>. Expand the archive. It contains a single file name <strong>.jscsrc</strong>. </p>
+<p>Still in the JavaScript pane (referring to Figure 7 and Figure 8):</p>
+<ul>
+<li>Press the Manage button (Scheme) press OK to import JSCS config file. </li>
+<li>Browse to the location where you have saved the <strong>.jscsrc</strong> file, select it and press OK. The Import from JSCS config pane should then open. </li>
+<li>In the Code style preset dropdown pane select Airbnb. Press OK.</li>
+<li>You should then be returned to the Default Preferences pane. Ensure the Tab size, Indent and Continuation indent values are 2, 2 and 4 respectively, as shown in Figure 6, resetting them if necessary, 2.
+<img src="img/webstorm/06.png" alt="Figure 7: Import JSCS config file">
+<img src="img/webstorm/07.png" alt="Figure 8: Import customized JSCS config file"></li>
+</ul>
+<p>Still in the Default Preferences | Editor pane, select HTML and set the Tab size, Indent and Continuation indent at 2, 2, 4 respectively as shown in Figure 9. The Scheme should be set to JSCS, provided by the customized <strong>.jscsrc</strong> file imported earlier.
+<img src="img/webstorm/08.png" alt="Figure 9: Set HTML Scheme, Tabs and Indents"></p>
+<p>As shown in Figure 10, select JSCS in the Preferences | Languages &amp; Frameworks pane</p>
+<ul>
+<li>Tick the Enable checkbox </li>
+<li>Select <em>Airbnb</em> in the <em>Code style preset</em> dropdown.</li>
+</ul>
+<p><img src="img/webstorm/10.png" alt="Figure 10: Enable JSCS styling"></p>
+<p>In the Preferences | Languages &amp; Frameworks select JavaScript and set the language version to ECMAScript 6. See Figure 11.
+<img src="img/webstorm/11.png" alt="Figure 11: Set JavaScript language version to ECMAScript 6"></p>
+<p>In Editor | JSON set Tabs and Indents pane as shown in Figure 12, that is, untick <em>Use tab character</em>, set <em>Tab size</em>, <em>Indent</em> and <em>Continuation indent</em> at 2, 2, 4 respectively.
+<img src="img/webstorm/12.png" alt="Figure 12: Editor | JSON configuration"></p>
+<p>Press the Apply and OK buttons at the foot of the preferences pane to return to the WebStorm spash screen. </p>
+<p>Tip: As you progress through the labs you may encounter style guide errors in the code you enter in WebStorm editor. Study Figure 13 to understand how these may be corrected using the JSCS rules application.</p>
+<p>To correct indentation invoke the menu command <em>Code | Reformat Code</em>. It is much more efficient to use the hot keys for this task. See Figure 14. </p>
+<p><img src="img/webstorm/13.png" alt="Figure 13: One method to correct some style guide errors">
+<img src="img/webstorm/14.png" alt="Figure 14: Reformat code automatically fixes indentation"></p>
+<p>You are now ready to commence development using WebStorm.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Getting Started</h1>
+<h2>Anatomy of a Web Page</h2>
+<p>Before diving into JavaScript, it helps to understand how it aligns with the other web technologies.</p>
+<h3>HTML is for Content</h3>
+<p>HTML is a markup language used to define and describe content. Whether it be a blog post, a search engine result or an e-commerce site, the core content of a web page is written in HTML. A semantic markup, HTML is used to describe content in universal terms (headers, paragraphs, images, etc.).</p>
+<h3>CSS is for Presentation</h3>
+<p>CSS is a supplemental language that applies style to HTML documents. CSS is all about making content look better by defining fonts, colors and other visual aesthetics. The power of CSS comes from the fact that styling is not intermingled with content. This means you can apply different styles to the same piece of content, which is critical when building responsive websites that look good across a range of devices.</p>
+<h3>JavaScript is for Interactivity</h3>
+<p>In the browser, JavaScript adds interactivity and behavior to HTML content. Without JavaScript, web pages would be static and boring. JavaScript helps bring a web page to life.</p>
+<p>Look at this simple HTML page that includes CSS and JavaScript to see how it all fits together:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;!-- CSS for presentation --&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+    h1 {
+      font-size: 14px;
+      color: hotpink;
+    }
+
+    button {
+      color: red;
+    }
+  &lt;/style&gt;
+  &lt;!-- JavaScript for interactivity --&gt;
+  &lt;script&gt;
+    function buttonClick() {
+      alert(&quot;Hello!&quot;);
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;button onClick=&quot;buttonClick();&quot;&gt;Click Me!&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>In the example above, HTML is used to describe the content. The &quot;Hello World&quot; text is described as a heading with the <code>&lt;h1&gt;</code> tag and &quot;Click Me!&quot; is described as a button with the <code>&lt;button&gt;</code> tag. The <code>&lt;style&gt;</code> block contains CSS that changes the font-size and color of the header text. The <code>&lt;script&gt;</code> block contains JavaScript that adds interactivity to the button. When a user clicks on the button, an alert message will appear that says &quot;Hello!&quot;.</p>
+<p>In this example, for convenience, we have included the JavaScript in the HTML. This practice is not recommended and henceforth we shall place such code in an external file or files.</p>
+<h2>A Scripting Language for the Web</h2>
+<p>JavaScript was originally designed to add interactivity to web pages, not to be a general programming language, which makes it a scripting language. <a href="http://en.wikipedia.org/wiki/Scripting_language">Scripting languages</a> are regarded to be more productive than general languages because they are optimized for their specific domain (in this case, the web browser). However, recent advancements have brought JavaScript to the server-side (via <a href="http://nodejs.org/">Node.js</a>) so it can now be used in place of languages like PHP, Ruby or ASP. This guide will focus exclusively on JavaScript running in the browser with jQuery.</p>
+<p>The name &quot;JavaScript&quot; is a bit misleading. Despite the similarity in name, JavaScript has no relationship with <a href="http://en.wikipedia.org/wiki/Java_\(programming_language\">Java</a>), a general purpose language. JavaScript is based on an Open Web standard called <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a>. Standards-based languages are not controlled by any one entity or corporation - instead, developers work together to define the language, which is why JavaScript will run in <em>every</em> web browser regardless of the operating system or device.</p>
+<h2>What You Need to Get Started with JavaScript and jQuery</h2>
+<ol>
+<li>Web Browser</li>
+<li>Text Editor</li>
+<li>Developer Tools (optional)</li>
+</ol>
+<p>One of JavaScript&#39;s greatest strengths is its simplicity. It can be written and run on any operating system, and the only requirements are a web browser and a text editor. There are also numerous tools that can make JavaScript development more productive, but they are completely optional.</p>
+<p>In this series of labs, however, we shall use a text editor within the WebStorm integrated development environment (IDE). This provides us with a number of advantages, mainly the ability to apply styleguide rules. We have chosen <a href="http://airbnb.io/javascript/">Airbnb Style Guide</a> from an available list the includes Crockford, Google and others.
+Commonly referred to as &quot;developer tools,&quot; many browsers ship with built-in features that provide better insight into JavaScript and jQuery while they run in the browser. Although they aren&#39;t required, you may find developer tools helpful when it comes to debugging errors in your code. Check out these browsers&#39; developer tools: </p>
+<ul>
+<li><a href="https://developer.apple.com/technologies/safari/developer-tools.html">Apple Safari</a></li>
+<li><a href="https://developers.google.com/chrome-developer-tools/">Google Chrome Developer Tools</a></li>
+<li><a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/f12-devtools-guide/">Microsoft Edge</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ie/gg589507.aspx">Microsoft Internet Explorer</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools">Mozilla Firefox Web Development Tools</a></li>
+<li><a href="http://www.opera.com/developer/tools/">Opera Dragonfly</a></li>
+</ul>
+<hr>
+<h2>Exercises</h2>
+<h3>JS WebStorm Project</h3>
+<p>Create a new project of type &#39;Empty Project&#39; named <em>js-intor</em> by selecting <em>File | New Project</em> in WebStorm IDE. It should look like this:</p>
+<p><img src="img/01.png" alt="Figure 1: WebStorm IDE - Create new project"></p>
+<p>Create a new file in the project called &#39;step1.html&#39;. Copy the contents of the html file above into this file, working within the WebStorm editor:</p>
+<p><img src="img/02.png" alt="Figure 2: HTML file in WebStorm text editor"></p>
+<h3>Google Chrome</h3>
+<p>Select the file <em>step-1.html</em> in the left column, right click to open the context menu and select <em>Open in Browser | Chrome</em>.</p>
+<p><img src="img/35.png" alt="Figure 3: About to open Chrome from WebStorm context menu"></p>
+<p>This command opens the file in Chrome web browser.</p>
+<p><img src="img/03.png" alt="Figure 4: HTML file rendered in Chrome browser"></p>
+<p>Press the button above and note the appearance of a simple message box.</p>
+<p>Double click on the file name <em>step-1.html</em> or select File | Open in top-level menu.</p>
+<p><img src="img/07.png" alt="Figure 5: File may be opened by double click on file name in left navigation pane or from menu File | Open"></p>
+<p>In addition, we will be making heavy use of the &quot;Developer Tools&quot;. These are available via the &quot;Customise and Control&quot; button in the top right in the Google Chrome window:</p>
+<p><img src="img/08.png" alt="Figure 6: Opening Chrome Developer Tools"></p>
+<p>When selected, the Chrome window will look like this:</p>
+<p><img src="img/09.png" alt="Figure 7: Chrome Developer Tools Window"></p>
+<p>In subsequent steps we will be very interested in exploring applications using the debugging feature and the ability to inspect variables and their scopes.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Running Code</h1>
+<h3>External</h3>
+<p>The first and recommended option is to write code in an external file (with a &quot;.js&quot; extension), which can then be included on our web page using an HTML <code>&lt;script&gt;</code> tag and pointing the <code>src</code> attribute to the file&#39;s location. Having JavaScript in a separate file will reduce code duplication if you want to reuse it on other pages. It will also allow the browser to cache the file on the remote client&#39;s computer, decreasing page load time.</p>
+<pre><code class="lang-html">&lt;!--Code is written in a .js file, then included via the script tag src attribute.--&gt;
+&lt;script src=&quot;/path/to/example.js&quot;&gt;&lt;/script&gt;</code></pre>
+<h3>Inline</h3>
+<p>The second option is to inline the code directly on the web page. This is also achieved using HTML <code>&lt;script&gt;</code> tags, but instead of pointing the <code>src</code> attribute to a file, the code is placed between the tags. While there are use cases for this option, the majority of the time it is best to keep our code in an external file as described above.</p>
+<pre><code class="lang-html">&lt;!--Embed code directly on a web page using script tags.--&gt;
+&lt;script&gt;
+  alert(&quot;Hello World!&quot;);
+&lt;/script&gt;</code></pre>
+<h3>Attributes</h3>
+<p>The last option is to use the event handler attributes of HTML elements. This method is strongly discouraged:</p>
+<pre><code class="lang-html">&lt;!--Inline code directly on HTML elements being clicked.--&gt;
+&lt;a href=&quot;javascript:alert(&amp;#34;Hello World!&amp;#34;);&quot;&gt;Click Me!&lt;/a&gt;
+&lt;button onClick=&quot;alert(&amp;#34;Good Bye World&amp;#34;);&quot;&gt;Click Me Too!&lt;/a&gt;</code></pre>
+<p>See <a href="http://stackoverflow.com/questions/6941483/onclick-vs-event-handler">here</a> and <a href="http://stackoverflow.com/questions/5127037/disappearing-google-map/">here</a> for discussions on reasons why not.</p>
+<h3>Placement</h3>
+<p>Placement of the previous two options is important and can vary depending on the situation. If you are including JavaScript that doesn&#39;t access the elements on the page, you can safely place the script before the closing HTML <code>&lt;head&gt;</code> tag. However, if the code will interact with the elements on the page, you have to make sure those elements exist at the time the script is executed. This common pitfall can be seen in the example below. The script for finding the element with the ID &quot;hello-world&quot; will be executed before the element is defined in the document.</p>
+<pre><code class="lang-html">&lt;!--Attempting to access an element too early will have unexpected results.--&gt;
+&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;script&gt;
+
+    const title = document.getElementById(&quot;hello-world&quot;);
+    console.log(title);
+
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 id=&quot;hello-world&quot;&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>It is a common pattern to move scripts to the bottom of the page, prior to the closing HTML <code>&lt;body&gt;</code> tag. This will guarantee that elements are defined when the script is executed.</p>
+<pre><code class="lang-html">&lt;!--Moving the script to the bottom of the page will make sure the element exists.--&gt;
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id=&quot;hello-world&quot;&gt;Hello World&lt;/h1&gt;
+  &lt;script&gt;
+
+      const title = document.getElementById(&quot;hello-world&quot;);
+      console.log( title );
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2>Exercise</h2>
+<p>Incorporate the last two html documents into two html file in your js-labs-1 project:</p>
+<ul>
+<li>step1a.html</li>
+<li>step2b.html</li>
+</ul>
+<p>Open both files in the google Chrome browser. Show the developer tools, and examine the console:</p>
+<h3>step1a.html</h3>
+<p><img src="img/12.png" alt="Figure 1: step1a.html"></p>
+<h3>step1b.html</h3>
+<p><img src="img/13.png" alt="Figure 2: step1b.html"></p>
+<p>Note the difference. Can you see the reason?</p>
+<h3>2.2 Influence of HTML5 script attribute <em>defer</em></h3>
+<p>Replace the code in step-1.html with that below. Observe the changes we have introduced.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;step-1&lt;/title&gt;
+  &lt;script src=&quot;step-1.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 id=&quot;hello-world&quot;&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Create the referenced JavaScript file.</p>
+<pre><code>// step-1.js
+let title = document.getElementById(&#39;hello-world&#39;);
+console.log(title);</code></pre>
+<p>Open step-1.html in Chrome and note the output in the console.</p>
+<p>The refactored project is shown in Figure 3.</p>
+<p>Delete the <em>defer</em> attribute and refresh the html file.</p>
+<pre><code>  &lt;script src=&quot;step-1.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>Compare the two outputs. </p>
+<p>Study this <a href="http://reference.sitepoint.com/html/script/defer">defer attribute documentation</a> documentation.</p>
+<ul>
+<li>What is the effect of including the <em>defer</em> attribute?</li>
+<li>What restrictions if any apply to the use of the <em>defer</em> attribute?</li>
+</ul>
+<p><img src="img/10.png" alt="Figure 3: JavaScript moved to external file"></p>
+<h2>JSCS</h2>
+<p>You should have downloaded `.jscsrc file in step one:</p>
+<ul>
+<li><a href="archive/jscsrc.zip">Customized JSCS config file archive</a></li>
+</ul>
+<p>You should now place the &#39;.jscsrc&#39; file from the archive into your project. It will immediately try to validate the <code>step-1.js</code> source file. You should try to ensure that there are not violations in the file - such that the jscsrc is giving you a clean bill of health.</p>
+<h3>2.3 DOM Access</h3>
+<p>Introduce some more html elements into the page. By copying the code in the example, see if you can log these elements to the console </p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Syntax Basics</h1>
+<h3>Comments</h3>
+<p>JavaScript has support for single and multi-line comments. Comments are ignored by the JavaScript engine and therefore have no side-effects on the outcome of the program. Use comments to document the code for other developers. Libraries like <a href="http://code.google.com/p/jsdoc-toolkit/," title="JSDoc Toolkit">JSDoc</a> are available to help generate project documentation pages based on commenting conventions.</p>
+<p>Refer to <a href="http://airbnb.io/javascript/#comments">Airbnb JavaScript Style Guide rules on comments</a> for detailed information.</p>
+<h4>Single line comment</h4>
+<pre><code class="lang-javascript">
+// This is an example of a single line comment.</code></pre>
+<h4>Multi line comment</h4>
+<pre><code>/*
+ * this is an example
+ * of a
+ * multi line
+ * comment.
+ */</code></pre>
+<h3>Whitespace</h3>
+<p>Whitespace is also ignored in JavaScript. There are many tools that will strip out all the whitespace in a program, reducing the overall file size and improving network latency. Given the availability of tools like these, whitespace should be leveraged to make the code as readible as possible.</p>
+<p>Refer to <a href="http://airbnb.io/javascript/#whitespace">Airbnb JavaScript Style Guide rules on whitespace</a> for detailed information.</p>
+<pre><code class="lang-javascript">// Whitespace is insignificant.
+const hello = &quot;Hello&quot;;
+
+const world     =      &quot;World!&quot;;</code></pre>
+<pre><code>/**
+ * Semantic whitespace promotes readibility.
+ * Readible code is good!
+ */
+function foo() {
+  const size = 10;
+  for (let i = 0; i &lt; size; i += 1) {
+    alert(i);
+  }
+}
+
+foo();
+
+// This is much harder to read!
+const foo=function() {for(let i=0;i&lt;10;++){alert(i);}};foo();</code></pre>
+<h3>Reserved Words</h3>
+<p>There is a list of reserved words that may not be used when declaring user-defined variables and functions. Some of these reserved words are currently implemented, some are saved for future use, and others are reserved for historical reasons. A list of words and in-depth explanations for each can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar">MDN JavaScript Reference</a></p>
+<h3>Identifiers</h3>
+<p>Identifiers are used to give variables and functions a unique name so they can subsequently be referred to by that name. The name of an identifier must follow a few rules:</p>
+<ul>
+<li>Cannot be a reserved word.</li>
+<li>Can only be composed of letters, numbers, dollar signs, and underscores.</li>
+<li>The first character cannot be a number.</li>
+</ul>
+<p>its a best practice to name identifers in a way that will make sense to you and other developers later on.</p>
+<p>The styleguide applicable to this series of labs requires that all <a href="http://airbnb.io/javascript/#variables">identifiers must be camel case or upper case</a>.</p>
+<p>Note that jQuery identifiers should be prefixed with a <strong>$</strong> as shown, for example, in the last variable below.</p>
+<pre><code>// Valid identifier names.
+const myAwesomeVariable = &#39;a&#39;;
+const myAwesomeVariable2 = &#39;b&#39;;
+const MY_AWESOME_VARIABLE = &#39;C&#39;;
+const $myAwesomeVariable = &#39;d&#39;;</code></pre>
+<h2>Exercises</h2>
+<h3>3.1: Comments</h3>
+<p>For the javascript code you introduced in the previous step, experiment with commenting out different sections. Get used to commenting out single lines, or entire sections. Make sure you test that the commented out sections are actually not executed. i.e., open the files in Chrome and inspect the console. While the files are open in Chrome, make an change to the file in WebStorm, get used to reloading the already open pages in Chrome.</p>
+<h3>3.2: Running JavaScript Programs</h3>
+<p>Create a new file in the js-labs-1 project called &#39;step3.html&#39;. Replace its contents with the following:</p>
+<pre><code class="lang-html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;script src=&quot;js/foo.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id=&quot;hello-world&quot;&gt;Hello World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Now create a new folder in the js-lab-1 project called &#39;js&#39;. Create an empty file in this folder called &#39;foo.js&#39;. </p>
+<p>Edit the &#39;foo.js&#39; file, and paste in the following:</p>
+<pre><code>function foo() {
+  const size = 10;
+  for (let i = 0; i &lt; size; i += 1) {
+    alert(i);
+  }
+}
+
+foo();</code></pre>
+<p>Your project should look like this:</p>
+<p><img src="img/14.png" alt="Figure 1: WebStorm perspective"></p>
+<p>Now open the step3.html file in Chrome. As you open the page you see the alert dialog appearing (10 times):</p>
+<p><img src="img/15.png" alt="Figure 2: Alert window"></p>
+<p>Once you have clicked through these - open the developer tools again - and select &quot;Sources&quot; and locate and display the foo.js file:</p>
+<p><img src="img/16.png" alt="Figure 3: Chrome debug pane showing JavaScript source"></p>
+<p>Back in WebStorm, change the code to output the loop variable value to the console three times. Reload the page and verify this works as expected.</p>
+<p><img src="img/36.png" alt="Figure 4: Output to console"></p>
+<h3>3.2: Debugging JavaScript Programs using Google Chrome browser developer tools</h3>
+<p>In Chrome Sources view, click on margin alongside the alert line - this should place a marker as shown:</p>
+<p><img src="img/17.png" alt="Figure 5: Breakpoint in JavaScript code in Chrome debugger"></p>
+<p>Reload the page again - reload the page. This time the behaviour will be a little different:</p>
+<p><img src="img/18.png" alt="Figure 6: Program halts at breakpoint"></p>
+<p>Now the javascript program is paused - because the marker we set down above is a &#39;breakpoint&#39;. This means the programs is waiting your command to resume. Look closely at the panel on the bottom right:</p>
+<p><img src="img/19.png" alt="Figure 7: Program awaits user input to proceed"></p>
+<p>Hover on the 5 buttons along the top for a few seconds each - and read the tooltip. Experiment with each one in turn and see if you can figure out its behaviour.</p>
+<p>In particular, experiment with the &#39;step over..&#39; and &#39;step into...&#39; buttons. Monitor the &quot;Scope Variables&quot; panel while you are doing this:</p>
+<p><img src="img/20.png" alt="Figure 8: Observe changes to loop variable i by stepping through the code"></p>
+<p>and note the changes to the value of i.</p>
+<h3>3.3: Debugging JavaScript Programs using Firefox web developer tools</h3>
+<p>Set the JavaScript foo.js content to be the following:</p>
+<pre><code>function foo() {
+  const size = 3;
+  for (let i = 0; i &lt; size; i += 1) {
+    console.log(i);
+  }
+}
+
+foo();</code></pre>
+<p>For convenience we have reduced the loop size to 3 and directed output to the console rather than to a pop-up alert box.</p>
+<p>Open step3.html in Firefox and access the developer tools using any of the following techniques:</p>
+<ul>
+<li>List of hotkeys for Windows, OSX and Linux operating systems is available <a href="https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts">here</a>.</li>
+<li>Click on the wrench icon in the bottom right of the browser screen. This may be used as an open-shut toggle.</li>
+<li>Click on the menu item on the top right hand corner of the browser which exposes the wrench icon.</li>
+</ul>
+<p>Study the Variables pane on the right of Figure 9. In particular observe that the variable <strong>i</strong> has block scope.</p>
+<p><img src="img/04.png" alt="Figure 9: Variable i has block scope"></p>
+<p>Now change foo.js by altering the type of the loop variable from let to var:</p>
+<pre><code>function foo() {
+  const size = 3;
+  for (var i = 0; i &lt; size; i += 1) {
+    console.log(i);
+  }
+}
+
+foo();</code></pre>
+<p>Refresh Firefox and observe how the contents of the Variables pane have changed. This is shown in Figure 9. </p>
+<p>In particular, notice that the variable <strong>i</strong> now has function scope.</p>
+<p><img src="img/05.png" alt="Figure 9: Variable i has function scope"></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Types</h1>
+<p>Types in JavaScript fall into two categories: primitives or objects. Primitive types include:</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+</ul>
+<h3>String</h3>
+<p>Strings are text wrapped in single or double quotation marks. </p>
+<ul>
+<li>It is best practice to consistently use one or the other.</li>
+<li>In this course we use single quotes exclusively. </li>
+</ul>
+<p>There may be times when the string contains quotation marks that collide with the ones used to create the string. In this case, either escape the characters using a <code>\</code> backslash or use different quotes around the string.</p>
+<pre><code class="lang-javascript">// We create strings with single quotes.
+
+const a = &#39;I am a string!&#39;;
+console.log(a);</code></pre>
+<pre><code class="lang-javascript">// Sometimes a string may contain quotation marks.
+
+const statement1 = &#39;He said \&#39;JavaScript is awesome!\&#39;&#39;;
+const statement2 = &#39;He said \&quot;JavaScript is awesome!\&quot;&#39;;
+console.log(statement1);
+console.log(statement2);</code></pre>
+<p><img src="img/06.png" alt="Figure 1: Inner quotation marks escaped"></p>
+<h2>Exercise: Strings &amp; Objects</h2>
+<p>Create a new File called &#39;step4.html&#39; in your current project, and incorporate the following :</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Types&lt;/title&gt;
+  &lt;script src=&quot;js/types.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1 id=&quot;Hello Types&quot;&gt;Hello World&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Note the src attribute in the script tag:</p>
+<ul>
+<li>create a corresponding javascript file called types.js in your project</li>
+</ul>
+<p><img src="img/21.png" alt="Figure 2: JavaScript file types.js added"></p>
+<p>Into types.js paste the following JavaScript code:</p>
+<pre><code class="lang-javascript">// We use single quotes in creating strings.
+
+const a = &#39;I am a string!&#39;;
+console.log(a);
+
+const person1 = {};
+
+person1.firstName = &#39;John&#39;;
+person1.lastName = &#39;Doe&#39;;
+
+console.log(person1.firstName + &#39; &#39; + person1.lastName);</code></pre>
+<p>Now open the step4.html file in Chrome, place a breakpoint and step through the program.</p>
+<p><img src="img/22.png" alt="Figure 3: Debugging types.js"></p>
+<p>Single step through the lines and observe.</p>
+<p>The &quot;Scope Variables&quot; view displays the variables a and person1 as shown in Figure 3. </p>
+<p>It is also possible to add variables to the Watch window as shown in Figure 4.</p>
+<p><img src="img/24.png" alt="Figure 4: Add variable to watch"></p>
+<p>Enter the name of a variable - &#39;a&#39; in this instance - and press return:</p>
+<p><img src="img/25.png" alt="Figure 5: Variable added to watch"></p>
+<p>Experiment with the debug buttons - particularly the &#39;Step over&#39; and &#39;Step into&#39; buttons. </p>
+<p>See if you can monitor the &#39;person1&#39; object - you should be able to view its contents something like this:</p>
+<p><img src="img/26.png" alt="Figure 6: Monitoring JavaScript object"></p>
+<p>You can restart the &#39;program&#39; at any stage by reloading the page in Chrome.</p>
+<h3>Number</h3>
+<p>Number types are any positive or negative numeric value. There is no distinction between integer and floating point values.</p>
+<pre><code class="lang-javascript">// Numbers are any whole or floating point integer.
+const num1 = 100;
+const num2 = 100.10;
+const num3 = 0.10;</code></pre>
+<h3>Boolean</h3>
+<p>Boolean types are either true or false.</p>
+<pre><code class="lang-javascript">// Boolean values.
+const okay = true;
+const fail = false;</code></pre>
+<h3>Null and Undefined</h3>
+<p>Null and undefined are special types in JavaScript. Null types are a value that represent the absence of a value, similar to many other programming languages. Undefined types represent a state in which no value has been assigned at all. This type is created in two ways: by using the undefined keyword or by not defining a value at all.</p>
+<pre><code class="lang-javascript">// Two ways to achieve an undefined value.
+const foo = null;
+
+const bar1 = undefined;
+const bar2;</code></pre>
+<p>Note, in the above your webstorm jscsrc style enforcer will flag the last statement as a violation of its guidelines.</p>
+<h2>Exercise: Numbers, Null and Undefined</h2>
+<p>Bring in the fragments above and single step through the code as we have been doing. See if you can &#39;watch&#39; each of the new variables. At the the end of the script your &#39;watch expressions&#39; view could look like this:</p>
+<p><img src="img/27.png" alt="Figure 7: Watching variables during program execution"></p>
+<p>If you reload the page and break at the very first line, then the watch expressions will look like this:</p>
+<p><img src="img/28.png" alt="Figure 8: Watching variables during program execution"></p>
+<p>Step through the program again and observe the variables change from undefined as values are assigned.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Objects &amp; Arrays</h1>
+<p>Everything else is in JavaScript is considered an Object. While there are <a href="https://developer.mozilla.org/en/JavaScript/Reference#Global_Objects," title="MDN - Global Object Reference">numerous built-in objects</a>, here we focus on:</p>
+<ul>
+<li>Object</li>
+<li>Array</li>
+<li>Function</li>
+</ul>
+<p>The simplest way to create an object is either through the Object constructor or the shorthand syntax known as object literal. </p>
+<ul>
+<li>We restrict ourselves to the use of literals. The Airbnb style guide prohibits use of the new operator.</li>
+</ul>
+<p>These simple objects are unordered key/value pairs. The key is formally known as a property and the value can be any valid JavaScript type, even another object. To create or access a property on an object, we use what is known as &quot;dot notation&quot; or &quot;bracket notation.&quot;</p>
+<pre><code>// Creating an object with the object literal syntax:
+const person1 = {
+  firstName: &#39;Jane&#39;,
+  lastName: &#39;Doe&#39;,
+};
+
+console.log(person1.firstName + &#39; &#39; + person1.lastName);</code></pre>
+<pre><code>// As mentioned, objects can also have objects as a property.
+const people = {};
+
+people[&#39;person1&#39;] = person1;
+people[&#39;person2&#39;] = person2;
+
+console.log( people[&#39;person1&#39;].firstName );
+console.log( people[&#39;person2&#39;].firstName );</code></pre>
+<p>If a property is accessed that has not been defined, it will return a type of undefined.</p>
+<pre><code>// Properties that have not been created are undefined.
+const person = { name: &#39;John Doe&#39; };
+
+console.log( person.email ); // =&gt; undefined</code></pre>
+<p>Objects are covered further in the later in more detail.</p>
+<h2>Exercise: objects.js</h2>
+<p>Create a new file called <code>objects.js</code> containing:</p>
+<pre><code class="lang-javascript">// Creating an object with the object literal syntax:
+const person2 = {
+  firstName: &#39;Jane&#39;,
+  lastName: &#39;Doe&#39;,
+};
+
+console.log(person2.firstName + &#39; &#39; + person2.lastName);</code></pre>
+<p>Set a breakpoint on the console.log line and reload the page such that it halts here. Observe the &#39;Watch&#39; panel:</p>
+<p><img src="img/29.png" alt="Figure 1: Watch panel"></p>
+<p>It is &#39;polluted&#39; with the variable we were observing in the last step. </p>
+<ul>
+<li>In general, unwanted watch variable may be removed by clicking just to the right of the variable name on the minus sign as depicted in Figure 1. 
+<img src="img/33.png" alt="Figure 2: Remove unwanted watch variables"></li>
+</ul>
+<p>Now add and observe &#39;person2&#39;:</p>
+<p><img src="img/30.png" alt="Figure 3: person2 object added to Watch pane"></p>
+<p>Now append the following code to the above:</p>
+<pre><code class="lang-javascript">
+const person1 = {};
+
+person1.firstName = &#39;John&#39;;
+person1.lastName = &#39;Doe&#39;;
+
+// As mentioned, objects can also have objects as a property.
+const people = {};
+
+people.person1 = person1;
+people.person2 = person2;
+
+console.log(people.person1.firstName);
+console.log(people.person2.firstName);</code></pre>
+<p>In particular, see if you can explore the people object in the Watch Expression panel:</p>
+<p><img src="img/31.png" alt="Figure 4: people object added to Watch pane"></p>
+<h3>Array</h3>
+<p>Arrays are a type of object that are ordered by the index of each item it contains. The index starts at zero and extends to however many items have been added, which is a property of the array known as the &quot;length&quot; of the array. Similar to a basic object, an array can be created with the array constructor or the shorthand syntax known as array literal.</p>
+<pre><code>// Creating an array with the constructor:
+const foo = new Array; // we do not use this style
+
+// Creating an array with the array literal syntax:
+const bar = []; // this style complies with Airbnb style guide</code></pre>
+<p>There is an important distinction to be made between the two. Both an array construnctor and an array literal can contain items to be added to the array upon creating it. However, if just a single numeric item is passed in, the array constructor will assume its length to be that value.</p>
+<pre><code>// The array literal returns a bar.length value of 1:
+const foo = [100];
+
+// =&gt; 100
+console.log( foo[0] );
+// =&gt; 1
+console.log( foo.length );
+
+// The array constructor returns a bar.length value of 100:
+const bar = new Array(100);
+// =&gt; undefined
+console.log(bar[0]);
+// =&gt; 100
+console.log(bar.length);</code></pre>
+<p>An array can be manipulated through methods that are available on the instance of the array. </p>
+<ul>
+<li>Items in the array can be accessed using bracket notation enclosing an index.</li>
+<li>If the index does not exist or contains no value, the return type will be undefined. </li>
+</ul>
+<p>A few common array methods are shown below:</p>
+<pre><code>// Using the push(), pop(), unshift() and shift() methods on an array
+const foo = [];
+
+foo.push(&#39;a&#39;);
+foo.push(&#39;b&#39;);
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; b
+
+console.log(foo.length); // =&gt; 2
+
+foo.pop();
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; undefined
+
+console.log(foo.length); // =&gt; 1
+
+foo.unshift(&#39;z&#39;);
+
+console.log(foo[0]); // =&gt; z
+console.log(foo[1]); // =&gt; a
+
+console.log(foo.length); // =&gt; 2
+
+foo.shift();
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; undefined
+
+console.log(foo.length); // =&gt; 1</code></pre>
+<p>There are many more methods for manipulating arrays, some of which are covered further in the <a href="/arrays">Arrays</a> section. Details can be found on the <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" title="MDN - Array Reference">Mozilla Developer Network</a>.</p>
+<h2>Exercise: Arrays</h2>
+<p>Create a html-javascript file pair. The code follows:</p>
+<ul>
+<li>step6.html</li>
+<li>js/arrays.js</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Arrays&lt;/title&gt;
+  &lt;script src=&quot;js/arrays.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1 id=&quot;Hello Arrays&quot;&gt;Hello Arrays&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<pre><code>// Using the push(), pop(), unshift() and shift() methods on an array
+const foo = [];
+
+foo.push(&#39;a&#39;);
+foo.push(&#39;b&#39;);
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; b
+
+console.log(foo.length); // =&gt; 2
+
+foo.pop();
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; undefined
+
+console.log(foo.length); // =&gt; 1
+
+foo.unshift(&#39;z&#39;);
+
+console.log(foo[0]); // =&gt; z
+console.log(foo[1]); // =&gt; a
+
+console.log(foo.length); // =&gt; 2
+
+foo.shift();
+
+console.log(foo[0]); // =&gt; a
+console.log(foo[1]); // =&gt; undefined
+
+console.log(foo.length); // =&gt; 1</code></pre>
+<p>Comment out all of the code using the multi-line comment</p>
+<pre><code class="lang-javascript">/*
+ ...
+*/</code></pre>
+<p>Incorporate some of the array examples above and single step though them. Carefully explore the arrays in the &quot;Watch Expressions&quot; panel.
+Note the appearance of an array in that panel:</p>
+<p><img src="img/32.png" alt="Figure 5:"></p>
+<p>Contrast it with how an object looked earlier:</p>
+<p><img src="img/30.png" alt="Figure 6:"></p>
+<p>Can you see how similar they are?</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Operators</h1>
+<p>Basic operators allow you to manipulate values.</p>
+<pre><code class="lang-javascript">// Concatenation
+const foo = &#39;hello&#39;;
+const bar = &#39;world&#39;;
+
+console.log(foo + &#39; &#39; + bar); // =&gt; hello world</code></pre>
+<pre><code class="lang-javascript">// Multiplication and division
+2 * 3;
+2 / 3;</code></pre>
+<pre><code class="lang-javascript">/**
+ * Incrementing and decrementing
+ * The pre-increment operator increments the operand before any further processing.
+ * pre-increment:
+ */
+
+let i = 1;
+
+console.log(++i); // 2
+console.log(i);   // 2
+
+/**
+ * The post-increment operator increments the operand after processing it.
+ * post-increment:
+ */
+
+let i = 1;
+
+console.log(i++); // 1 - because i was 1
+console.log(i);   // 2 - incremented after using it</code></pre>
+<h2>Operations on Numbers &amp; Strings</h2>
+<p>In JavaScript, numbers and strings will occasionally behave in unexpected ways.</p>
+<pre><code class="lang-javascript">// Addition vs. Concatenation
+const foo = 1;
+const bar = &#39;2&#39;;
+
+console.log(foo + bar); // 12</code></pre>
+<pre><code class="lang-javascript">// Coercing a string to act as a number:
+const foo = 1;
+const bar = &#39;2&#39;;
+
+console.log(foo + Number(bar)); // 3
+console.log(foo + (+bar)); // also 3. +bar =&gt; numeric representation of object bar</code></pre>
+<p>The Number constructor, when called as a function (as in the above example), will have the effect of casting its argument into a number. The unary plus operator also does the same thing:</p>
+<pre><code class="lang-javascript">// Forcing a string to act as a number (using the unary plus operator):
+console.log(foo + +bar); // 3</code></pre>
+<h2>Exercise 6.1: Operators</h2>
+<p>Duplicate step5.html to a new file step6.html - and also create a new js file &#39;operators.js&#39;. Link the script to the html file in the usual way. Incorporate the following code into the js file:</p>
+<pre><code>const foo = 1;
+const bar = &#39;2&#39;;
+console.log(foo + bar);</code></pre>
+<pre><code>const foo = 1;
+const bar = &#39;2&#39;;
+console.log(foo + Number(bar));
+
+console.log(foo + +bar);</code></pre>
+<p>Run these programs and observe the results.</p>
+<h2>Logical Operators</h2>
+<p>Logical operators allow evaluation of a series of operands using AND ( <code>&amp;&amp;</code> ) and OR ( <code>||</code> ) operations.</p>
+<pre><code class="lang-javascript">// Logical AND and OR operators
+const foo = 1;
+const bar = 0;
+const baz = 2;
+
+// returns 1, which is true
+console.log(foo || bar);
+
+// returns 1, which is true
+console.log(bar || foo);
+
+// returns 0, which is false
+console.log(foo &amp;&amp; bar);
+
+// returns 2, which is true
+console.log(foo &amp;&amp; baz);
+
+// returns 1, which is true
+console.log(baz &amp;&amp; foo);</code></pre>
+<p>In the above example, the <code>||</code> operator returns the value of the first truthy operand, or in cases where neither operand is truthy, it returns the last operand. The <code>&amp;&amp;</code> operator returns the value of the first false operand, or the value of the last operand if both operands are truthy.</p>
+<p>You&#39;ll sometimes see developers use these logical operators for flow control instead of using <code>if</code> statements. For example:</p>
+<pre><code class="lang-javascript">// do something with foo if foo is truthy
+foo &amp;&amp; doSomething(foo);
+
+/**
+ * set bar to baz if baz is truthy;
+ * otherwise, set it to the return
+ * value of createBar()
+ */
+const bar = baz || createBar();</code></pre>
+<p>This style is quite elegant and pleasantly terse; that said, it can be really hard to read or use, especially for beginners. </p>
+<ul>
+<li>See the section on truthy and falsy things in the <a href="http://learn.jquery.com/javascript-101/conditional-code/">Conditional Code</a> article for more about evaluating truthiness.</li>
+<li>Further information is available on the Mozilla Developer Network (MDN) site at <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">Truthy</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">Control Structures</a></li>
+</ul>
+<h2>Comparison Operators</h2>
+<p>Comparison operators allow you to test whether values are equivalent or whether values are identical.</p>
+<pre><code>// Comparison operators
+const foo = 1;
+const bar = 0;
+const baz = &#39;1&#39;;
+const bim = 2;
+
+foo == bar;   // false
+foo != bar;   // true
+foo == baz;   // true; Because == operator performs type coercion on different types
+
+foo === baz;  // false
+foo !== baz;  // true
+foo === parseInt(baz); // true
+
+foo &gt; bim;  // false
+bim &gt; baz;  // true
+foo &lt;= baz;  // true</code></pre>
+<p>For more information about comparison operators, visit the <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/Comparison_Operators" title="MDN - Comparison Operators">MDN(Comparison Operators)</a>.</p>
+<h2>Exercise: Operators</h2>
+<p>Create a step7.html + operators.js file in the usual manner.</p>
+<p>Incorporate the &#39;logical operators&#39; code fragment from above - and debug through them to verify the true/false values are as indicated.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08">
+        <h1>Selected debug features</h1>
+<p>The following summarizes some of the frequently used features in the developer tools pane:</p>
+<ul>
+<li><p>Sources pane</p>
+<ul>
+<li>This pane is shown in Figure 1 below.</li>
+<li>It allows one to view both the html and script files (JavaScript).</li>
+</ul>
+</li>
+<li><p>Break points</p>
+<ul>
+<li>Break points may be positioned as shown. This feature is quite similar to that already encountered in debugging Java in Eclipse.</li>
+<li>To set a breakpoint simply click on the line number. </li>
+<li>To remove a breakpoint click on it.</li>
+</ul>
+</li>
+<li><p>Pause | Run</p>
+<ul>
+<li>Execution pauses at a breakpoint. Pressing this button causes the execution to resume and continue to the next breakpoint or to the end of ths script if no further breakpoints present.</li>
+</ul>
+</li>
+<li><p>Step over</p>
+<ul>
+<li>Allows one to execute the code manually line by line.</li>
+</ul>
+</li>
+<li><p>Watch variable</p>
+<ul>
+<li>One may add a variable here and observe its value.</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/08x.png" alt="Figure 1: Some useful developer tools features shown in the Sources pane"></p>
+<ul>
+<li>Console pane<ul>
+<li>The output from <em>control.log</em> is viewable in the Console pane</li>
+<li>The output generated by <em>example.js</em> is shown in Figure 2 here.</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/09.png" alt="Figure 2: The Console pane"></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://github.com/wit-ictskills-2016/js-intro.git">https://github.com/wit-ictskills-2016/js-intro.git</a></li>
+</ul>
+<p>Download and make sure you can open this project in WebStorm successfully. Verify that the Jscsrc guidelines are all showing green. Deliberately introduce some style violations, and get used to the error reports from the style plugin.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
