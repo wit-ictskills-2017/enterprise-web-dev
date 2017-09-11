@@ -1,0 +1,578 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      2: Ajax & APIs
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-2.2-FoureSquare API">
+      Lab-2.2-FoureSquare API
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-js-review/book-1-javascript-intro/index.html">
+          Lab-1.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-1.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-jquery+dom/book-3-jquery/index.html">
+          Lab-1.3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-ajax+apis/book-1-ajax-1/index.html">
+          Lab-2.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-ajax+apis/book-2-ajax-2/index.html">
+          Lab-2.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-applications/book-applications/index.html">
+          Lab-3 Applications
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-2.2-FoureSquare API">
+        <h1>Foursquare API in Node</h1>
+<p>Connect to foursquare API and retrieve list of venues based on a simple location and venue keyboard. Log the venues to the console. Use an npm package to access the api.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Setup</h1>
+<p>Sign up for a developer account :</p>
+<ul>
+<li><a href="https://developer.foursquare.com/">https://developer.foursquare.com/</a></li>
+</ul>
+<p>Visit:</p>
+<ul>
+<li><a href="https://foursquare.com/developers/apps">https://foursquare.com/developers/apps</a></li>
+</ul>
+<p>Create an app - and once created locate these items. In the new app use any public urls for the moment.</p>
+<p>Locate these parameters:</p>
+<pre><code>  client_id: &#39;Your ID&#39;,
+  client_secret: &#39;Your Secret&#39;</code></pre>
+<p>... and take note of them.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Create Project</h1>
+<p>Create a new &#39;Empty Project&#39; in WebStorm called js-ajax-2.</p>
+<p>Bring in the <code>.jscsrc</code> file from th previous labs, and make sure the inspections are enabled.</p>
+<p>Create a new file called <code>fs.js</code> with the following:</p>
+<pre><code>var fsConfig = {
+  base_url: &#39;https://api.foursquare.com/v2/venues/explore?&#39;,
+  client_id: &#39;Your ID&#39;,
+  client_secret: &#39;Your Secret&#39;,
+};
+
+console.log (fsConfig);</code></pre>
+<p>Run the program now by selecting the js file, right click and select <code>Run</code></p>
+<p>Run it again by pressing the green arrow on the toolbar.</p>
+<p>Set a breakpoint on the console.log statement - and press the green &#39;bug&#39; icon. The program should stop and you should be able to inspect the fsConfig object.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Checkins</h1>
+<p>Visit:</p>
+<ul>
+<li><a href="https://foursquare.com/">https://foursquare.com/</a></li>
+</ul>
+<p>And press &#39;Seatch&#39; on the waterford Location (leave the other field blank).</p>
+<p>Now try this:</p>
+<p>In a any text editor, perhaps sublime, insert the following:</p>
+<pre><code>https://api.foursquare.com/v2/venues/explore?near=Waterford,IE&amp;query=&amp;v=20140601</code></pre>
+<p>Now copy and paste this into the address bar of a browser and see what is returned. Should be something like this:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>In the edtior, modify the urls to contain the id + secret you noted from the foursquare developer account:</p>
+<pre><code>https://api.foursquare.com/v2/venues/explore?near=Waterford,IE&amp;query=&amp;client_id=YOUR_ID&amp;client_secret=YOUR_SECRET&amp;v=20140601</code></pre>
+<p>Now transfer the url to an browser and you should see results:</p>
+<p><img src="img/02.png" alt=""></p>
+<p>This has been rendered with this chrome plugin:</p>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en</a></li>
+</ul>
+<p>Which you may already have installed.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h2>Query in Javascript</h2>
+<p>Extend your programming with the following:</p>
+<pre><code>var fsCredentials = &#39;&amp;client_id=&#39; + fsConfig.client_id + &#39;&amp;client_secret=&#39; + fsConfig.client_secret + &#39;&amp;v=20140601&#39;;
+
+console.log(fsConfig.base_url + &#39;near=Waterford,IE&#39; + fsCredentials);</code></pre>
+<p>Now run the program, and the url we manually generated in the last step will be printed to the console:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>From within the webstorm log you should be able to click on the link and download the list of venues.</p>
+<p>Now we will do this programatically. Insert the following as the first line in fs.js:</p>
+<pre><code>var request = require(&#39;request&#39;);</code></pre>
+<p>Run a shell, and navigate to the project folder. Enter the following:</p>
+<pre><code>npm install request</code></pre>
+<p>You should see something like this:</p>
+<pre><code>$ npm install request
+request@2.69.0 node_modules/request
+├── aws-sign2@0.6.0
+├── forever-agent@0.6.1
+├── caseless@0.11.0
+├── tunnel-agent@0.4.2
+├── oauth-sign@0.8.1
+├── is-typedarray@1.0.0
+├── isstream@0.1.2
+├── stringstream@0.0.5
+├── json-stringify-safe@5.0.1
+├── extend@3.0.0
+├── tough-cookie@2.2.1
+├── node-uuid@1.4.7
+├── qs@6.0.2
+├── combined-stream@1.0.5 (delayed-stream@1.0.0)
+├── mime-types@2.1.10 (mime-db@1.22.0)
+├── form-data@1.0.0-rc3 (async@1.5.2)
+├── hawk@3.1.3 (cryptiles@2.0.5, boom@2.10.1, sntp@1.0.9, hoek@2.16.3)
+├── aws4@1.3.2 (lru-cache@4.0.0)
+├── bl@1.0.3 (readable-stream@2.0.5)
+├── http-signature@1.1.1 (assert-plus@0.2.0, jsprim@1.2.2, sshpk@1.7.4)
+└── har-validator@2.0.6 (commander@2.9.0, pinkie-promise@2.0.0, chalk@1.1.1, is-my-json-valid@2.13.1)</code></pre>
+<p>Now insert the following at the end of the javascript file:</p>
+<pre><code>function loadVenues(locationName, venueKeyword) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  request(requestOptions, function (err, response, body) {
+    var venues = body.response.groups[0].items;
+    console.log(requestOptions);
+    console.log(venues);
+  });
+}
+
+var locationName = &#39;Waterford, IE&#39;;
+loadVenues(locationName, &#39;&#39;);</code></pre>
+<p>Run the program and see what happens. You should see a list of venues displayed.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Parsing the data</h1>
+<p>In your <code>loadVenus</code> function, replace these two lines:</p>
+<pre><code>    console.log(requestOptions);
+    console.log(venues);</code></pre>
+<p>with the following:</p>
+<pre><code>    const checkins = [];
+    for (let i = 0; i &lt; venues.length; i++) {
+      const venue = venues[i];
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    console.log(checkins);</code></pre>
+<p>Run the program now and see what happens.</p>
+<p>Also, debug the program - and set a breakpoint in the above log statement. Explore the data structures from the debugger.</p>
+<p>This is the entire <code>fs.js</code> file:</p>
+<pre><code>var request = require(&#39;request&#39;);
+
+var fsConfig = {
+  base_url: &#39;https://api.foursquare.com/v2/venues/explore?&#39;,
+  client_id: &#39;Your ID&#39;,
+  client_secret: &#39;Your Secret&#39;,
+};
+
+var fsCredentials = &#39;&amp;client_id=&#39; + fsConfig.client_id + &#39;&amp;client_secret=&#39; + fsConfig.client_secret + &#39;&amp;v=20140601&#39;;
+
+console.log(fsConfig.base_url + &#39;near=Waterford,IE&#39; + fsCredentials);
+
+function loadVenues(locationName, venueKeyword) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  request(requestOptions, function (err, response, body) {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let i = 0; i &lt; venues.length; i++) {
+      const venue = venues[i];
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    console.log(checkins);
+  });
+}
+
+var locationName = &#39;Waterford, IE&#39;;
+loadVenues(locationName, &#39;&#39;);</code></pre>
+<h2>Managing Credentials:</h2>
+<p>We might find it more convenient to keep our credentials in a separate JSON file like this:</p>
+<h2>fs-config.json</h2>
+<pre><code>{
+  &quot;base_url&quot; : &quot;https://api.foursquare.com/v2/venues/explore?&quot;,
+  &quot;client_id&quot; : &quot;Your ID&quot;,
+  &quot;client_secret&quot; : &quot;Your Secret&quot;
+}</code></pre>
+<p>We can them <code>import</code> them at the top of the program:</p>
+<pre><code>const fsConfig = require(&#39;./fs-config&#39;);</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Simplifications</h1>
+<p>This is our for loop, parsing the venues datastructure:</p>
+<pre><code>    for (let i = 0; i &lt; venues.length; i++) {
+      const venue = venues[i];
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }</code></pre>
+<p>We can replace it with a foreach construct:</p>
+<pre><code>    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }</code></pre>
+<p>This is our complete <code>request</code> invocation:</p>
+<pre><code>  request(requestOptions, function (err, response, body) {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    console.log(checkins);
+  });</code></pre>
+<p>We can simplify further, deploying the ES6 arrow functions:</p>
+<pre><code>  request(requestOptions, (err, response, body) =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    console.log(checkins);
+  });</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of project:</p>
+<ul>
+<li><a href="https://github.com/wit-ictskills-2016/js-ajax-2">https://github.com/wit-ictskills-2016/js-ajax-2</a></li>
+</ul>
+<p>Explore the API documentation:</p>
+<ul>
+<li><a href="https://developer.foursquare.com/">https://developer.foursquare.com/</a></li>
+</ul>
+<p>In particular the <code>Endpoints</code>:</p>
+<ul>
+<li><a href="https://developer.foursquare.com/docs/">https://developer.foursquare.com/docs/</a></li>
+</ul>
+<p>In the above, locate the <code>/venues/explore</code> endpoint.</p>
+<ul>
+<li><a href="https://developer.foursquare.com/docs/venues/explore">https://developer.foursquare.com/docs/venues/explore</a></li>
+</ul>
+<p>Examine the <code>Response Fields</code> in more detail - and read the <code>groups</code> documentation. One of the values in the groups field is the <code>venue</code></p>
+<ul>
+<li><a href="https://developer.foursquare.com/docs/responses/venue">https://developer.foursquare.com/docs/responses/venue</a></li>
+</ul>
+<p>.. and we have been picking values from this object in our experiments</p>
+<p>To illustrate the range of data available, we can alway just visit the foursqure site itself:</p>
+<ul>
+<li><a href="https://foursquare.com/explore?mode=url&amp;near=Waterford%2C%20Co%20Waterford%2C%20Ireland&amp;nearGeoId=72057594040888928">https://foursquare.com/explore?mode=url&amp;near=Waterford%2C%20Co%20Waterford%2C%20Ireland&amp;nearGeoId=72057594040888928</a></li>
+</ul>
+<h2>Exercise 1: Insomnia</h2>
+<p>Download this developer tool:</p>
+<ul>
+<li><a href="https://insomnia.rest/">https://insomnia.rest/</a></li>
+</ul>
+<p>Try to explore the Fouresquare endpoint using this tool.</p>
+<h2>Exercise 2: Rating</h2>
+<p>Extract and display the rating</p>
+<h2>Exercise 3: Url</h2>
+<p>Display the Url for the venue</p>
+<h2>Exercise 4: Tips</h2>
+<p>Display the latest tips, and also the name of the individual who left the tip</p>
+<p>All three of the above are shown on the foursquare search.</p>
+<h2>Exercise 5: Node Github Access</h2>
+<p>Rework the repo-lister project to use node instead of jquery/ajax</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>

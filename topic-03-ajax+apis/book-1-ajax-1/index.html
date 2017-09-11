@@ -1,0 +1,592 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      2: Ajax & APIs
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-2.1 Github API">
+      Lab-2.1 Github API
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-js-review/book-1-javascript-intro/index.html">
+          Lab-1.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-1.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-jquery+dom/book-3-jquery/index.html">
+          Lab-1.3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-ajax+apis/book-1-ajax-1/index.html">
+          Lab-2.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-ajax+apis/book-2-ajax-2/index.html">
+          Lab-2.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-applications/book-applications/index.html">
+          Lab-3 Applications
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-2.1 Github API">
+        <h1>Objectives</h1>
+<p>Explore the github API</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Web Interface</h1>
+<p>Visit the following page on github:</p>
+<ul>
+<li><a href="https://github.com/hapijs">https://github.com/hapijs</a></li>
+</ul>
+<p>You will see something like this:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>Now try this url here instead:</p>
+<ul>
+<li><a href="https://api.github.com/users/hapijs/repos">https://api.github.com/users/hapijs/repos</a></li>
+</ul>
+<p>You might see something like this:</p>
+<p><img src="img/02.png" alt=""></p>
+<p>See if you can correlate the information on the two different views above - i.e. locate what subset is presented on the page.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Json</h1>
+<p>Look at this rendering of the same view here:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>This is generated by using this Chrome Plugin:</p>
+<ul>
+<li><a href="https://github.com/gildas-lormeau/JSONView-for-Chrome">https://github.com/gildas-lormeau/JSONView-for-Chrome</a></li>
+</ul>
+<p>To install it, open the above page in chrome and click in the <code>JSONView for Chrome</code> link:</p>
+<p><img src="img/04.png" alt=""></p>
+<p>Once installed in chrome, visit the api link again:</p>
+<ul>
+<li><a href="https://api.github.com/users/hapijs/repos">https://api.github.com/users/hapijs/repos</a></li>
+</ul>
+<p>And you should see it rendered as above.</p>
+<p>Note that is is a &#39;folding&#39; view - so you can collapse down the various sections of the document:</p>
+<p><img src="img/05.png" alt=""></p>
+<p>As well as follow any of the highlighted links.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Project Setup</h1>
+<p>Create a new <code>Empty Project</code> in Webstorm called <code>js-ajax-1</code> and create the following structure - with empty files as shown:</p>
+<p><img src="img/07.png" alt=""></p>
+<p>These are starter version of the three files:</p>
+<h2>style.css</h2>
+<pre><code>html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.search-input {
+  width: 180px;
+  height: 30px;
+}
+
+.search-btn {
+  width: 80px;
+  height: 35px
+}
+
+.result {
+  width: 80px;
+  height: 35px;
+}
+
+.repo_table {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}</code></pre>
+<h2>index.html</h2>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Github Repo Lister&lt;/title&gt;
+    &lt;link href=&quot;style.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;/&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div class=&quot;search&quot;&gt;
+      &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; class=&quot;search-input&quot;&gt;
+      &lt;button id=&quot;search_btn&quot; class=&quot;search-btn&quot;&gt;Search&lt;/button&gt;
+      &lt;span id=&quot;result-msg&quot; class=&quot;result&quot;&gt;  &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table class=&quot;repo_table&quot; id=&quot;repo_table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Repo Name&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;script src=&quot;js/repo-lister.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<h2>repo-lister.js</h2>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+  var userName = $(&#39;#username&#39;).val();
+  console.log(userName);
+});</code></pre>
+<p>Browse to <code>index.html</code> now, enter a value and press search. You can do this from within WebStorm - as the chrome icon will appear if you leave the mouse rest on the source for a second or two.</p>
+<p><img src="img/08.png" alt=""></p>
+<p>Bring in the <code>.jscsrc</code> file from th previous labs, and make sure the inspections are enabled.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Chrome Debugging</h1>
+<p>in Chrome, select `Customise-&gt;More Tools-&gt;Developer Tools&#39;</p>
+<p><img src="img/09.png" alt=""></p>
+<p>Try to arrange chrome to look like this:</p>
+<p><img src="img/10.png" alt=""></p>
+<p>Now enter the string <code>hapijs</code> into the text box and press search. You should see the string echoed in the console:</p>
+<p><img src="img/11.png" alt=""></p>
+<p>In the &#39;report-lister.js&#39; window - double click on line 3:</p>
+<p><img src="img/12.png" alt=""></p>
+<p>This drops a breakpoint on this line of code. Press <code>Search</code> again - this time the program will stop on this line:</p>
+<p><img src="img/13.png" alt=""></p>
+<p>This toolbar can now control the program execution:</p>
+<p><img src="img/14.png" alt=""></p>
+<p>Experiment with the various buttons - however over them will give you an idea as to what they do. The first three in particular are important:</p>
+<ul>
+<li>&quot;Resume script execution&quot;</li>
+<li>&quot;Step over next function call&quot;</li>
+<li>&quot;Step into next function call&quot;</li>
+</ul>
+<p>Use the second button (<code>step over</code>) to advance the programe line by line. Keep a close eye in the <code>Scope</code> view on the right:</p>
+<p><img src="img/15.png" alt=""></p>
+<p>Notice how we can see the current value in the <code>userName</code> variable.</p>
+<p>If we want to <code>watch</code> the variable (always having it in view), we can add it using the <code>Watch</code> window:</p>
+<p><img src="img/16.png" alt=""></p>
+<p>Press the <code>+</code> button and enter <code>userName</code> to watch that particular variable.</p>
+<p>If you loose track of the execution, or if you edit the source to make a change, then you must press the browser reload button in order to restart the program execution:</p>
+<p><img src="img/17.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Retrieve Repo List</h1>
+<p>Replace the current javascript event handler with the following:</p>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+
+  var userName = $(&#39;#username&#39;).val();
+  console.log(userName);
+
+  $.ajax({
+    dataType: &#39;json&#39;,
+    url: &#39;https://api.github.com/users/&#39; + userName + &#39;/repos&#39;,
+    success: function (data) {
+      console.log(&#39;success&#39;);
+    },
+
+    error: function (err) {
+      console.log(&#39;fail&#39;);
+      console.log(err.statusText);
+    },
+
+  });
+});</code></pre>
+<p>Using the breakpoint feature of chrome, experiment with various username - both valid and invalid - and explore how the debugger responds.</p>
+<p><img src="img/18.png" alt=""></p>
+<p>In particular, for a successful request, locate and expand the <code>data</code> value:</p>
+<p><img src="img/19.png" alt=""></p>
+<p>We can extend the <code>success</code> function to list the repo names to the console:</p>
+<pre><code>    success: function (data) {
+      console.log(&#39;success&#39;);
+      for (let i = 0; i &lt; data.length; i++) {
+        console.log(data[i].name);
+      }
+    },</code></pre>
+<p>Running this should print the following to the console:</p>
+<p><img src="img/20.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Populating a Table</h1>
+<p>We can extend the success function to populate the html table we already have laid out:</p>
+<pre><code>        $(&#39;#repo_table&#39;).append(&#39;&lt;tr&gt;&lt;td&gt;&#39; + data[i].name + &#39;&lt;/td&gt;&lt;/tr&gt;&#39;);</code></pre>
+<p>Try this now - and you should see the list of repo names:</p>
+<p><img src="img/21.png" alt=""></p>
+<p>we can also display appropriate error message is no user is found.</p>
+<p>Here is a revised version - which can replace the current version. The log statements have been removed to keep it simple - and also a <code>result</code> string is displayed with:</p>
+<ul>
+<li>number of repos if successful</li>
+<li>an error message is failed.</li>
+</ul>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+
+  var userName = $(&#39;#username&#39;).val();
+  console.log(userName);
+
+  $.ajax({
+    dataType: &#39;json&#39;,
+    url: &#39;https://api.github.com/users/&#39; + userName + &#39;/repos&#39;,
+    success: function (data) {
+      console.log(&#39;success&#39;);
+    },
+
+    error: function (err) {
+      console.log(&#39;fail&#39;);
+      console.log(err.statusText);
+    },
+
+    success: function (data) {
+      $(&#39;#result-msg&#39;).text(&#39;&#39;);
+      $(&#39;#result-msg&#39;).text(data.length + &#39; repos&#39;);
+      for (let i = 0; i &lt; data.length; i++) {
+        $(&#39;#repo_table tbody&#39;).append(&#39;&lt;tr&gt;&lt;td&gt;&#39; + data[i].name + &#39;&lt;/td&gt;&lt;/tr&gt;&#39;);
+      }
+    },
+  });
+});</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Refactor Javascript</h1>
+<p>We introduce two new functions to update the user interface:</p>
+<pre><code>function updateResult(result) {
+  $(&#39;#result-msg&#39;).text(&#39;&#39;);
+  $(&#39;#result-msg&#39;).text(result);
+}
+
+function populateTable(repoList) {
+  for (var i = 0; i &lt; repoList.length; i++) {
+    $(&#39;#repo_table tbody&#39;).append(&#39;&lt;tr&gt;&lt;td&gt;&#39; + repoList[i].name + &#39;&lt;/td&gt;&lt;/tr&gt;&#39;);
+  }
+}</code></pre>
+<p>We can rework the main search event handler to use these functions:</p>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+
+  var userName = $(&#39;#username&#39;).val();
+  console.log(userName);
+
+  $.ajax({
+    dataType: &#39;json&#39;,
+    url: &#39;https://api.github.com/users/&#39; + userName + &#39;/repos&#39;,
+
+    error: function (err) {
+      updateResult(userName + &#39; &#39; + err.statusText);
+    },
+
+    success: function (data) {
+      updateResult(data.length + &#39; repos&#39;);
+      populateTable(data);
+    },
+  });
+
+});</code></pre>
+<p>These functions are more concise and readable - with less repetition.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Project repository so far:</p>
+<ul>
+<li><a href="https://github.com/wit-ictskills-2016/js-ajax-1.git">https://github.com/wit-ictskills-2016/js-ajax-1.git</a></li>
+</ul>
+<h2>Exercise 1:</h2>
+<p>If you load the repos for <code>hapjs</code> say, and then query for another user (your own github account say) - what happens? It looks like it still returns the <code>hapijs</code> repos. In fact, it is appended the second query on to the first. Change this so that we reset the table (emptying its contents) on every request,</p>
+<h2>Exercise 2:</h2>
+<p>Extend the table to display additional information about each repo. </p>
+<p>To discover what fields are available, examine the data array in the debugger:</p>
+<p><img src="img/22.png" alt=""></p>
+<p>Or - go back to chrome view of the url:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>Or - consult the github documentation directly:</p>
+<ul>
+<li><a href="https://developer.github.com/v3/">https://developer.github.com/v3/</a></li>
+</ul>
+<p>In particular - the repo <code>Endpoint</code> is documented here:</p>
+<ul>
+<li><a href="https://developer.github.com/v3/repos">https://developer.github.com/v3/repos</a></li>
+</ul>
+<h2>Exercise 3:</h2>
+<p>The url can take parameters - including the sort order. Try to have the repository sorted by &#39;updates&#39; or &#39;created&#39; by providing the appropriate parameter</p>
+<h2>Exercise 4:</h2>
+<p>If you get 2 working, include a drop down next to the search button, which will allow the user to select on of the order parameters to control the sequence in which the table is populated.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
