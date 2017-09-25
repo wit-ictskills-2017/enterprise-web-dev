@@ -1,0 +1,915 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      6: Views
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-6 Views">
+      Lab-6 Views
+    </a>
+    
+    <a class="item" data-tab="Lab-5-Solutions">
+      Lab-5-Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-6 Views">
+        <h1>Objectives</h1>
+<p>Extend the application to employ layouts, templates, and partials. Include simple interaction features to track users and donations.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-5-Solutions">
+        <h1>Exercise Solutions</h1>
+<p>Incorporate all of the assets from Lab-5.1 exercises step into the project:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>(Note that <code>main.html</code> contains additional elements, so replace your version with the copy in the exercises).</p>
+<p>Here are revised sources to implement the new views:</p>
+<h2>routes.js</h2>
+<pre><code>const Donations = require(&#39;./app/controllers/donations&#39;);
+const Assets = require(&#39;./app/controllers/assets&#39;);
+
+module.exports = [
+
+  { method: &#39;GET&#39;, path: &#39;/&#39;, config: Donations.home },
+  { method: &#39;GET&#39;, path: &#39;/signup&#39;, config: Donations.signup },
+  { method: &#39;GET&#39;, path: &#39;/login&#39;, config: Donations.login },
+
+  {
+    method: &#39;GET&#39;,
+    path: &#39;/{param*}&#39;,
+    config: { auth: false },
+    handler: Assets.servePublicDirectory,
+  },
+
+];</code></pre>
+<h2>app/controllers/donations.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+exports.home = {
+
+  handler: (request, reply) =&gt; {
+    reply.file(&#39;./app/views/main.html&#39;);
+  },
+
+};
+
+exports.signup = {
+
+  handler: (request, reply) =&gt; {
+    reply.file(&#39;./app/views/signup.html&#39;);
+  },
+
+};
+
+exports.login = {
+
+  handler: (request, reply) =&gt; {
+    reply.file(&#39;./app/views/login.html&#39;);
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Introduce vision HAPI plugin + handlebars engine</h1>
+<p>HAPI view support enables more sophisticated user interactions than simply rendering static pages.</p>
+<ul>
+<li><a href="http://hapijs.com/tutorials/views">http://hapijs.com/tutorials/views</a></li>
+</ul>
+<p>To engage, you must install this HAPI module:</p>
+<ul>
+<li><a href="https://github.com/hapijs/vision">https://github.com/hapijs/vision</a></li>
+</ul>
+<p>via this command:</p>
+<pre><code>npm install vision -save</code></pre>
+<p>We will use the handlebar engine:</p>
+<ul>
+<li><a href="http://handlebarsjs.com">http://handlebarsjs.com</a></li>
+</ul>
+<p>This must be installed separately with another npm command:</p>
+<pre><code>npm install handlebars -save</code></pre>
+<p>If successful, your package.json should look like this:</p>
+<h2>package.json</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+<p>Initialising this plugin requires registration as with <code>inert</code>, but also an additional step to configure thee plugin:</p>
+<h2>index.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const Hapi = require(&#39;hapi&#39;);
+
+var server = new Hapi.Server();
+server.connection({ port: process.env.PORT || 4000 });
+
+server.register([require(&#39;inert&#39;), require(&#39;vision&#39;)], err =&gt; {
+
+  if (err) {
+    throw err;
+  }
+
+  server.views({
+    engines: {
+      hbs: require(&#39;handlebars&#39;),
+    },
+    relativeTo: __dirname,
+    path: &#39;./app/views&#39;,
+    isCached: false,
+  });
+
+  server.route(require(&#39;./routes&#39;));
+
+  server.start((err) =&gt; {
+    if (err) {
+      throw err;
+    }
+
+    console.log(&#39;Server listening at:&#39;, server.info.uri);
+  });
+
+});</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>First Handlebar Expressions</h1>
+<p>Rename each of the view from <code>.html</code> to <code>.hbs</code>:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>Currently the <code>&lt;title&gt;</code> element of each view is hard coded. Replace this element in each view with a handlebars style parameter:</p>
+<h2>main.hbs</h2>
+<pre><code>    &lt;title&gt;{{title}}&lt;/title&gt;</code></pre>
+<h2>signup.hbs</h2>
+<pre><code>    &lt;title&gt;{{title}}&lt;/title&gt;</code></pre>
+<h2>login.hbs</h2>
+<pre><code>    &lt;title&gt;{{title}}&lt;/title&gt;</code></pre>
+<p>We can now refactor the controller to pass the actual title to the view when is is being rendered:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+exports.home = {
+
+  handler: (request, reply) =&gt; {
+    reply.view(&#39;main&#39;, { title: &#39;Welcome to Donations&#39; });
+  },
+
+};
+
+exports.signup = {
+
+  handler: (request, reply) =&gt; {
+    reply.view(&#39;signup&#39;, { title: &#39;Sign up for Donations&#39; });
+  },
+
+};
+
+exports.login = {
+
+  handler: (request, reply) =&gt; {
+    reply.view(&#39;login&#39;, { title: &#39;Login to Donations&#39; });
+  },
+
+};</code></pre>
+<p>Test this out now. There should be no noticeable change.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Vision Layout + Handlebar Partials</h1>
+<p>A key tenet of view structure is DRY (dont repeat yourself):</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
+</ul>
+<p>Currently our views are very verbose and repetitive. We can start to address this via handlebars <code>layouts</code> and <code>partials</code>. </p>
+<p>Layouts are part of the <code>vision</code> implementation:</p>
+<ul>
+<li><a href="http://hapijs.com/tutorials/views">http://hapijs.com/tutorials/views</a></li>
+</ul>
+<p>.. and partials are implemented by the handlebars engine:</p>
+<ul>
+<li><a href="http://handlebarsjs.com/partials.html">http://handlebarsjs.com/partials.html</a></li>
+</ul>
+<p>First, we need to configure the Vision plugin to use layouts and partials. Extend its initalisation as follows:</p>
+<h2>index.js</h2>
+<pre><code>  server.views({
+    engines: {
+      hbs: require(&#39;handlebars&#39;),
+    },
+    relativeTo: __dirname,
+    path: &#39;./app/views&#39;,
+    layoutPath: &#39;./app/views/layout&#39;,
+    partialsPath: &#39;./app/views/partials&#39;,
+    layout: true,
+    isCached: false,
+  });</code></pre>
+<h2>Layouts</h2>
+<p>We can now set up a layout to be used by most of our views. Create the layout in a <code>layouts</code> folder in <code>views</code>:</p>
+<h2>app/views/layout/layout.hbs</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;css/main.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;images/favicon.png&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class=&quot;ui container&quot;&gt;
+      {{{content}}}
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>This will be the base view for our other views.</p>
+<h2>Partials</h2>
+<p>We can also create a reusable <code>partial</code> that we can include explicitly in other views. Create this in  <code>partials</code> folder in <code>views</code>:</p>
+<h2>app/views/partials/welcomemenu.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt; &lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt; &lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/signup&quot;&gt; Signup&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/login&quot;&gt;  Login&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+<h2>Views</h2>
+<p>We can now adapt all of the views to use these artifacts:</p>
+<h2>app/views/main.hbs</h2>
+<pre><code>{{&gt; welcomemenu }}
+
+&lt;section class=&quot;ui stacked segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;aside class=&quot;six wide column&quot;&gt;
+      &lt;img src=&quot;images/homer.png&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+    &lt;article class=&quot;ten wide column&quot;&gt;
+      &lt;header class=&quot;ui  header&quot;&gt; Help Me Run Springfield&lt;/header&gt;
+      &lt;p&gt; Donate what you can now - No Bitcoins accepted! &lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<h2>app/views/signup.hbs</h2>
+<pre><code>{{&gt; welcomemenu }}
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;div class=&quot;ui ten wide column&quot;&gt;
+      &lt;div class=&quot;ui stacked fluid form segment&quot;&gt;
+        &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
+          &lt;h3 class=&quot;ui header&quot;&gt;Register&lt;/h3&gt;
+          &lt;div class=&quot;two fields&quot;&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;First Name&lt;/label&gt;
+              &lt;input placeholder=&quot;First Name&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;Last Name&lt;/label&gt;
+              &lt;input placeholder=&quot;Last Name&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Password&lt;/label&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;ui blue submit button&quot;&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;aside class=&quot;ui five wide column&quot;&gt;
+      &lt;img src=&quot;images/homer3.png&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<h2>app/views/login.hbs</h2>
+<pre><code>{{&gt; welcomemenu }}
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;aside class=&quot;ui six wide column&quot;&gt;
+      &lt;img src=&quot;images/homer2.png&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+    &lt;div class=&quot;ui ten wide column fluid form&quot;&gt;
+      &lt;div class=&quot;ui stacked segment&quot;&gt;
+        &lt;form action=&quot;/login&quot; method=&quot;POST&quot;&gt;
+          &lt;h3 class=&quot;ui header&quot;&gt;Log-in&lt;/h3&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt; &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot;
+                                        name=&quot;email&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Password&lt;/label&gt; &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;ui blue submit button&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Report and Home Views + partials</h1>
+<p>With this infrastructure in place, we can incorporate the remaining views for our application. This will involve additional partials + views structured as follows in the project:</p>
+<p><img src="img/02.png" alt=""></p>
+<h1>Partials</h1>
+<h2>donate.hbs</h2>
+<pre><code>&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid &quot;&gt;
+    &lt;div class=&quot;ui form six wide column&quot;&gt;
+      &lt;div class=&quot;ui stacked segment&quot;&gt;
+        &lt;form action=&quot;/donate&quot; method=&quot;POST&quot;&gt;
+          &lt;div class=&quot;ui dropdown&quot; name=&quot;amount&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;amount&quot;&gt;
+            &lt;div class=&quot;text&quot;&gt;Select Amount&lt;/div&gt;
+            &lt;i class=&quot;ui dropdown icon&quot;&gt;&lt;/i&gt;
+            &lt;div class=&quot;menu&quot;&gt;
+              &lt;div class=&quot;item&quot;&gt;50&lt;/div&gt;
+              &lt;div class=&quot;item&quot;&gt;100&lt;/div&gt;
+              &lt;div class=&quot;item&quot;&gt;1000&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;grouped inline fields&quot;&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;div class=&quot;ui radio checkbox&quot;&gt;
+                &lt;input type=&quot;radio&quot; name=&quot;method&quot; value=&quot;paypal&quot;&gt;
+                &lt;label&gt;Paypal&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;div class=&quot;ui radio checkbox&quot;&gt;
+                &lt;input type=&quot;radio&quot; name=&quot;method&quot; value=&quot;direct&quot;&gt;
+                &lt;label&gt;Direct&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;aside class=&quot;six wide column&quot;&gt;
+      &lt;img src=&quot;images/homer4.jpeg&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<h2>donationlist.hbs</h2>
+<pre><code>&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;aside class=&quot;six wide column&quot;&gt;
+      &lt;img src=&quot;images/homer5.jpg&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+    &lt;article class=&quot;eight wide column&quot;&gt;
+      &lt;table class=&quot;ui celled table segment&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Amount&lt;/th&gt;
+            &lt;th&gt;Method donated&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          {{#each donations}}
+            &lt;tr&gt;
+              &lt;td&gt; {{amount}} &lt;/td&gt;
+              &lt;td&gt; {{method}} &lt;/td&gt;
+            &lt;/tr&gt;
+          {{/each}}
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<h1>Views</h1>
+<h2>home.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+
+  {{&gt; donate }}
+
+  &lt;div class=&quot;ui  divider&quot;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;ui teal progress&quot; data-percent=&quot;${progress}&quot; id=&quot;mainprogress&quot;&gt;
+    &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/section&gt;</code></pre>
+<h2>report.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt; &lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt; &lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/report&quot;&gt;  Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt;  Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+{{&gt; donationlist }}</code></pre>
+<h1>Layout</h1>
+<p>We also make this adjustment to the layout (to support dropdown controls)</p>
+<h2>layout.hbs</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;css/main.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;images/favicon.png&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class=&quot;ui container&quot;&gt;
+      {{{content}}}
+    &lt;/section&gt;
+    &lt;script&gt;
+      $(document).ready(function () {
+        $(&#39;.ui.dropdown&#39;).dropdown({ on: &#39;hover&#39; });
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Accounts and Donations Controllers + Routes</h1>
+<p>We will rework the controllers, creating an new <code>Accounts</code> controller to handle user accounts, login etc...:</p>
+<h2>accounts.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+exports.main = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;main&#39;, { title: &#39;Welcome to Donations&#39; });
+  },
+
+};
+
+exports.signup = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;signup&#39;, { title: &#39;Sign up for Donations&#39; });
+  },
+
+};
+
+exports.login = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;login&#39;, { title: &#39;Login to Donations&#39; });
+  },
+
+};
+
+exports.authenticate = {
+
+  handler: function (request, reply) {
+    reply.redirect(&#39;/home&#39;);
+  },
+
+};
+
+exports.logout = {
+
+  handler: function (request, reply) {
+    reply.redirect(&#39;/&#39;);
+  },
+
+};</code></pre>
+<p>We can then refactor the donations controller to support making and listing donations:</p>
+<h2>donations.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+exports.home = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;home&#39;, { title: &#39;Make a Donation&#39; });
+  },
+
+};
+
+exports.report = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;report&#39;, { title: &#39;Donations to Date&#39;, });
+  },
+
+};
+
+exports.donate = {
+
+  handler: function (request, reply) {
+    reply.redirect(&#39;/report&#39;);
+  },
+
+};</code></pre>
+<p>This is the revised routes that serves these controllers:</p>
+<pre><code>const Accounts = require(&#39;./app/controllers/accounts&#39;);
+const Donations = require(&#39;./app/controllers/donations&#39;);
+const Assets = require(&#39;./app/controllers/assets&#39;);
+
+module.exports = [
+
+  { method: &#39;GET&#39;, path: &#39;/&#39;, config: Accounts.main },
+  { method: &#39;GET&#39;, path: &#39;/signup&#39;, config: Accounts.signup },
+  { method: &#39;GET&#39;, path: &#39;/login&#39;, config: Accounts.login },
+  { method: &#39;POST&#39;, path: &#39;/login&#39;, config: Accounts.authenticate },
+  { method: &#39;GET&#39;, path: &#39;/logout&#39;, config: Accounts.logout },
+
+  { method: &#39;GET&#39;, path: &#39;/home&#39;, config: Donations.home },
+  { method: &#39;GET&#39;, path: &#39;/report&#39;, config: Donations.report },
+
+  {
+    method: &#39;GET&#39;,
+    path: &#39;/{param*}&#39;,
+    config: { auth: false },
+    handler: Assets.servePublicDirectory,
+  },
+
+];</code></pre>
+<p>You should be able to navigate throgh login to the home screen now. However, if you make a donation you will get an error.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Very Simple Donation Persistence</h1>
+<p>We can try to store some of the donations the user makes in an simple array. In <code>index.js</code>, include the following just before the plugins are registered:</p>
+<h2>index.js</h2>
+<pre><code>server.bind({
+  donations: [],
+});</code></pre>
+<p>Introduce this additional route, which is a <code>POST</code> route to accept donations:</p>
+<h2>routes.js</h2>
+<pre><code>  { method: &#39;POST&#39;, path: &#39;/donate&#39;, config: Donations.donate },</code></pre>
+<p>We can now refactor the donations controller to store and retrieve these donations:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>exports.report = {
+
+  handler: function (request, reply) {
+    reply.view(&#39;report&#39;, {
+      title: &#39;Donations to Date&#39;,
+      donations: this.donations,
+    });
+  },
+
+};
+
+exports.donate = {
+
+  handler: function (request, reply) {
+    const data = request.payload;
+    this.donations.push(data);
+    reply.redirect(&#39;/report&#39;);
+  },
+
+};</code></pre>
+<p>Rerun the app again - this time, if you proceed through login, you should be able to make donations, and see them on the report view.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises: Track Users and Associate with Donations</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-06/commits/all">https://bitbucket.org/edeleastar/donation-web-06/commits/all</a></li>
+</ul>
+<h1>Exercise 1: Register Users</h1>
+<p>As well as storing the donations in the server bound objects:</p>
+<pre><code>server.bind({
+  donations: [],
+});</code></pre>
+<p>Try also storing a list of users - in a similar manner to to the donations:</p>
+<pre><code>server.bind({
+  users: [],
+  donations: [],
+});</code></pre>
+<p>Using the donations controller as a guide, see if you can populate this array with new users as they are registered. You will need to write a new route for the signup form:</p>
+<pre><code>  { method: &#39;POST&#39;, path: &#39;/register&#39;, config: Accounts.register },</code></pre>
+<p>and a matching handler:</p>
+<pre><code>exports.register = {
+
+  handler: function (request, reply) {
+    reply.redirect(&#39;/home&#39;);
+  },
+
+};</code></pre>
+<h2>Exercise 2: Current User</h2>
+<p>Try also to keep track of the current user:</p>
+<pre><code>server.bind({
+  currentUser : {},
+  users: [],
+  donations: [],
+});</code></pre>
+<p>Adjust your login controller to update this field.</p>
+<p>On the report - include an extra column - <code>donor</code> - which should list the name of the donor (the user who is currently logged in), </p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>

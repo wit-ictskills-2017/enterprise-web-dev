@@ -1,0 +1,709 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      7: Sessions
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-7 Sessions">
+      Lab-7 Sessions
+    </a>
+    
+    <a class="item" data-tab="Lab-6-Solutions">
+      Lab-6-Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-7 Sessions">
+        <h1>Objectives</h1>
+<p>Incorporate sessions tracking into the app, defining a session strategy, protected and unprotected routes and cookie paramaters.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-6-Solutions">
+        <h1>Lab 6 Solutions</h1>
+<h2>Current User Tracking</h2>
+<h2>index.js</h2>
+<pre><code>server.bind({
+  currentUser: {},
+  users: {},
+  donations: [],
+});</code></pre>
+<h2>routes.js</h2>
+<pre><code>  { method: &#39;POST&#39;, path: &#39;/register&#39;, config: Accounts.register },</code></pre>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>exports.register = {
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    this.users[user.email] = user;
+    reply.redirect(&#39;/login&#39;);
+  },
+
+};
+
+exports.authenticate = {
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    if ((user.email in this.users) &amp;&amp; (user.password === this.users[user.email].password)) {
+      this.currentUser = this.users[user.email];
+      reply.redirect(&#39;/home&#39;);
+    } else {
+      reply.redirect(&#39;/signup&#39;);
+    }
+  },
+
+};</code></pre>
+<h2>Display donor on Report</h2>
+<h2>app/controllers/donations.js</h2>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    let data = request.payload;
+    data.donor = this.currentUser;
+    this.donations.push(data);
+    reply.redirect(&#39;/report&#39;);
+  },
+
+};</code></pre>
+<h2>app/views/partials/donationlist.hbs</h2>
+<pre><code>...
+          &lt;tr&gt;
+            &lt;th&gt;Amount&lt;/th&gt;
+            &lt;th&gt;Method donated&lt;/th&gt;
+            &lt;th&gt;Donor&lt;/th&gt;
+          &lt;/tr&gt;
+...
+            &lt;tr&gt;
+              &lt;td&gt; {{amount}} &lt;/td&gt;
+              &lt;td&gt; {{method}} &lt;/td&gt;
+              &lt;td&gt; {{donor.firstName}} {{donor.lastName}} &lt;/td&gt;
+            &lt;/tr&gt;
+...</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Cookie Plugin Initialisation</h1>
+<p>The naive approach we have taken to tracking users us not really usable. The tracking mechanism is entirely bound within main memory, can can be easily subverted as soon as more than one connection is established to the service (try it!). We need a more robust mechanism - typically called <code>Session Management</code> - to track and follow individual users of our service.</p>
+<p>We do this using a conventional <code>cookie</code> based approach. Much of the complexity of this is handled via a plugin, which you can install now:</p>
+<pre><code>npm install hapi-auth-cookie -save</code></pre>
+<p>Our package.json should now be:</p>
+<h2>package.json</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+<h2>index.js</h2>
+<p>We will need to register the plugin:</p>
+<pre><code>server.register([require(&#39;inert&#39;), require(&#39;vision&#39;), require(&#39;hapi-auth-cookie&#39;)], err =&gt; {</code></pre>
+<p>... and also initialize it.</p>
+<pre><code>  server.auth.strategy(&#39;standard&#39;, &#39;cookie&#39;, {
+    password: &#39;secretpasswordnotrevealedtoanyone&#39;,
+    cookie: &#39;donation-cookie&#39;,
+    isSecure: false,
+    ttl: 24 * 60 * 60 * 1000,
+  });</code></pre>
+<p>Place the above just before the initialization of the routes.</p>
+<p>The paramaters set a secure password for the cookie itself, a name for the cookie and a time to live (1 day). Additionally, it is set to work over non-secure connections.</p>
+<p>We have not engaged the security strategy yet, so there will be no effect on the app.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Default Strategy + open accounts routes</h1>
+<p>If we now set up this as the strategy for all routes:</p>
+<h2>index.js</h2>
+<pre><code>server.auth.default({
+  strategy: &#39;standard&#39;,
+});</code></pre>
+<p>Place the above just after the strategy is defined in index.</p>
+<p>Restart the application. Now try to visit the app in a browser in the usual way. This time the app will be disabled:</p>
+<pre><code>{
+  statusCode: 401,
+  error: &quot;Unauthorized&quot;,
+  message: &quot;Missing authentication&quot;
+}</code></pre>
+<p>.. as we have protected all routes with the <code>standard</code> security strategy.</p>
+<p>Clearly this is not what we intended. Lets reopen the <code>home</code> page, disabling the strategy for just that route:</p>
+<h2>accounts.js</h2>
+<pre><code>exports.main = {
+  auth: false,
+  handler: function (request, reply) {
+    reply.view(&#39;main&#39;, { title: &#39;Welcome to Donations&#39; });
+  },
+
+};</code></pre>
+<p>Restart the app, and you should be able to visit the home page. All the other routes should still be protected however. </p>
+<p>Reopen all of the <code>accounts</code> routes now by adding</p>
+<pre><code>  auth: false,</code></pre>
+<p>Now try to log in. You should be able to get passed the signup view and onto login. However, when you log in the app will give you the unauthorised response again:</p>
+<pre><code>{
+  statusCode: 401,
+  error: &quot;Unauthorized&quot;,
+  message: &quot;Missing authentication&quot;
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Cookie Setting &amp; Clearing</h1>
+<p>We should now remove the <code>currentUser</code> server object:</p>
+<pre><code>server.bind({
+  // currentUser: {},
+  users: {},
+  donations: [],
+});</code></pre>
+<p>as we will be using an alternative mechanism to track the user.</p>
+<h2>accounts.js</h2>
+<p>Modify the <code>authenticate</code> route to set a session cookie:</p>
+<pre><code>...
+      request.cookieAuth.set({
+        loggedIn: true,
+        loggedInUser: user.email,
+      });
+...</code></pre>
+<p>Do this just after we have verified that the user has valid credentials:</p>
+<pre><code>exports.authenticate = {
+  auth: false,
+  handler: function (request, reply) {
+    const user = request.payload;
+    if ((user.email in this.users) &amp;&amp; (user.password === this.users[user.email].password)) {
+      request.cookieAuth.set({
+        loggedIn: true,
+        loggedInUser: user.email,
+      });
+      reply.redirect(&#39;/home&#39;);
+    } else {
+      reply.redirect(&#39;/signup&#39;);
+    }
+  },
+
+};</code></pre>
+<p>In the logout route - we can clear the session:</p>
+<pre><code>exports.logout = {
+  auth: false,
+  handler: function (request, reply) {
+    request.cookieAuth.clear();
+    reply.redirect(&#39;/&#39;);
+  },</code></pre>
+<p>Restart the app - and you should now be able to log in, make donations and view reports.</p>
+<p>However, the donor will not be visible on the report - as we have disabled that mechanism (see above).</p>
+<p>Before moving on to the next step - see if you can inspect the cookie using chrome developer tools. You might see something like this:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>Note that you can delete the cookie here - this may be useful during development, particularly if you are modifying some of the cookie characteristics. The older version of the cookie might interfere with the refreshed one.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Cookie Retrieval</h1>
+<p>Our app now functions (after a fashion). However, we have lost the donor from the donations list. We can fix this now and use the cookie to recover the logged in user details</p>
+<h2>donations.js</h2>
+<p>Here is a revised version of the donate route:</p>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    let data = request.payload;
+    var donorEmail = request.auth.credentials.loggedInUser;
+    data.donor = this.users[donorEmail];
+    this.donations.push(data);
+    reply.redirect(&#39;/report&#39;);
+  },
+
+};</code></pre>
+<p>The key changes are here:</p>
+<pre><code>    var donorEmail = request.auth.credentials.loggedInUser;
+    data.donor = this.users[donorEmail];</code></pre>
+<p>We recover the donor email from the cookie - and look up our local database of users to recover the users details. We store that with the donation as before.</p>
+<p>Restart the app now, sign up and log in. The donations should be listed with the donors details.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Redirect protected Routes to Login Page</h1>
+<p>Currently if we are not logged in, and we attempt to visit a guarded route, we get this response:</p>
+<pre><code>{
+  statusCode: 401,
+  error: &quot;Unauthorized&quot;,
+  message: &quot;Missing authentication&quot;
+}</code></pre>
+<p>This will also be the response if the cookie expires, or is deleted. Try deleting the cookie (using chrome, after you have logged in) and see if this is in fact the case.</p>
+<p>A better user experience would be to redirect the user to the login page.</p>
+<h2>index.js</h2>
+<p>We can do this as an additional parameter when the strategy is being defined:</p>
+<pre><code>    redirectTo: &#39;/login&#39;,</code></pre>
+<p>Place the above as an additional paramater:</p>
+<pre><code>  server.auth.strategy(&#39;standard&#39;, &#39;cookie&#39;, {
+    password: &#39;secretpasswordnotrevealedtoanyone&#39;,
+    cookie: &#39;donation-cookie&#39;,
+    isSecure: false,
+    ttl: 24 * 60 * 60 * 1000,
+    redirectTo: &#39;/login&#39;,
+  });</code></pre>
+<p>Restart the app now, and try to directly visit some of the protected routes:</p>
+<ul>
+<li><a href="http://localhost:4000/report">http://localhost:4000/report</a></li>
+<li><a href="http://localhost:4000/home">http://localhost:4000/home</a></li>
+</ul>
+<p>NB: If you did not log out before you restarted the app, then the above routes will seem to work - even if you did not log in! This is because the session may still be active. Delete the session using chrome web developer tools, restart the app and try the above routes again. This time you should be redirected to the login page.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>DRY - Active Menu Item Support</h1>
+<p>Unrelated to the sessions support we have been developing so far in this lab - we can do some minor improvements to the template, eliminating some duplication.</p>
+<p>Currently our <code>home</code> and <code>report</code> views contain some duplication:</p>
+<h2>home.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+
+  {{&gt; donate }}
+
+  &lt;div class=&quot;ui  divider&quot;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;ui teal progress&quot; data-percent=&quot;${progress}&quot; id=&quot;mainprogress&quot;&gt;
+    &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/section&gt;</code></pre>
+<h2>report.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt; &lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt; &lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/report&quot;&gt;  Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt;  Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+{{&gt; donationlist }}</code></pre>
+<p>The duplicated element is the menu:</p>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+<p>The two versions are not quite the same, however - as the <code>active</code> item is different for each view. The active item is the one highlighted in the menu bar to indicate to the user which page they are currently on.</p>
+<p>To eliminate this duplication, we need to do the following:</p>
+<ul>
+<li>devise a partial to represent the menu, to be included in each view</li>
+<li>pass the active item as a parameter to the partial</li>
+<li>set the active item based on the parameter.</li>
+</ul>
+<p>Here is a new partial - to be included in the <code>partials</code> folder:</p>
+<h2>app/views/partials/mainmenu.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a id=&quot;home&quot;   class= &quot;item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a id=&quot;report&quot; class= &quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
+    &lt;a id=&quot;logout&quot; class= &quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;script&gt;
+  $(&quot;#{{_id}}&quot;).addClass(&quot;active item&quot;);
+&lt;/script&gt;</code></pre>
+<p>In the above, we have included ids for each menuitem, and appended a JQuery script to set the active class for the menu item with the id <code>_id</code>.</p>
+<p>Now, in each of our views we can just include this partial - with the appropriate parameter:</p>
+<h2>home.hbs</h2>
+<pre><code>{{&gt; mainmenu _id=&quot;home&quot; }}
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+
+  {{&gt; donate }}
+
+  &lt;div class=&quot;ui  divider&quot;&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;ui teal progress&quot; data-percent=&quot;${progress}&quot; id=&quot;mainprogress&quot;&gt;
+    &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/section&gt;</code></pre>
+<h2>report.hbs</h2>
+<pre><code>{{&gt; mainmenu _id=&quot;report&quot;}}
+{{&gt; donationlist }}</code></pre>
+<p>Try this now - and verify that the active item works as expected.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-07/commits/all">https://bitbucket.org/edeleastar/donation-web-07/commits/all</a></li>
+</ul>
+<h2>Implement a new <code>Settings</code> view - available after a user has successfully logged in:</h2>
+<p><img src="img/02.png" alt=""></p>
+<p>It is to present the details of the current user + a <code>Save</code> button, which will update and details modified in the current form.</p>
+<h2>HINTS</h2>
+<p>You will need two new routes to support rendering and submitting the form:</p>
+<h2>routes.js</h2>
+<pre><code>  { method: &#39;GET&#39;, path: &#39;/settings&#39;, config: Accounts.viewSettings },
+  { method: &#39;POST&#39;, path: &#39;/settings&#39;, config: Accounts.updateSettings },</code></pre>
+<p>You will need to extend  mainmenu.hbs to include a new menu item:</p>
+<h2>mainmenu.hbs</h2>
+<pre><code>    &lt;a id=&quot;settings&quot; class= &quot;item&quot; href=&quot;/settings&quot;&gt; Settings&lt;/a&gt;</code></pre>
+<p>...and this is the new view to display a users details:</p>
+<h2>settings.hbs</h2>
+<pre><code>{{&gt; mainmenu _id=&quot;settings&quot; }}
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;div class=&quot;ui ten wide column&quot;&gt;
+      &lt;div class=&quot;ui stacked fluid form segment&quot;&gt;
+        &lt;form action=&quot;/settings&quot; method=&quot;POST&quot;&gt;
+          &lt;h3 class=&quot;ui header&quot;&gt;Register&lt;/h3&gt;
+          &lt;div class=&quot;two fields&quot;&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;First Name&lt;/label&gt;
+              &lt;input value=&quot;{{user.firstName}}&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;Last Name&lt;/label&gt;
+              &lt;input value=&quot;{{user.lastName}}&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input value=&quot;{{user.email}}&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Password&lt;/label&gt;
+            &lt;input value=&quot;{{user.password}}&quot; type=&quot;password&quot; name=&quot;password&quot;&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;ui blue submit button&quot;&gt;Save&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;aside class=&quot;ui five wide column&quot;&gt;
+      &lt;img src=&quot;images/homer3.png&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<p>Your task is to now implement two new protected route handlers in <code>accounts.js</code>:</p>
+<pre><code>exports.viewSettings = {
+
+  // TODO
+
+};
+
+exports.updateSettings = {
+
+  // TODO
+
+};</code></pre>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
