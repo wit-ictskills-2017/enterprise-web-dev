@@ -1,0 +1,707 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      8: Models
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-8 Models">
+      Lab-8 Models
+    </a>
+    
+    <a class="item" data-tab="Lab-7-Solutions">
+      Lab-7-Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-8 Models">
+        <h1>Objectives</h1>
+<p>Replace the simple user and donation tracking with a database implementation - Mongo DB. Use the Mongoose ODM to create User + Donation models.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-7-Solutions">
+        <h1>Lab 7 Solutions</h1>
+<h2>routes.js</h2>
+<pre><code>const Accounts = require(&#39;./app/controllers/accounts&#39;);
+const Donations = require(&#39;./app/controllers/donations&#39;);
+const Assets = require(&#39;./app/controllers/assets&#39;);
+
+module.exports = [
+
+  { method: &#39;GET&#39;, path: &#39;/&#39;, config: Accounts.main },
+  { method: &#39;GET&#39;, path: &#39;/signup&#39;, config: Accounts.signup },
+  { method: &#39;GET&#39;, path: &#39;/login&#39;, config: Accounts.login },
+  { method: &#39;POST&#39;, path: &#39;/login&#39;, config: Accounts.authenticate },
+  { method: &#39;POST&#39;, path: &#39;/register&#39;, config: Accounts.register },
+  { method: &#39;GET&#39;, path: &#39;/logout&#39;, config: Accounts.logout },
+  { method: &#39;GET&#39;, path: &#39;/settings&#39;, config: Accounts.viewSettings },
+  { method: &#39;POST&#39;, path: &#39;/settings&#39;, config: Accounts.updateSettings },
+
+  { method: &#39;GET&#39;, path: &#39;/home&#39;, config: Donations.home },
+  { method: &#39;GET&#39;, path: &#39;/report&#39;, config: Donations.report },
+  { method: &#39;POST&#39;, path: &#39;/donate&#39;, config: Donations.donate },
+
+  {
+    method: &#39;GET&#39;,
+    path: &#39;/{param*}&#39;,
+    config: { auth: false },
+    handler: Assets.servePublicDirectory,
+  },
+
+];</code></pre>
+<h2>app/views/partials/mainmenu.hbs</h2>
+<pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
+  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;div class=&quot;right menu&quot;&gt;
+    &lt;a id=&quot;home&quot;   class= &quot;item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a id=&quot;report&quot; class= &quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
+    &lt;a id=&quot;settings&quot; class= &quot;item&quot; href=&quot;/settings&quot;&gt; Settings&lt;/a&gt;
+    &lt;a id=&quot;logout&quot; class= &quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;script&gt;
+  $(&quot;#{{_id}}&quot;).addClass(&quot;active item&quot;);
+&lt;/script&gt;</code></pre>
+<h2>app/views/settings.hbs</h2>
+<pre><code>{{&gt; mainmenu _id=&quot;settings&quot; }}
+
+&lt;section class=&quot;ui raised segment&quot;&gt;
+  &lt;div class=&quot;ui grid&quot;&gt;
+    &lt;div class=&quot;ui ten wide column&quot;&gt;
+      &lt;div class=&quot;ui stacked fluid form segment&quot;&gt;
+        &lt;form action=&quot;/settings&quot; method=&quot;POST&quot;&gt;
+          &lt;h3 class=&quot;ui header&quot;&gt;Register&lt;/h3&gt;
+          &lt;div class=&quot;two fields&quot;&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;First Name&lt;/label&gt;
+              &lt;input value=&quot;{{user.firstName}}&quot; type=&quot;text&quot; name=&quot;firstName&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;Last Name&lt;/label&gt;
+              &lt;input value=&quot;{{user.lastName}}&quot; type=&quot;text&quot; name=&quot;lastName&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input value=&quot;{{user.email}}&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label&gt;Password&lt;/label&gt;
+            &lt;input value=&quot;{{user.password}}&quot; type=&quot;password&quot; name=&quot;password&quot;&gt;
+          &lt;/div&gt;
+          &lt;button class=&quot;ui blue submit button&quot;&gt;Save&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;aside class=&quot;ui five wide column&quot;&gt;
+      &lt;img src=&quot;images/homer3.png&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>exports.viewSettings = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    var currentUserDetails = this.users[userEmail];
+    reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: currentUserDetails });
+  },
+
+};
+
+exports.updateSettings = {
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    this.users[user.email] = user;
+    reply.redirect(&#39;/settings&#39;);
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Mongo + Mongoose install</h1>
+<p>Visit the following site, locate the installation for your platform and install the MongoDB application:</p>
+<ul>
+<li><a href="https://www.mongodb.org">https://www.mongodb.org</a></li>
+</ul>
+<p>A suitable distribution from here should suffice:</p>
+<ul>
+<li><a href="https://www.mongodb.com/download-center#community">https://www.mongodb.com/download-center#community</a></li>
+</ul>
+<p>Additionally, install this simple UX for Mongo:</p>
+<ul>
+<li><a href="https://robomongo.org">https://robomongo.org</a></li>
+</ul>
+<p>Typically, to launch the mongodb database service on your platform, first create a directory somewhere to store the database itself:</p>
+<pre><code>mkdir db</code></pre>
+<p>Then enter the following command to launch the service:</p>
+<pre><code>mongod -dbpath db</code></pre>
+<p>Now launch Robomongo:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>.. and establish a default connection to the service you just started:</p>
+<p><img src="img/02.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Connect to Mongo via Mongoose</h1>
+<p>Back within our project, we will be using the Mongoose library to interact with mongo:</p>
+<ul>
+<li><a href="http://mongoosejs.com/">http://mongoosejs.com/</a></li>
+</ul>
+<p>To install the framework - run the following command in our project:</p>
+<pre><code>npm install mongoose -save</code></pre>
+<h2>package.json</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+<p>Introduce a new folder called <code>models</code> into the app folder, and create the following file:</p>
+<h2>app/models/db.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const mongoose = require(&#39;mongoose&#39;);
+
+let dbURI = &#39;mongodb://localhost/donation&#39;;
+if (process.env.NODE_ENV === &#39;production&#39;) {
+  dbURI = process.env.MONGOLAB_URI;
+}
+
+mongoose.connect(dbURI);
+
+mongoose.connection.on(&#39;connected&#39;, function () {
+  console.log(&#39;Mongoose connected to &#39; + dbURI);
+});
+
+mongoose.connection.on(&#39;error&#39;, function (err) {
+  console.log(&#39;Mongoose connection error: &#39; + err);
+});
+
+mongoose.connection.on(&#39;disconnected&#39;, function () {
+  console.log(&#39;Mongoose disconnected&#39;);
+});</code></pre>
+<p>This will establish a connection to the database.</p>
+<h2>index.js</h2>
+<p>In index.js, we can delete the exsiting server objects:</p>
+<pre><code>// server.bind({
+//  users: {},
+//  donations: [],
+//});</code></pre>
+<p>.. replacing with an import of the db module we just created:</p>
+<pre><code>require(&#39;./app/models/db&#39;);</code></pre>
+<p>Restart the app now - and we should see the following message on the console:</p>
+<pre><code>Mongoose connected to mongodb://localhost/donation</code></pre>
+<p>If you can see the mongod service - it should report a new connection when you run the app:</p>
+<pre><code>2016-08-05T09:15:26.916+0100 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-08-05T09:15:35.150+0100 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49511 #1 (1 connection now open)</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Introduce User Model</h1>
+<p>Introducing models into an application is a key step in may the application perform some useful function. We already have a <code>models</code> folder in our app - create a new module to represent a Schema for a User model:</p>
+<h2>app/models/user.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const mongoose = require(&#39;mongoose&#39;);
+
+const userSchema = mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  password: String,
+});
+
+const User = mongoose.model(&#39;User&#39;, userSchema);
+module.exports = User;</code></pre>
+<p>The accounts controller can now require this model:</p>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>const User = require(&#39;../models/user&#39;);</code></pre>
+<p>.. and in register we can save new users as they are registered:</p>
+<pre><code>exports.register = {
+  auth: false,
+  handler: function (request, reply) {
+    const user = new User(request.payload);
+
+    user.save().then(newUser =&gt; {
+      reply.redirect(&#39;/login&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>Run the app now and register a new user. In Robomongo, make sure you can browse to the collection we have just created (you may need to refresh the view to see the updates)</p>
+<p><img src="img/03.png" alt=""></p>
+<p>The authenticate method will also need to be updated to consult the database when validating a user:</p>
+<pre><code>exports.authenticate = {
+  auth: false,
+  handler: function (request, reply) {
+    const user = request.payload;
+    User.findOne({ email: user.email }).then(foundUser =&gt; {
+      if (foundUser &amp;&amp; foundUser.password === user.password) {
+        request.cookieAuth.set({
+          loggedIn: true,
+          loggedInUser: user.email,
+        });
+        reply.redirect(&#39;/home&#39;);
+      } else {
+        reply.redirect(&#39;/signup&#39;);
+      }
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>Try this now and verify that you can sign up, login and logout. Other aspects of the app are broken though.</p>
+<p>You may notice the following on the console:</p>
+<pre><code>node:50475) DeprecationWarning: Mongoose: mpromise (mongoose&#39;s default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html</code></pre>
+<p>We are using a <code>promise</code> syntax for database query and update - however the default promise support we are using is not intended for long term use. </p>
+<ul>
+<li><a href="http://mongoosejs.com/docs/promises.html">http://mongoosejs.com/docs/promises.html</a></li>
+</ul>
+<p>We can turn on native ES6 promises instead, removing the warning. Place the following line in db.js:</p>
+<h1>app/models/db.js</h1>
+<pre><code>mongoose.Promise = global.Promise;</code></pre>
+<p>Place this just after mongoose is initialised:</p>
+<pre><code>const mongoose = require(&#39;mongoose&#39;);
+mongoose.Promise = global.Promise;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Introduce Donation Model</h1>
+<p>This is a donation schema to represent individual donations:</p>
+<h2>app/models/donation.js</h2>
+<pre><code>const mongoose = require(&#39;mongoose&#39;);
+
+const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+});
+
+const Donation = mongoose.model(&#39;Donation&#39;, donationSchema);
+module.exports = Donation;</code></pre>
+<p>the donate and report routes can then be updated to use this model:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>const Donation = require(&#39;../models/donation&#39;);</code></pre>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    let data = request.payload;
+    const donation = new Donation(data);
+    donation.save().then(newDonation =&gt; {
+      reply.redirect(&#39;/report&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};
+
+exports.report = {
+
+  handler: function (request, reply) {
+    Donation.find({}).exec().then(allDonations =&gt; {
+      reply.view(&#39;report&#39;, {
+        title: &#39;Donations to Date&#39;,
+        donations: allDonations,
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>Try this now and verify that you can make donations and view them in Robomongo:</p>
+<p><img src="img/05.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Display Donor Email in Donations</h1>
+<p>We have lost the &#39;donor&#39; column in the report field - as we are not recording this in the model yet.</p>
+<p>Make this change to the donation schema model to store some information about the donor:</p>
+<h2>app/models/donation.js</h2>
+<pre><code>const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+  donor: String,
+});</code></pre>
+<p>When we create a donation, we will insert the currents users email as the donor:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>    let data = request.payload;
+    data.donor = request.auth.credentials.loggedInUser;
+    const donation = new Donation(data);</code></pre>
+<p>Finally, in our <code>donationlist</code> partial, display the donor string:</p>
+<pre><code>          {{#each donations}}
+            &lt;tr&gt;
+              &lt;td&gt; {{amount}} &lt;/td&gt;
+              &lt;td&gt; {{method}} &lt;/td&gt;
+              &lt;td&gt; {{donor}}  &lt;/td&gt;
+            &lt;/tr&gt;
+          {{/each}}</code></pre>
+<p>Run the app now and verify that the donors email is displayed (and stored). Note that the new donation model happily co-exists with the previous version.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercise</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-08/commits/all">https://bitbucket.org/edeleastar/donation-web-08/commits/all</a></li>
+</ul>
+<h2>Exercise 1: Settings</h2>
+<p>The settings view is currently not functioning, as it is still tied to an earlier mechanism for tracking users:</p>
+<pre><code>exports.viewSettings = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    var currentUserDetails = this.users[userEmail];
+    reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: currentUserDetails });
+  },
+
+};
+
+exports.updateSettings = {
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    this.users[user.email] = user;
+    reply.redirect(&#39;/settings&#39;);
+  },
+
+};</code></pre>
+<h2>Hints</h2>
+<h3>viewSettings</h3>
+<p>This should be straightforward to correct. This line no longer makes sense:</p>
+<pre><code>    var currentUserDetails = this.users[userEmail];</code></pre>
+<p>Instead, we need to read from the database to get the user details, and then render these to the view (sending the user to the start page if there is an error):</p>
+<pre><code>    User.findOne({ email: userEmail }).then(foundUser =&gt; {
+      reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: foundUser });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });</code></pre>
+<h3>updateSettings</h3>
+<p>This is more complicated - as we need to read a users details from the database, and then update with new values entered by the user. Here is a fragment that will accomplish this (without error handling) :</p>
+<pre><code>    User.findOne({ email: loggedInUserEmail }).then(user =&gt; {
+      user.firstName = editedUser.firstName;
+      user.lastName = editedUser.lastName;
+      user.email = editedUser.email;
+      user.password = editedUser.password;
+      return user.save();
+    }).then(user =&gt; {
+      reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: user });
+    });</code></pre>
+<p>Note that we return a promise from the <code>save()</code> function - and then re render the updated user details to the settings view.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
