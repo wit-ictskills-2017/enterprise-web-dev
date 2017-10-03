@@ -1,0 +1,580 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      09: Validation
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-9 Validation">
+      Lab-9 Validation
+    </a>
+    
+    <a class="item" data-tab="Lab-8-Solutions">
+      Lab-8-Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-9 Validation">
+        <h1>Objectives</h1>
+<p>Include an object relationship from donor to user, and render a donors full name on the report view. Incorporate validation into registration view.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-8-Solutions">
+        <h1>Lab 8 Exercise Solutions</h1>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>exports.viewSettings = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    User.findOne({ email: userEmail }).then(foundUser =&gt; {
+      reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: foundUser });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};
+
+exports.updateSettings = {
+
+  handler: function (request, reply) {
+    const editedUser = request.payload;
+    const loggedInUserEmail = request.auth.credentials.loggedInUser;
+
+    User.findOne({ email: loggedInUserEmail }).then(user =&gt; {
+      user.firstName = editedUser.firstName;
+      user.lastName = editedUser.lastName;
+      user.email = editedUser.email;
+      user.password = editedUser.password;
+      return user.save();
+    }).then(user =&gt; {
+      reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: user });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Incorporate Donor Object Reference into Donation</h1>
+<p>Currently our donation Schema looks like this:</p>
+<pre><code>const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+  donor: String,
+});</code></pre>
+<p>The donor is represented by a simple string - we have been using the users email. To retrieve further information on the donor we would need to do an additional query.</p>
+<p>A more sophisticated approach would be to use an object reference directly to the User object:</p>
+<h2>app/models/donation.js</h2>
+<pre><code>const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+  donor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: &#39;User&#39;,
+  },
+});</code></pre>
+<h2>app/controler/donation.js</h2>
+<p>Now, when we create a donation, we will need to gain access to the object reference of the donor and use this reference to initialise the donation object.</p>
+<p>First, import the User model:</p>
+<pre><code>const User = require(&#39;../models/user&#39;);</code></pre>
+<p>Then reimplement the donation handler to establish the link to the donation:</p>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    User.findOne({ email: userEmail }).then(user =&gt; {
+      let data = request.payload;
+      const donation = new Donation(data);
+      donation.donor = user._id;
+      return donation.save();
+    }).then(newDonation =&gt; {
+      reply.redirect(&#39;/report&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>Restart the app now and make a donation. Examine the donation object in Robomongo:</p>
+<p><img src="img/04.png" alt=""></p>
+<p>Note the object reference <code>donor</code>. Verify that the id corresponds with the corresponding user object:</p>
+<p><img src="img/05.png" alt=""></p>
+<p>The report view, however, will now only display these ids:</p>
+<p><img src="img/06.png" alt=""></p>
+<p>We will fix this in the next step.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Populate Donor Object in Donation Query</h1>
+<h2>app/views/partials/donation.hbs</h2>
+<p>Having established an object reference, we might like to display the full name of the donor in the report view:</p>
+<pre><code>          {{#each donations}}
+            &lt;tr&gt;
+              &lt;td&gt; {{amount}} &lt;/td&gt;
+              &lt;td&gt; {{method}} &lt;/td&gt;
+              &lt;td&gt; {{donor.firstName}} {{donor.lastName}} &lt;/td&gt;
+            &lt;/tr&gt;
+          {{/each}}</code></pre>
+<p>Run the app again  - and inspect the report view. The donor column will be blank however. This is because object references are not automatically retrieved so our form draws a blank on the donor object. </p>
+<h2>app/controllers/donation.js</h2>
+<p>So here is minor update to the report handler - with a <code>populate(&#39;donor&#39;)</code> call inserted into the query:</p>
+<pre><code>exports.report = {
+
+  handler: function (request, reply) {
+    Donation.find({}).populate(&#39;donor&#39;).then(allDonations =&gt; {
+      reply.view(&#39;report&#39;, {
+        title: &#39;Donations to Date&#39;,
+        donations: allDonations,
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>This will ensure that the donor object will be retrieve on the single query - and thus our donor object should successfully resolve in the form.</p>
+<p>Try this now and verify that the donor&#39;s full name is displayed in the report view.</p>
+<p>You may notice that it does not work on the first attempt - as your Mongo database may have older version of the donation object in the donations collection. These older reference do not have the donor id as a field, and hence the above query will throw an exception. Delete all your donations objects completed, and the app should run correctly.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Install Joi plugin</h1>
+<p>Currently we do very little validation in the app. If the user enters invalid or inappropriate values in our forms we are not really alerting the user to correct their entries, or what constitutes a valid entry for a given field.</p>
+<p>HAPI has a plugin to help solve this problem:</p>
+<ul>
+<li><a href="https://github.com/hapijs/joi">https://github.com/hapijs/joi</a></li>
+</ul>
+<p>Like all pligins, we install it in the usual way:</p>
+<pre><code>npm install joi -save</code></pre>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Form Error Partial</h1>
+<p>We need a new partial to display potential errors in our forms:</p>
+<h2>app/views/partials/formerror.hbs</h2>
+<pre><code>{{#if errors}}
+  &lt;div class=&quot;ui negative message transition&quot;&gt;
+    &lt;i class=&quot;close icon&quot;&gt;&lt;/i&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      There was some errors with your submission
+    &lt;/div&gt;
+    &lt;ul class=&quot;list&quot;&gt;
+      {{#each errors}}
+        &lt;li&gt;{{message}}&lt;/li&gt;
+      {{/each}}
+    &lt;/ul&gt;
+  &lt;/div&gt;
+{{/if}}</code></pre>
+<p>This partial will only populate the view if <code>errors</code> are passed, otherwise it will be silent.</p>
+<p>We need placeholders in our register view to include this partial:</p>
+<h2>app/views/signup.hbs</h2>
+<pre><code>        &lt;/form&gt;
+        {{&gt; formerror }}
+      &lt;/div&gt;</code></pre>
+<p>These are introduced just outside the end of each of the forms.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Engage Validation in Register From</h1>
+<p>We can now make use of the error reporting partial in the register handler.</p>
+<h2>app/controllers/accounts.js</h2>
+<p>First - import the joi module:</p>
+<pre><code>const Joi = require(&#39;joi&#39;);</code></pre>
+<p>In the register handler, we need a new <code>validate</code> property:</p>
+<pre><code>  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view(&#39;signup&#39;, {
+        title: &#39;Sign up error&#39;,
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },</code></pre>
+<p>This contains two properties:</p>
+<ul>
+<li><code>payload</code>: This defines a schema which defines rules that our fields must adhere to. </li>
+<li><code>failAction</code>: This is the handler to invoke of one or more of the fields fails the validation.</li>
+</ul>
+<p>This is the complete register handler:</p>
+<pre><code>exports.register = {
+  auth: false,
+
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view(&#39;signup&#39;, {
+        title: &#39;Sign up error&#39;,
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
+  handler: function (request, reply) {
+    const user = new User(request.payload);
+
+    user.save().then(newUser =&gt; {
+      reply.redirect(&#39;/login&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>Try this now, and enter invalid data in some of the register form fields. Confirm that the error partial is rendered.</p>
+<p>Try more than one invalid field - you will notice only a single error is reported. This is because the default behaviour is to stop at the first error.</p>
+<p>We can have the component report all error by including this additional property:</p>
+<pre><code>    options: {
+      abortEarly: false,
+    },</code></pre>
+<p>Verify that multiple errors are reported.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-09/commits/all">https://bitbucket.org/edeleastar/donation-web-09/commits/all</a></li>
+</ul>
+<p>Using the registration form as a guide, introduce validation into the login and settings forms.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
