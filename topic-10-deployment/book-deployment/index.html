@@ -1,0 +1,892 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+       10: Deployment
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-10 Deployment">
+      Lab-10 Deployment
+    </a>
+    
+    <a class="item" data-tab="Lab-9-Exercises">
+      Lab-9-Exercises
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="08">
+      08
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-10 Deployment">
+        <h1>Objectives</h1>
+<p>Deploy the application + the mongo database, to an application server.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-9-Exercises">
+        <h1>Lab 9 Exercise Solutions</h1>
+<h2>app/views/login.hbs</h2>
+<pre><code>        &lt;/form&gt;
+        {{&gt; formerror }}
+      &lt;/div&gt;</code></pre>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>exports.authenticate = {
+
+  auth: false,
+
+  validate: {
+
+    payload: {
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view(&#39;login&#39;, {
+        title: &#39;Sign in error&#39;,
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    User.findOne({ email: user.email }).then(foundUser =&gt; {
+      if (foundUser &amp;&amp; foundUser.password === user.password) {
+        request.cookieAuth.set({
+          loggedIn: true,
+          loggedInUser: user.email,
+        });
+        reply.redirect(&#39;/home&#39;);
+      } else {
+        reply.redirect(&#39;/signup&#39;);
+      }
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<h2>app/views/settings.hbs</h2>
+<pre><code>        &lt;/form&gt;
+        {{&gt; formerror }}
+      &lt;/div&gt;</code></pre>
+<h2>app/controllers/accounts.js</h2>
+<pre><code>exports.updateSettings = {
+
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view(&#39;signup&#39;, {
+        title: &#39;Sign up error&#39;,
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
+  handler: function (request, reply) {
+    const editedUser = request.payload;
+    const loggedInUserEmail = request.auth.credentials.loggedInUser;
+
+    User.findOne({ email: loggedInUserEmail }).then(user =&gt; {
+      user.firstName = editedUser.firstName;
+      user.lastName = editedUser.lastName;
+      user.email = editedUser.email;
+      user.password = editedUser.password;
+      return user.save();
+    }).then(user =&gt; {
+      reply.view(&#39;settings&#39;, { title: &#39;Edit Account Settings&#39;, user: user });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Heroku Node Guide</h1>
+<p>Visit heroku and create an account:</p>
+<ul>
+<li><a href="http://www.heroku.com">http://www.heroku.com</a></li>
+</ul>
+<p>An installation of git is a prerequisite for working with heroku.</p>
+<ul>
+<li><a href="https://git-scm.com/">https://git-scm.com/</a></li>
+</ul>
+<p>You will also need to install the <code>Heroku CommandLine</code> on your worksation:</p>
+<ul>
+<li><a href="https://toolbelt.heroku.com/">https://toolbelt.heroku.com/</a></li>
+</ul>
+<p>Make sure these are installed and functioning before proceeding further.</p>
+<p>In order to get familiar with the heroku workflow, work through one of the getting started guides:</p>
+<ul>
+<li><a href="https://devcenter.heroku.com/start">https://devcenter.heroku.com/start</a></li>
+</ul>
+<p>In particular, the node.js guide:</p>
+<ul>
+<li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction</a></li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Git</h1>
+<p>Before proceeding, the source for the application will need to be committed to git. You may gave been doing this already. If not, we can commit the project to a local git repository now.</p>
+<p>First, make sure you have a file called <code>.gitignore</code> in your project folder:</p>
+<h2>.gitignore</h2>
+<pre><code>.idea
+node_modules</code></pre>
+<p>Now create a git repository in the project:</p>
+<pre><code>git init</code></pre>
+<p>Check the status is the repository, displaying all files in the project not yet committed to git:</p>
+<pre><code>git status -su</code></pre>
+<p>This should display this list:</p>
+<pre><code>?? .gitignore
+?? .jscsrc
+?? app/controllers/accounts.js
+?? app/controllers/assets.js
+?? app/controllers/donations.js
+?? app/models/db.js
+?? app/models/donation.js
+?? app/models/user.js
+?? app/views/home.hbs
+?? app/views/layout/layout.hbs
+?? app/views/login.hbs
+?? app/views/main.hbs
+?? app/views/partials/donate.hbs
+?? app/views/partials/donationlist.hbs
+?? app/views/partials/formerror.hbs
+?? app/views/partials/mainmenu.hbs
+?? app/views/partials/welcomemenu.hbs
+?? app/views/report.hbs
+?? app/views/settings.hbs
+?? app/views/signup.hbs
+?? index.js
+?? package.json
+?? public/images/favicon.png
+?? public/images/homer.png
+?? public/images/homer2.png
+?? public/images/homer3.png
+?? public/images/homer4.jpeg
+?? public/images/homer5.jpg
+?? routes.js</code></pre>
+<p>In the above list, <code>??</code> indicates that the file is not yet committed to git. We can all files to git now:</p>
+<pre><code>git add .</code></pre>
+<p>Check the status again:</p>
+<pre><code>$ git status -su
+A  .gitignore
+A  .jscsrc
+A  app/controllers/accounts.js
+A  app/controllers/assets.js
+A  app/controllers/donations.js
+A  app/models/db.js
+A  app/models/donation.js
+A  app/models/user.js
+A  app/views/home.hbs
+A  app/views/layout/layout.hbs
+A  app/views/login.hbs
+A  app/views/main.hbs
+A  app/views/partials/donate.hbs
+A  app/views/partials/donationlist.hbs
+A  app/views/partials/formerror.hbs
+A  app/views/partials/mainmenu.hbs
+A  app/views/partials/welcomemenu.hbs
+A  app/views/report.hbs
+A  app/views/settings.hbs
+A  app/views/signup.hbs
+A  index.js
+A  package.json
+A  public/images/favicon.png
+A  public/images/homer.png
+A  public/images/homer2.png
+A  public/images/homer3.png
+A  public/images/homer4.jpeg
+A  public/images/homer5.jpg
+A  routes.js</code></pre>
+<p>&#39;A&#39; means it has been added to the repo.</p>
+<p>We can now commit all of these files:</p>
+<pre><code> git commit -m &quot;first commit&quot;</code></pre>
+<p>This will respond with this:</p>
+<pre><code>[master (root-commit) 12abda7] first commit
+ 29 files changed, 707 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .jscsrc
+ create mode 100644 app/controllers/accounts.js
+ create mode 100644 app/controllers/assets.js
+ create mode 100644 app/controllers/donations.js
+ create mode 100644 app/models/db.js
+ create mode 100644 app/models/donation.js
+ create mode 100644 app/models/user.js
+ create mode 100644 app/views/home.hbs
+ create mode 100644 app/views/layout/layout.hbs
+ create mode 100644 app/views/login.hbs
+ create mode 100644 app/views/main.hbs
+ create mode 100644 app/views/partials/donate.hbs
+ create mode 100644 app/views/partials/donationlist.hbs
+ create mode 100644 app/views/partials/formerror.hbs
+ create mode 100644 app/views/partials/mainmenu.hbs
+ create mode 100644 app/views/partials/welcomemenu.hbs
+ create mode 100644 app/views/report.hbs
+ create mode 100644 app/views/settings.hbs
+ create mode 100644 app/views/signup.hbs
+ create mode 100644 index.js
+ create mode 100644 package.json
+ create mode 100644 public/images/favicon.png
+ create mode 100644 public/images/homer.png
+ create mode 100644 public/images/homer2.png
+ create mode 100644 public/images/homer3.png
+ create mode 100644 public/images/homer4.jpeg
+ create mode 100644 public/images/homer5.jpg
+ create mode 100644 routes.js</code></pre>
+<p>Check the status again:</p>
+<pre><code>git status -su</code></pre>
+<p>which should respond with a blank message.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>MongoLab</h1>
+<p>Create a free account here:</p>
+<ul>
+<li><a href="https://mlab.com">https://mlab.com</a></li>
+</ul>
+<p>Once you have successfully logged in, create a new MongoDB deployment called <code>donation</code>:</p>
+<p><img src="img/09.png" alt=""></p>
+<p>Inspect the database:</p>
+<p><img src="img/10.png" alt=""></p>
+<p>and in the users tab, create a new user for this database. Use &#39;donationuser&#39; for the username and password.</p>
+<p>Note carefully the connection string at the top of the page:</p>
+<pre><code> mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds052323.mlab.com:1234/donation</code></pre>
+<p>You will need to formulate a connection string using the <code>donationuser</code> you have just created. It might look like this:</p>
+<pre><code> mongodb://donationuser:donationuser@ds055626.mlab.com:55626/donation</code></pre>
+<p>(not exactly the above as you will have different server/port addresses etc..)</p>
+<p>To test this connection string out, look again at our db.js module:</p>
+<h2>app/models/db.js</h2>
+<pre><code>...
+var dbURI = &#39;mongodb://localhost/donation&#39;;
+if (process.env.NODE_ENV === &#39;production&#39;) {
+  dbURI = process.env.MONGODB_URI;
+}
+...</code></pre>
+<p>Purely as a temporary measure, change the dbURI initlisation to use your connection string:</p>
+<pre><code>var dbURI = &#39;mongodb://donationuser:donationuser@ds0XXXX.mlab.com:XXXX/donation&#39;;</code></pre>
+<p>Restart the app, and see if it launches successfully. As you register users / make donations, observe the database on MongoLab. You should see the collections being populated on that service.</p>
+<p>If it works, then change it back to what it was, but keep the connection string (as a comment for the moment).</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Heroku</h1>
+<p>Verify that the following command responds with a recent version number:</p>
+<pre><code>heroku --version</code></pre>
+<p>Now log in to your heroku account:</p>
+<pre><code>heroku login
+Email: 
+Password (typing will be hidden):</code></pre>
+<p>Once logged in, create a new application on heroku</p>
+<pre><code>heroku create</code></pre>
+<p>This will respond with a new name in a few seconds:</p>
+<pre><code>Creating app... ⬢ calm-brushlands-29225
+https://calm-brushlands-29225.herokuapp.com/ | https://git.heroku.com/calm-brushlands-29225.git</code></pre>
+<p>The two urls reported are the domain to access the app on (you will need this in a moment), and also the remote git repository where the source of your app pulled from during deployment.</p>
+<p>On the web, you can check to see if the app is present on your dashboard:</p>
+<ul>
+<li><a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a></li>
+</ul>
+<p>Explore the dashboard for the app for a few minutes. We havent deployed it yet however.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h2>Prepare Application for Deployment</h2>
+<p>Before we deploy the application, we need to incorporate a small change to <code>package.json</code>:</p>
+<pre><code>    &quot;start&quot;: &quot;node index&quot;,</code></pre>
+<p>This entry is within the <code>scripts</code> section:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+<p>Having made this small change - we need to commit it. First verify that the file has been modified:</p>
+<pre><code>git status -su</code></pre>
+<p>which will respond with:</p>
+<pre><code> M package.json</code></pre>
+<p>Now commit this change to the repo:</p>
+<pre><code>git commit -m &quot;node launch script added&quot;</code></pre>
+<p>which should respond as follows:</p>
+<pre><code>[master 902e4d6] node launch script added
+ 1 file changed, 1 deletion(-)</code></pre>
+<p>Check that the status returns blank:</p>
+<pre><code>git status -su</code></pre>
+<p>We can now deploy the app:</p>
+<pre><code>git push heroku master</code></pre>
+<p>This will report details on the deployment:</p>
+<pre><code>Counting objects: 43, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (43/43), 506.04 KiB | 0 bytes/s, done.
+Total 43 (delta 6), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----&gt; Node.js app detected
+remote:
+remote: -----&gt; Creating runtime environment
+remote:
+remote:        NPM_CONFIG_LOGLEVEL=error
+remote:        NPM_CONFIG_PRODUCTION=true
+remote:        NODE_ENV=production
+remote:        NODE_MODULES_CACHE=true
+remote:
+remote: -----&gt; Installing binaries
+remote:        engines.node (package.json):  unspecified
+remote:        engines.npm (package.json):   unspecified (use default)
+remote:
+remote:        Resolving node version (latest stable) via semver.io...
+remote:        Downloading and installing node 5.11.1...
+remote:        Using default npm version: 3.8.6
+remote:
+remote: -----&gt; Restoring cache
+remote:        Skipping cache restore (new runtime signature)
+remote:
+remote: -----&gt; Building dependencies
+remote:        Installing node modules (package.json)
+remote:        donation-web@1.0.0 /tmp/build_7caabad87a663748ff48ad08cbaccca9
+remote:        ├─┬ handlebars@4.0.5
+remote:        │ ├── async@1.5.2
+remote:        │ ├─┬ optimist@0.6.1
+remote:        │ │ ├── minimist@0.0.10
+remote:        │ │ └── wordwrap@0.0.3
+remote:        │ ├─┬ source-map@0.4.4
+remote:        │ │ └── amdefine@1.0.0
+remote:        │ └─┬ uglify-js@2.7.0
+remote:        │   ├── async@0.2.10
+remote:        │   ├── source-map@0.5.6
+remote:        │   ├── uglify-to-browserify@1.0.2
+remote:        │   └─┬ yargs@3.10.0
+remote:        │     ├── camelcase@1.2.1
+remote:        │     ├─┬ cliui@2.1.0
+remote:        │     │ ├─┬ center-align@0.1.3
+remote:        │     │ │ ├─┬ align-text@0.1.4
+remote:        │     │ │ │ ├─┬ kind-of@3.0.4
+remote:        │     │ │ │ │ └── is-buffer@1.1.4
+remote:        │     │ │ │ ├── longest@1.0.1
+remote:        │     │ │ │ └── repeat-string@1.5.4
+remote:        │     │ │ └── lazy-cache@1.0.4
+remote:        │     │ ├── right-align@0.1.3
+remote:        │     │ └── wordwrap@0.0.2
+remote:        │     ├── decamelize@1.2.0
+remote:        │     └── window-size@0.1.0
+remote:        ├─┬ hapi@14.1.0
+remote:        │ ├── accept@2.1.2
+remote:        │ ├── ammo@2.0.2
+remote:        │ ├── boom@3.2.2
+remote:        │ ├── call@3.0.3
+remote:        │ ├── catbox@7.1.2
+remote:        │ ├── catbox-memory@2.0.3
+remote:        │ ├── cryptiles@3.0.2
+remote:        │ ├── heavy@4.0.2
+remote:        │ ├── hoek@4.0.2
+remote:        │ ├── iron@4.0.2
+remote:        │ ├── items@2.1.1
+remote:        │ ├── kilt@2.0.2
+remote:        │ ├─┬ mimos@3.0.3
+remote:        │ │ └── mime-db@1.23.0
+remote:        │ ├── peekaboo@2.0.2
+remote:        │ ├── shot@3.1.1
+remote:        │ ├── statehood@4.0.3
+remote:        │ ├─┬ subtext@4.0.5
+remote:        │ │ ├── content@3.0.2
+remote:        │ │ ├─┬ pez@2.1.2
+remote:        │ │ │ ├── b64@3.0.2
+remote:        │ │ │ └─┬ nigel@2.0.2
+remote:        │ │ │   └── vise@2.0.2
+remote:        │ │ └── wreck@8.0.1
+remote:        │ └── topo@2.0.2
+remote:        ├─┬ hapi-auth-cookie@6.1.1
+remote:        │ ├── hoek@3.0.4
+remote:        │ └── joi@7.3.0
+remote:        ├─┬ inert@4.0.1
+remote:        │ ├── joi@8.4.2
+remote:        │ └─┬ lru-cache@4.0.1
+remote:        │   ├── pseudomap@1.0.2
+remote:        │   └── yallist@2.0.0
+remote:        ├─┬ joi@9.0.4
+remote:        │ ├── isemail@2.2.1
+remote:        │ └── moment@2.14.1
+remote:        ├─┬ mongoose@4.5.8
+remote:        │ ├── bson@0.4.23
+remote:        │ ├── hooks-fixed@1.2.0
+remote:        │ ├── kareem@1.1.3
+remote:        │ ├─┬ mongodb@2.1.18
+remote:        │ │ ├── es6-promise@3.0.2
+remote:        │ │ ├─┬ mongodb-core@1.3.18
+remote:        │ │ │ └─┬ require_optional@1.0.0
+remote:        │ │ │   ├── resolve-from@2.0.0
+remote:        │ │ │   └── semver@5.3.0
+remote:        │ │ └─┬ readable-stream@1.0.31
+remote:        │ │   ├── core-util-is@1.0.2
+remote:        │ │   ├── inherits@2.0.1
+remote:        │ │   ├── isarray@0.0.1
+remote:        │ │   └── string_decoder@0.10.31
+remote:        │ ├── mpath@0.2.1
+remote:        │ ├── mpromise@0.5.5
+remote:        │ ├─┬ mquery@1.11.0
+remote:        │ │ ├── bluebird@2.10.2
+remote:        │ │ ├── debug@2.2.0
+remote:        │ │ └── sliced@0.0.5
+remote:        │ ├── ms@0.7.1
+remote:        │ ├── muri@1.1.0
+remote:        │ ├── regexp-clone@0.0.1
+remote:        │ └── sliced@1.0.1
+remote:        └─┬ vision@4.1.0
+remote:        ├── hoek@3.0.4
+remote:        └─┬ joi@8.4.2
+remote:        └── hoek@4.0.2
+remote:
+remote:
+remote: -----&gt; Caching build
+remote:        Clearing previous node cache
+remote:        Saving 2 cacheDirectories (default):
+remote:        - node_modules
+remote:        - bower_components (nothing to cache)
+remote:
+remote: -----&gt; Build succeeded!
+remote:        ├── handlebars@4.0.5
+remote:        ├── hapi@14.1.0
+remote:        ├── hapi-auth-cookie@6.1.1
+remote:        ├── inert@4.0.1
+remote:        ├── joi@9.0.4
+remote:        ├── mongoose@4.5.8
+remote:        └── vision@4.1.0
+remote:
+remote: -----&gt; Discovering process types
+remote:        Procfile declares types     -&gt; (none)
+remote:        Default types for buildpack -&gt; web
+remote:
+remote: -----&gt; Compressing...
+remote:        Done: 15.3M
+remote: -----&gt; Launching...
+remote:        Released v5
+remote:        https://agile-depths-49364.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To https://git.heroku.com/agile-depths-49364.git
+ * [new branch]      master -&gt; master</code></pre>
+<p>Visit the url for the app as reported on the last line, or alternatively just enter the following command:</p>
+<pre><code>heroku open</code></pre>
+<p>Which will open the default browser on the app.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Production Mode DB URI</h1>
+<p>Although the app will launch, we will not be able to get beyond the sign up screen. Trying to register a new user will generate an internal error on the app.</p>
+<p>It can be challenging to debug these errors without access to the log. From within the project folder, enter the following command:</p>
+<pre><code>heroku logs --tail</code></pre>
+<p>This will give us a live log in the console. Probing this a little deeper, we see the reason why the app is failing:</p>
+<pre><code>2016-08-07T11:45:49.449373+00:00 heroku[web.1]: Starting process with command `npm start`
+2016-08-07T11:45:51.420126+00:00 app[web.1]:
+2016-08-07T11:45:51.420148+00:00 app[web.1]: &gt; donation-web@1.0.0 start /app
+2016-08-07T11:45:51.420149+00:00 app[web.1]: &gt; node index
+2016-08-07T11:45:51.420150+00:00 app[web.1]:
+2016-08-07T11:45:52.419684+00:00 app[web.1]: Server listening at: http://1bee6dd6-e0a2-4b2a-81fe-9c6e9485bea3:48942
+2016-08-07T11:45:52.426600+00:00 app[web.1]: Mongoose disconnected
+2016-08-07T11:45:52.427543+00:00 app[web.1]: Mongoose connection error: MongoError: getaddrinfo ENOTFOUND undefined undefined:27017</code></pre>
+<p>We dont seem to be connecting to the database correctly.</p>
+<p>Looking at <code>db.js</code>, we can see the source of the problem.</p>
+<pre><code>var dbURI = &#39;mongodb://localhost/donation&#39;;
+if (process.env.NODE_ENV === &#39;production&#39;) {
+  dbURI = process.env.MONGOLAB_URI;
+}</code></pre>
+<p>The app is not connecting to the correct database. To fix this, we need to do two things:</p>
+<ul>
+<li>(1) Set the app to &#39;production&#39; mode</li>
+<li>(2) Set the string <code>MONGOLAB_URI</code> to our database on mongoLab</li>
+</ul>
+<h2>1: Enable production mode:</h2>
+<p>On the command line, in your app folder enter:</p>
+<pre><code>heroku config:set NODE_ENV=&quot;production&quot;</code></pre>
+<p>This should respond with:</p>
+<pre><code>Setting NODE_ENV and restarting ⬢ agile-depths-49364... done, v4
+NODE_ENV: production</code></pre>
+<h2>2: Setting the MongoLab connection string:</h2>
+<p>Also on the command line, in your app folder enter:</p>
+<pre><code>heroku config:set MONGOLAB_URI=mongodb://donationuser:donationuser@dsXXX.mlab.com:XXXX/donation</code></pre>
+<p>(use the string from your app in step 4)</p>
+<p>Now restart the app:</p>
+<pre><code>heroku restart</code></pre>
+<p>We should be able to fully exercise the application now. Keep an eye on the log window if you have it still open.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08">
+        <h1>Connecting Robomongo to the MongoLab (heroku) database</h1>
+<p>The database we are now using is on mongoLab- and it might be useful to be able to browse directly to it.</p>
+<p>We already have the connection string - for example something like this:</p>
+<pre><code>mongodb://heroku_4pt2zvkj:omev5e4sctvbiaa0i1t5cbstdj@ds011902.mlab.com:11902/heroku_4pt2zvkj</code></pre>
+<p>This encodes the following:</p>
+<ul>
+<li>address: ds011902.mlab.com</li>
+<li>port: 11902</li>
+<li>database: heroku_4pt2zvkj</li>
+<li>password: omev5e4sctvbiaa0i1t5cbstdj</li>
+</ul>
+<p>Extract the corresponding from your connection string and enter them in Robomongo &#39;New Connection&#39; panels:</p>
+<p><img src="img/01.png" alt="">
+<img src="img/02.png" alt=""></p>
+<p>If it works - you should be able to browse directly to the remote database:</p>
+<p><img src="img/03.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-10/commits/all">https://bitbucket.org/edeleastar/donation-web-10/commits/all</a></li>
+</ul>
+<p>In order to gain some practice with deployment, make a copy of your project into another folder and deploy it as a separate application on heroku from the app deployed on this lab.</p>
+<p>When you have duplicated the app - and before you start this lab again - delete the <code>.git</code> folder from the copy, as this lab assumes you are starting from a project not committed to git.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
