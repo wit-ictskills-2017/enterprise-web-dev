@@ -1,0 +1,713 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      11: Model Seeding
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-11 Seeding">
+      Lab-11 Seeding
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-11 Seeding">
+        <h1>Objectives</h1>
+<p>Include a mongoose seeder component in the application. Use this to validate a new Candidate model, preloading it with a json specified object graph.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Mongoose Seeder Utility</h1>
+<p>During development it can often aid productivity if we can devise some mechanism for populating our database easily. In particular, this will enable is to pre-load the database on startup, so we can proceed to explore various scenarios without having manually enter a range of sample data.</p>
+<p>This component here is a useful approach to this:</p>
+<ul>
+<li><a href="https://github.com/SamVerschueren/mongoose-seeder">https://github.com/SamVerschueren/mongoose-seeder</a></li>
+</ul>
+<p>Install the component into your app now:</p>
+<pre><code>npm install mongoose-seeder -save</code></pre>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;mongoose-seeder&quot;: &quot;^1.2.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+<p>Starting with a sample user + a donation:</p>
+<h2>app/models/data.json</h2>
+<pre><code>{
+  &quot;users&quot;: {
+    &quot;_model&quot;: &quot;User&quot;,
+    &quot;homer&quot;: {
+      &quot;firstName&quot;: &quot;Homer&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;homer@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    }
+  },
+  &quot;donations&quot;: {
+    &quot;_model&quot;: &quot;Donation&quot;,
+    &quot;one&quot;: {
+      &quot;amount&quot;: 40,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.homer&quot;
+    }
+  }
+}</code></pre>
+<p>Note how the relationship between a user and a donation is represented as <code>-&gt;users.homer</code> in this example.</p>
+<p>We can load this is <code>db.js</code>:</p>
+<h2>app/models/db.js</h2>
+<pre><code>mongoose.connection.on(&#39;connected&#39;, function () {
+  console.log(&#39;Mongoose connected to &#39; + dbURI);
+  if (process.env.NODE_ENV != &#39;production&#39;) {
+    var seeder = require(&#39;mongoose-seeder&#39;);
+    const data = require(&#39;./data.json&#39;);
+    const Donation = require(&#39;./donation&#39;);
+    const User = require(&#39;./user&#39;);
+    seeder.seed(data, { dropDatabase: false, dropCollections: true }).then(dbData =&gt; {
+      console.log(&#39;preloading Test Data&#39;);
+      console.log(dbData);
+    }).catch(err =&gt; {
+      console.log(error);
+    });
+  }
+});</code></pre>
+<p>Try this now. When you restart the app (running locally, not in production), it will delete the contents of the database and then populate with the two objects. Verify that the users and donations collections are as specified in the json file above.</p>
+<p>We are logging the preloaded objects in the console:</p>
+<pre><code>preloading Test Data
+{ users: 
+   { homer: 
+      { __v: 0,
+        firstName: &#39;Homer&#39;,
+        lastName: &#39;Simpson&#39;,
+        email: &#39;homer@simpson.com&#39;,
+        password: &#39;secret&#39;,
+        _id: 57a738e1edbdf4a41777d25b } },
+  donations: 
+   { one: 
+      { __v: 0,
+        amount: 40,
+        method: &#39;paypal&#39;,
+        donor: 57a738e1edbdf4a41777d25b,
+        _id: 57a738e1edbdf4a41777d25c } } }</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>More Preloaded Objects</h1>
+<p>A more extensive set of objects:</p>
+<h2>app/models/data.json</h2>
+<pre><code>{
+  &quot;users&quot;: {
+    &quot;_model&quot;: &quot;User&quot;,
+    &quot;homer&quot;: {
+      &quot;firstName&quot;: &quot;Homer&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;homer@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;marge&quot;: {
+      &quot;firstName&quot;: &quot;Marge&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;marge@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;bart&quot;: {
+      &quot;firstName&quot;: &quot;Bart&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;bart@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    }
+  },
+  &quot;donations&quot;: {
+    &quot;_model&quot;: &quot;Donation&quot;,
+    &quot;one&quot;: {
+      &quot;amount&quot;: 40,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.bart&quot;
+    },
+    &quot;two&quot;: {
+      &quot;amount&quot;: 90,
+      &quot;method&quot;: &quot;direct&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.marge&quot;
+    },
+    &quot;three&quot;: {
+      &quot;amount&quot;: 430,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.homer&quot;
+    }
+  }
+}</code></pre>
+<p>The position of the commas is very important here - as they are separators, not terminators. Try adding an extra comma after the last user object to get a feel for how the app will respond.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Introduce and Seed Candidate Model</h1>
+<p>With this seeding infrastructure in place, we can extend the application model more easily. First, we will introduce a new schema to represent a <code>Candidate</code> in our app:</p>
+<h2>app/models/candidate.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const mongoose = require(&#39;mongoose&#39;);
+
+const candidateSchema = mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  office: String,
+});
+
+const Candidate = mongoose.model(&#39;Candidate&#39;, candidateSchema);
+module.exports = Candidate;</code></pre>
+<p>Donations must reference the candidate the donation is intended for. We already reference the donor, so we extend the schema to refer to the candidate:</p>
+<h2>app/models/donation.js</h2>
+<pre><code>const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+  donor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: &#39;User&#39;,
+  },
+  candidate:  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: &#39;Candidate&#39;,
+  },
+});</code></pre>
+<p>When we define a new model, we must load it before attempting to seed the database:</p>
+<h2>app/models/db.js</h2>
+<pre><code>...
+    const Donation = require(&#39;./donation&#39;);
+    const User = require(&#39;./user&#39;);
+    const Candidate = require(&#39;./candidate.js&#39;);
+    seeder.seed(data, { dropDatabase: false, dropCollections: true }).then(dbData =&gt; {
+      console.log(&#39;preloading Test Data&#39;);
+      console.log(dbData);
+...</code></pre>
+<p>We can now seed this extended model:</p>
+<h2>app/models/data.json</h2>
+<pre><code>{
+  &quot;users&quot;: {
+    &quot;_model&quot;: &quot;User&quot;,
+    &quot;homer&quot;: {
+      &quot;firstName&quot;: &quot;Homer&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;homer@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;marge&quot;: {
+      &quot;firstName&quot;: &quot;Marge&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;marge@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;bart&quot;: {
+      &quot;firstName&quot;: &quot;Bart&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;bart@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    }
+  },
+  &quot;candidates&quot;: {
+    &quot;_model&quot;: &quot;Candidate&quot;,
+    &quot;lisa&quot;: {
+      &quot;firstName&quot;: &quot;Lisa&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    },
+    &quot;donald&quot;: {
+      &quot;firstName&quot;: &quot;Donald&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    }
+  },
+  &quot;donations&quot;: {
+    &quot;_model&quot;: &quot;Donation&quot;,
+    &quot;one&quot;: {
+      &quot;amount&quot;: 40,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.bart&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.lisa&quot;
+    },
+    &quot;two&quot;: {
+      &quot;amount&quot;: 90,
+      &quot;method&quot;: &quot;direct&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.marge&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.lisa&quot;
+    },
+    &quot;three&quot;: {
+      &quot;amount&quot;: 430,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.homer&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.donald&quot;
+    }
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Create Candidate Reference in Donation Object</h1>
+<p>One the home view, we should pass the list of candidates to the view to enable the user to select which candidate to make a donation to:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>const Candidate = require(&#39;../models/candidate&#39;);
+...</code></pre>
+<pre><code>exports.home = {
+
+  handler: function (request, reply) {
+    Candidate.find({}).then(candidates =&gt; {
+      reply.view(&#39;home&#39;, {
+        title: &#39;Make a Donation&#39;,
+        candidates: candidates,
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>In the donate partial = we can present the candidate list as a radio button sequence:</p>
+<h2>app/views/partials/donate.hbs</h2>
+<pre><code>&lt;div class=&quot;grouped inline fields&quot;&gt;
+  &lt;h3&gt; Select Candidate &lt;/h3&gt;
+  {{#each candidates }}
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;div class=&quot;ui radio checkbox&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;candidate&quot; value=&quot;{{lastName}},{{firstName}}&quot;&gt;
+        &lt;label&gt;{{lastName}}, {{firstName}}&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  {{/each}}
+&lt;/div&gt;
+&lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;</code></pre>
+<p>Creating a donation is more complex, as we have to locate the current user in the database, also locate the preferred candidate. Only when these two queries are performed can we create and insert a new donation object:</p>
+<h2>app/controllers/donations.js</h2>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    User.findOne({ email: userEmail }).then(user =&gt; {
+      let data = request.payload;
+      const donation = new Donation(data);
+      const rawCandidate = request.payload.candidate.split(&#39;,&#39;);
+      Candidate.findOne({
+        lastName: rawCandidate[0],
+        firstName: rawCandidate[1],
+      }).then(candidate =&gt; {
+        donation.donor = user._id;
+        donation.candidate = candidate._id;
+        donation.save().then(newDonation =&gt; {
+          reply.redirect(&#39;/report&#39;);
+        });
+      }).catch(err =&gt; {
+        reply.redirect(&#39;/&#39;);
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+};</code></pre>
+<p>Her is an alternative, less heavily nested version:</p>
+<pre><code>exports.donate = {
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    let userId = null;
+    let donation = null;
+    User.findOne({ email: userEmail }).then(user =&gt; {
+      let data = request.payload;
+      userId = user._id;
+      donation = new Donation(data);
+      const rawCandidate = request.payload.candidate.split(&#39;,&#39;);
+      return Candidate.findOne({ lastName: rawCandidate[0], firstName: rawCandidate[1] });
+    }).then(candidate =&gt; {
+      donation.donor = userId;
+      donation.candidate = candidate._id;
+      return donation.save();
+    }).then(newDonation =&gt; {
+      reply.redirect(&#39;/report&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+};</code></pre>
+<p>Compare the above to versions, paying close attention to how the scoping rules operate, requiring additional temporary variables. However, the second version has simpler error handling.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Render Candidates in Report View</h1>
+<p>The donationList partial will need an extra column to hold the candidate:</p>
+<h2>app/views/partials/donationlist.hbs</h2>
+<pre><code>&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Amount&lt;/th&gt;
+    &lt;th&gt;Method donated&lt;/th&gt;
+    &lt;th&gt;Donor&lt;/th&gt;
+    &lt;th&gt;Candidate&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  {{#each donations}}
+    &lt;tr&gt;
+      &lt;td&gt; {{amount}} &lt;/td&gt;
+      &lt;td&gt; {{method}} &lt;/td&gt;
+      &lt;td&gt; {{donor.firstName}} {{donor.lastName}} &lt;/td&gt;
+      &lt;td&gt; {{candidate.lastName}}, {{candidate.firstName}} &lt;/td&gt;
+    &lt;/tr&gt;
+  {{/each}}</code></pre>
+<p>Finally, the report handler will need to populate the <code>canddiate</code> field in the database:</p>
+<h2>app/controllers/donation.js</h2>
+<pre><code>exports.report = {
+
+  handler: function (request, reply) {
+    Donation.find({}).populate(&#39;donor&#39;).populate(&#39;candidate&#39;).then(allDonations =&gt; {
+      reply.view(&#39;report&#39;, {
+        title: &#39;Donations to Date&#39;,
+        donations: allDonations,
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<p>This should work now as expected.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-10/commits/all">https://bitbucket.org/edeleastar/donation-web-10/commits/all</a></li>
+</ul>
+<h2>Exercise 1:</h2>
+<p>Change the donate screen such that users can donate any amount and not just 50, 100, 1000 multiples. For example:</p>
+<p><img src="img/01.png" alt=""></p>
+<h2>Exercise 2:</h2>
+<p>Modify the report view to display total donated so far:</p>
+<p><img src="img/02.png" alt=""></p>
+<h2>Exercise 3:</h2>
+<p>Incorporate validation into the donate view:</p>
+<p><img src="img/03.png" alt=""></p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
