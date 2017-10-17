@@ -1,0 +1,959 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      12: APIs
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-12 Apis">
+      Lab-12 Apis
+    </a>
+    
+    <a class="item" data-tab="Lab-11-Exercises">
+      Lab-11-Exercises
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="08">
+      08
+    </a>
+    
+    <a class="item" data-tab="09">
+      09
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-12 Apis">
+        <h1>Objectives</h1>
+<p>Start the development of an API for the donation service, focusing initially on providing access to the Candidates model. Implement the API using simple REST principles.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-11-Exercises">
+        <h1>Lab 11 Exercise Solutions</h1>
+<h2>Exercise 1:</h2>
+<p>Change the donate screen such that users can donate any amount and not just 50, 100, 1000 multiples. For example:</p>
+<p><img src="img/01x.png" alt=""></p>
+<h2>app/views/partials/donate.hbs</h2>
+<h2>Exercise 1 Solution</h2>
+<p>Replace the drop down in <code>donate.hbs</code>:</p>
+<pre><code>          &lt;div class=&quot;ui dropdown&quot; name=&quot;amount&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;amount&quot;&gt;
+            &lt;div class=&quot;text&quot;&gt;Select Amount&lt;/div&gt;
+            &lt;i class=&quot;ui dropdown icon&quot;&gt;&lt;/i&gt;
+            &lt;div class=&quot;menu&quot;&gt;
+              &lt;div class=&quot;item&quot;&gt;50&lt;/div&gt;
+              &lt;div class=&quot;item&quot;&gt;100&lt;/div&gt;
+              &lt;div class=&quot;item&quot;&gt;1000&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;</code></pre>
+<p>...with an input field:</p>
+<pre><code>          &lt;div class=&quot;grouped inline fields&quot;&gt;
+            &lt;h3&gt; Enter Amount &lt;/h3&gt;
+            &lt;div class=&quot;field&quot;&gt;
+              &lt;label&gt;Amount&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;amount&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;</code></pre>
+<p>Replace the </p>
+<h2>Exercise 2:</h2>
+<p>Modify the report view to display total donated so far:</p>
+<p><img src="img/02x.png" alt=""></p>
+<h2>Exercise 2 Solution</h2>
+<h2>app/views/partials/donationlist.hbs</h2>
+<p>Incorporate a new footer element in <code>donationlist.hbs</code> after the closing <code>&lt;tbody&gt;</code> tag:</p>
+<pre><code>        &lt;tfoot&gt;
+          &lt;tr&gt;
+            &lt;th&gt;{{total}}&lt;/th&gt;
+            &lt;th&gt;Total&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/tfoot&gt;</code></pre>
+<h2>app/controllers/donations.js</h2>
+<p>Rework the report route to also render the total to the view:</p>
+<pre><code>exports.report = {
+
+  handler: function (request, reply) {
+    Donation.find({}).populate(&#39;donor&#39;).populate(&#39;candidate&#39;).then(allDonations =&gt; {
+      let total = 0;
+      allDonations.forEach(donation =&gt; {
+        total += donation.amount;
+      });
+      reply.view(&#39;report&#39;, {
+        title: &#39;Donations to Date&#39;,
+        donations: allDonations,
+        total: total,
+      });
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+<h2>Exercise 3:</h2>
+<p>Incorporate validation into the donate view:</p>
+<p><img src="img/03x.png" alt=""></p>
+<p>Exercise 3 Solution:</p>
+<h2>app/controllers/donations.js</h2>
+<p>Reimplement the donate route handler as follows:</p>
+<pre><code>exports.donate = {
+
+  validate: {
+
+    payload: {
+      amount: Joi.number().required(),
+      method: Joi.string().required(),
+      candidate: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+
+    failAction: function (request, reply, source, error) {
+      Candidate.find({}).then(candidates =&gt; {
+        reply.view(&#39;home&#39;, {
+          title: &#39;Invalid Donation&#39;,
+          candidates: candidates,
+          errors: error.data.details,
+        }).code(400);
+      }).catch(err =&gt; {
+        reply.redirect(&#39;/&#39;);
+      });
+    },
+  },
+
+  handler: function (request, reply) {
+    var userEmail = request.auth.credentials.loggedInUser;
+    let userId = null;
+    let donation = null;
+    User.findOne({ email: userEmail }).then(user =&gt; {
+      let data = request.payload;
+      userId = user._id;
+      donation = new Donation(data);
+      const rawCandidate = request.payload.candidate.split(&#39;,&#39;);
+      return Candidate.findOne({ lastName: rawCandidate[0], firstName: rawCandidate[1] });
+    }).then(candidate =&gt; {
+      donation.donor = userId;
+      donation.candidate = candidate._id;
+      return donation.save();
+    }).then(newDonation =&gt; {
+      reply.redirect(&#39;/report&#39;);
+    }).catch(err =&gt; {
+      reply.redirect(&#39;/&#39;);
+    });
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Error Reporting : Boom</h1>
+<p>As we move to developing an API for our donation-web service, we will make use of the following library:</p>
+<ul>
+<li><a href="https://github.com/hapijs/boom">https://github.com/hapijs/boom</a></li>
+</ul>
+<p>This will simplify reporting http errors to our clients. Install in the usual way:</p>
+<pre><code>npm install boom -save</code></pre>
+<h2>package.json</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;boom&quot;: &quot;^3.2.2&quot;,
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;mongoose-seeder&quot;: &quot;^1.2.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>First Simple API Endpoint: Get All Candidates</h1>
+<p>Introduce a new folder inside app called <code>api</code>, and place the following module in that folder:</p>
+<h2>app/api/candidatesapi.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const Candidate = require(&#39;../models/candidate&#39;);
+const Boom = require(&#39;boom&#39;);
+
+exports.find = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.find({}).exec().then(candidates =&gt; {
+      reply(candidates);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error accessing db&#39;));
+    });
+  },
+
+};</code></pre>
+<p>This handler returns all candidates, or a standard error message. Note that we have set no authentication:</p>
+<pre><code>  auth: false,</code></pre>
+<p>... which means that this call is open, and is not guarded by the session based authentication currently set as the default for our application.</p>
+<h2>routesapi.js</h2>
+<p>We new include a new routes file specifically to service the API routes:</p>
+<pre><code>const CandidatesApi = require(&#39;./app/api/candidatesapi&#39;);
+
+module.exports = [
+  { method: &#39;GET&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.find },
+];</code></pre>
+<p>Place this in the root of the project, which should look like this now:</p>
+<p><img src="img/04x.png" alt=""></p>
+<h2>index.js</h2>
+<p>Finally, we need to include this route into the application server - this is in <code>index.js</code> - we can add it after the inclusion of the UI routes we have created so far::</p>
+<pre><code>  server.route(require(&#39;./routes&#39;));
+  server.route(require(&#39;./routesapi&#39;));</code></pre>
+<p>We can run the app now, and verify that the route can be accessed:</p>
+<ul>
+<li><a href="http://localhost:4000/api/candidates">http://localhost:4000/api/candidates</a></li>
+</ul>
+<p><img src="img/01.png" alt=""></p>
+<p>We also can see the seeded objects in the webstorm console:</p>
+<p><img src="img/02.png" alt=""></p>
+<p>Note that these objects (including ids) should be identical.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Get Candidate Endpoint</h1>
+<p>The first endpoint we have just implemented retrieves all candidates. We can also introduce a route to retrieve a single candidate:</p>
+<h2>routesapi.js</h2>
+<pre><code>  { method: &#39;GET&#39;, path: &#39;/api/candidates/{id}&#39;, config: CandidatesApi.findOne },</code></pre>
+<h2>app/api/candidatesapi.js</h2>
+<pre><code>exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.findOne({ _id: request.params.id }).then(candidate =&gt; {
+      reply(candidate);
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+}</code></pre>
+<p>In order to retrieve the candidate, we will need the ID for the candidate of interest:</p>
+<ul>
+<li><a href="http://localhost:4000/api/candidates/57b6bbd3a11377b03d31da0a">http://localhost:4000/api/candidates/57b6bbd3a11377b03d31da0a</a></li>
+</ul>
+<p><img src="img/05x.png" alt=""></p>
+<p>The Id changes every time we launch the application, as our database seeder clears all collections each time.</p>
+<p>If we specify an unknown id, Boom will generate the appropriate error:</p>
+<p><img src="img/06x.png" alt=""></p>
+<p>Note also, that if we use an incorrect route - for instance:</p>
+<ul>
+<li><a href="http://localhost:4000/candidates">http://localhost:4000/candidates</a></li>
+</ul>
+<p>We also get the standard 404 error:</p>
+<p><img src="img/07x.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Testing the Endpoints: Postman</h1>
+<p>Using a browser to retrieve and verify the behaviour of api endpoints is a useful sanity check, but not viable as our endpoints become more sophisticated.</p>
+<p>This is a popular tool for exercising these endpoints:</p>
+<ul>
+<li><a href="https://www.getpostman.com/">https://www.getpostman.com/</a></li>
+</ul>
+<p>Install the standalone version now. We will make use of it occasionally as we devise more interesting api endpoints:</p>
+<p>Build some request now for one of our endpoints:</p>
+<p><img src="img/08x.png" alt=""></p>
+<p>You can save and organise requests into collections:</p>
+<p><img src="img/10x.png" alt=""></p>
+<p>This can be useful for exercising more complex APIs</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Testing the Endpoints: TDD Tools</h1>
+<p>Although Postman is useful for exploratory development, developing APIs requires a more robust testing strategy. This is the realm of Test Driven Development:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Test-driven_development">https://en.wikipedia.org/wiki/Test-driven_development</a></li>
+</ul>
+<p>Facilitated by specialized tools and techniques. The most fundamental set of tools are based around the so-called <code>X-Unit</code> pattern:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/XUnit">https://en.wikipedia.org/wiki/XUnit</a></li>
+</ul>
+<p>We are going to use these two X-Unit related tools:</p>
+<ul>
+<li><a href="https://mochajs.org/">https://mochajs.org/</a></li>
+<li><a href="http://chaijs.com/">http://chaijs.com/</a></li>
+</ul>
+<p>To use these tools, we need install both extensions to our WebStorm IDE and also the appropriate javascript libraries.</p>
+<p>Mocha support should already be part of your WebStorm installation:</p>
+<p><img src="img/11x.png" alt=""></p>
+<p>We will explore this in a moment.</p>
+<p>To make use of TDD in our app, we need to instal the mocha and chai modules:</p>
+<pre><code>npm install mocha -save-dev
+npm install chai -save-dev</code></pre>
+<p>Node the <code>-save-dev</code> switch. This establishes the libraries as development, not production, libraries - required only for dev/test purposes. </p>
+<p>Package.json includes these references in a separate section:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;boom&quot;: &quot;^3.2.2&quot;,
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;mongoose-seeder&quot;: &quot;^1.2.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;chai&quot;: &quot;^3.5.0&quot;,
+    &quot;mocha&quot;: &quot;^3.0.2&quot;
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>First Simple Test</h1>
+<p>Create a new folder in your project called <code>test</code> and create <code>candidateapitest.js</code> module:</p>
+<p><img src="img/12x.png" alt=""></p>
+<h2>test/candidateapitest.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const assert = require(&#39;chai&#39;).assert;
+
+suite(&#39;Candidate API tests&#39;, function () {
+
+  test(&#39;get candidates&#39;, function () {
+
+    assert.equal(1, 1);
+
+  });
+});</code></pre>
+<p>This is a simple test, guaranteed to succeed. </p>
+<p>In order to run it, select the file and select run from the context menu. We should see the built in Mocha test runner:</p>
+<p><img src="img/13x.png" alt=""></p>
+<p>If your WebStorm installation does not auto generate the above run configuration, you may need to manually establish a run configuration in the IDE:</p>
+<p><img src="img/14x.png" alt=""></p>
+<p>In order to gain familiarity with the Mochal test runner, change the assert to be guaranteed to fail:</p>
+<pre><code>    assert.equal(1, 1);</code></pre>
+<p>Now rerun the test - this is how test failures are reported:</p>
+<p><img src="img/15x.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08">
+        <h1>First Mocha API Test</h1>
+<p>We can now compose a test, entirely in javascript, to exercise the api we have just created.</p>
+<p>First, we will make use of a module to encapsulate http requests:</p>
+<ul>
+<li><a href="https://github.com/ForbesLindesay/sync-request">https://github.com/ForbesLindesay/sync-request</a></li>
+</ul>
+<p>Note the health warning here - this library is of test purposes only. It is <code>synchronous</code> as opposed to <code>asynchronous</code>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)</a></li>
+</ul>
+<p>However, the synchronous approach of this library significantly simplifies unit test composition, so we will make use of it.</p>
+<p>Install it as a development dependency:</p>
+<pre><code>npm install sync-request -save-dev</code></pre>
+<h2>pachage.json</h2>
+<pre><code>{
+  &quot;name&quot;: &quot;donation-web&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;an application to host donations for candidates&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;boom&quot;: &quot;^3.2.2&quot;,
+    &quot;handlebars&quot;: &quot;^4.0.5&quot;,
+    &quot;hapi&quot;: &quot;^14.1.0&quot;,
+    &quot;hapi-auth-cookie&quot;: &quot;^6.1.1&quot;,
+    &quot;inert&quot;: &quot;^4.0.1&quot;,
+    &quot;joi&quot;: &quot;^9.0.4&quot;,
+    &quot;mongoose&quot;: &quot;^4.5.8&quot;,
+    &quot;mongoose-seeder&quot;: &quot;^1.2.1&quot;,
+    &quot;vision&quot;: &quot;^4.1.0&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;chai&quot;: &quot;^3.5.0&quot;,
+    &quot;mocha&quot;: &quot;^3.0.2&quot;,
+    &quot;sync-request&quot;: &quot;^3.0.1&quot;
+  }
+}</code></pre>
+<p>Here is a revised version of the first test suite:</p>
+<h2>test/candidateapitest.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const assert = require(&#39;chai&#39;).assert;
+var request = require(&#39;sync-request&#39;);
+
+suite(&#39;Candidate API tests&#39;, function () {
+
+  test(&#39;get candidates&#39;, function () {
+
+    const url = &#39;http://localhost:4000/api/candidates&#39;;
+    var res = request(&#39;GET&#39;, url);
+    console.log(JSON.parse(res.getBody(&#39;utf8&#39;)));
+
+  });
+});</code></pre>
+<p>Running the test will echo the returned candidates:</p>
+<p><img src="img/16x.png" alt=""></p>
+<p>All tests should have assertions, and rarely would we make use of the console. Replace the test body with the following:</p>
+<pre><code>    const url = &#39;http://localhost:4000/api/candidates&#39;;
+    var res = request(&#39;GET&#39;, url);
+    const candidates = JSON.parse(res.getBody(&#39;utf8&#39;));
+    assert.equal(2, candidates.length);</code></pre>
+<p>How do we know there are exactly two candidates? Recall that we seeded the database with the contents of <code>app/models/initdata.json</code></p>
+<pre><code>{
+  &quot;users&quot;: {
+    &quot;_model&quot;: &quot;User&quot;,
+    &quot;homer&quot;: {
+      &quot;firstName&quot;: &quot;Homer&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;homer@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;marge&quot;: {
+      &quot;firstName&quot;: &quot;Marge&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;marge@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    &quot;bart&quot;: {
+      &quot;firstName&quot;: &quot;Bart&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;bart@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    }
+  },
+  &quot;candidates&quot;: {
+    &quot;_model&quot;: &quot;Candidate&quot;,
+    &quot;lisa&quot;: {
+      &quot;firstName&quot;: &quot;Lisa&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    },
+    &quot;donald&quot;: {
+      &quot;firstName&quot;: &quot;Donald&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    }
+  },
+  &quot;donations&quot;: {
+    &quot;_model&quot;: &quot;Donation&quot;,
+    &quot;one&quot;: {
+      &quot;amount&quot;: 40,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.bart&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.lisa&quot;
+    },
+    &quot;two&quot;: {
+      &quot;amount&quot;: 90,
+      &quot;method&quot;: &quot;direct&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.marge&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.lisa&quot;
+    },
+    &quot;three&quot;: {
+      &quot;amount&quot;: 430,
+      &quot;method&quot;: &quot;paypal&quot;,
+      &quot;donor&quot;: &quot;-&gt;users.homer&quot;,
+      &quot;candidate&quot;: &quot;-&gt;candidates.donald&quot;
+    }
+  }
+}</code></pre>
+<p>We can extend the test to make sure we actually retrieve the candidates as specified in the above data set:</p>
+<pre><code>  test(&#39;get candidates&#39;, function () {
+
+    const url = &#39;http://localhost:4000/api/candidates&#39;;
+    var res = request(&#39;GET&#39;, url);
+    const candidates = JSON.parse(res.getBody(&#39;utf8&#39;));
+
+    assert.equal(2, candidates.length);
+
+    assert.equal(candidates[0].firstName, &#39;Lisa&#39;);
+    assert.equal(candidates[0].lastName, &#39;Simpson&#39;);
+    assert.equal(candidates[0].office, &#39;President&#39;);
+
+    assert.equal(candidates[1].firstName, &#39;Donald&#39;);
+    assert.equal(candidates[1].lastName, &#39;Simpson&#39;);
+    assert.equal(candidates[1].office, &#39;President&#39;);
+
+  });</code></pre>
+<p>This test should pass.</p>
+<p>Testing our second route involves a little more work, as we have to request a single candidate by an ID. We get this ID from the request for all candidates.</p>
+<p>This new test demonstrates the technique:</p>
+<pre><code>  test(&#39;get one candidate&#39;, function () {
+
+    const allCandidatesUrl = &#39;http://localhost:4000/api/candidates&#39;;
+    var res = request(&#39;GET&#39;, allCandidatesUrl);
+    const candidates = JSON.parse(res.getBody(&#39;utf8&#39;));
+
+    const oneCandidateUrl = allCandidatesUrl + &#39;/&#39; + candidates[0]._id;
+    res = request(&#39;GET&#39;, oneCandidateUrl);
+    const oneCandidate = JSON.parse(res.getBody(&#39;utf8&#39;));
+
+    assert.equal(oneCandidate.firstName, &#39;Lisa&#39;);
+    assert.equal(oneCandidate.lastName, &#39;Simpson&#39;);
+    assert.equal(oneCandidate.office, &#39;President&#39;);
+
+  });</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="09">
+        <h1>Create and Delete Candidate Endpoints</h1>
+<p>We can also define a routes to update the candidates collection:</p>
+<h2>routesapi.js</h2>
+<pre><code>  { method: &#39;POST&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.create },
+  { method: &#39;DELETE&#39;, path: &#39;/api/candidates/{id}&#39;, config: CandidatesApi.deleteOne },
+  { method: &#39;DELETE&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.deleteAll },</code></pre>
+<ul>
+<li>The first route will be used to create a single candidate</li>
+<li>The second route delete a single candidate (d must be provided)</li>
+<li>The third route deletes all candidates</li>
+</ul>
+<p>These are the implementations of the handlers for these routes:</p>
+<h2> </h2>
+<pre><code>exports.create = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    const candidate = new Candidate(request.payload);
+    candidate.save().then(newCandidate =&gt; {
+      reply(newCandidate).code(201);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error creating candidate&#39;));
+    });
+  },
+
+};
+
+exports.deleteAll = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.remove({}).then(err =&gt; {
+      reply().code(204);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error removing candidates&#39;));
+    });
+  },
+
+};
+
+exports.deleteOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.remove({ _id: request.params.id }).then(candidate =&gt; {
+      reply(candidate).code(204);
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};</code></pre>
+<p>These routes cannot be considered complete until a set of tests verify their operation.</p>
+<p>Here is a test to verify operation of the Create Candidate route:</p>
+<pre><code>  test(&#39;creat a candidate&#39;, function () {
+
+    const candidatesUrl = &#39;http://localhost:4000/api/candidates&#39;;
+    const newCandidate = {
+      firstName: &#39;Barnie&#39;,
+      lastName: &#39;Grumble&#39;,
+      office: &#39;President&#39;,
+    };
+
+    const res = request(&#39;POST&#39;, candidatesUrl, { json: newCandidate });
+    const returnedCandidate = JSON.parse(res.getBody(&#39;utf8&#39;));
+
+    assert.equal(returnedCandidate.firstName, &#39;Barnie&#39;);
+    assert.equal(returnedCandidate.lastName, &#39;Grumble&#39;);
+    assert.equal(returnedCandidate.office, &#39;President&#39;);
+
+  });</code></pre>
+<p>Note how to invoke a <code>POST</code> route using our sync-request library:</p>
+<pre><code>   const newCandidate = {
+      firstName: &#39;Barnie&#39;,
+      lastName: &#39;Grumble&#39;,
+      office: &#39;President&#39;,
+    };
+
+    const res = request(&#39;POST&#39;, candidatesUrl, { json: newCandidate });</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the project so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-11/commits/all">https://bitbucket.org/edeleastar/donation-web-11/commits/all</a></li>
+</ul>
+<h2>Exercise 1 : Additional Unit Tests</h2>
+<p>Write tests for the untested endpoints:</p>
+<ul>
+<li>delete a singe candidate</li>
+<li>delete all candidates</li>
+</ul>
+<h2>Exercise 2: Postman</h2>
+<p>Postman can be used to test these new <code>POST</code> and <code>DELETE</code>routes. Try to figure out how to do this.</p>
+<p>HINT: Below is an example of a successful create candidate endpoint request:</p>
+<p><img src="img/17x.png" alt=""></p>
+<h2>Exercise 3: User Endpoints</h2>
+<p>Using this lab as a guide, develop a set of endpoints for the users collection, including:</p>
+<ul>
+<li>get all users</li>
+<li>create a user</li>
+<li>delete a user</li>
+<li>delete all users</li>
+</ul>
+<p>Also implement tests to verify the endpoints work as expected.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
