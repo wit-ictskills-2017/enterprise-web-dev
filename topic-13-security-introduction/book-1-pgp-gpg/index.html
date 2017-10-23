@@ -120,12 +120,12 @@ body
   </header>
   <div class="right tab-menu menu">
     
-    <a class="item" data-tab="GPG-Introduction">
-      GPG-Introduction
+    <a class="item" data-tab="Lab-13 GPG">
+      Lab-13 GPG
     </a>
     
-    <a class="item" data-tab="1">
-      1
+    <a class="item" data-tab="1-Intro">
+      1-Intro
     </a>
     
     <a class="item" data-tab="2">
@@ -150,6 +150,10 @@ body
     
     <a class="item" data-tab="7">
       7
+    </a>
+    
+    <a class="item" data-tab="8">
+      8
     </a>
     
     <div class="item">
@@ -242,7 +246,13 @@ body
     
       
         <a class="active item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
-          GPG-Introduction
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
         </a>
       
     
@@ -251,7 +261,13 @@ body
     <div class="ui basic segment" id="labchat">
       <br>
       
-      <div  class="ui tab segment lab" data-tab="GPG-Introduction">
+      <div  class="ui tab segment lab" data-tab="Lab-13 GPG">
+        <h1>Objectives</h1>
+<p>Use a cryptographic application to manage keys and carry out encryption and authentication exercises</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="1-Intro">
         <h1>Pretty Good Privacy (PGP) / Gnu Privacy Guard (GPG)</h1>
 <p>PGP/GPG provides a confidentiality and authentication service that can be used for storage and messaging applications. In this practical exercise, we will use some of the basic features of an application to do the following:</p>
 <ul>
@@ -279,7 +295,7 @@ body
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="1">
+      <div  class="ui tab segment lab" data-tab="2">
         <h2>1. Installation</h2>
 <p>If using Windows, before starting, change your settings to <a href="http://kb.winzip.com/kb/entry/26/">make file extensions viewable</a>. This is not essential, but makes it easier to distinguish between files that are encrypted and those that are not.</p>
 <p>Locate and install a fresh version of GPG (or PGP) for your operating system of choice.  Recommendations:</p>
@@ -288,14 +304,14 @@ body
 <li>MacOS: <a href="https://gpgtools.org/">GPG Suite</a>  -or- gpg / gpg2 terminal commands</li>
 <li>Linux: Kleopatra (on Ubuntu: &#39;sudo apt install kleopatra&#39;) -or- gpg / gpg2 terminal commands</li>
 </ul>
-<p>The remainder of these lab instructions assume that you are working with <a href="https://www.gpg4win.org/download.html">Gpg4win</a> on Windows, although they are fairly easily adaptable to MacOS or Linux.  Step 5 explains how to do all the steps of this lab at the command line.</p>
+<p>The remainder of these lab instructions assume that you are working with <a href="https://www.gpg4win.org/download.html">Gpg4win</a> on Windows, although they are fairly easily adaptable to MacOS or Linux.  Step 6 explains how to do all the steps of this lab at the command line.</p>
 <p>Install Gpg4win by double-clicking on the downloaded file (gpg4win-3.0.0.exe).  When asked to choose components, ensure that <em>Kleopatra</em> and <em>GpgEX</em> are checked. Uncheck <em>GpgOL</em>. 
 <img src="img/gpg4win-components.png" alt="Gpg4win components"></p>
 <p>You may choose the default install location at the next step.</p>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="2">
+      <div  class="ui tab segment lab" data-tab="3">
         <h2>2. Key Generation, Management &amp; Exchange</h2>
 <ul>
 <li><p>Launch the Kleopatra application. This is the GUI for GPG. 
@@ -316,13 +332,13 @@ body
 </li>
 <li><p>Import the public key certificate(s) provided to you by your classmate(s). With Kleopatra you can just drag the file into the main pane.  You will be prompted to certify that this is <em>really</em> their key - one way to check this is to verify the key certificate&#39;s cryptographic hash with the key owner.  In the next step it is sufficient to certify for yourself for now.  You are <em>signing</em> the key certificate being imported to declare your belief that it genuinely belongs to the named owner.  As the signing process requires your own private key, you are prompted for your passphrase. </p>
 </li>
-<li><p>Have a look at the public keys exchanged.  Find some PGP/GPG public keys online, either posted on people’s web pages or on specialist key servers – e.g. <a href="https://pgp.mit.edu/">https://pgp.mit.edu/</a>. You should be able to find my public key there. Import these into your GPG installation. Beware that there may be fake keys out there...</p>
+<li><p>Have a look at the public keys exchanged.  Find some PGP/GPG public keys online, either posted on people’s web pages or on specialist key servers – e.g. <a href="https://pgp.mit.edu/">https://pgp.mit.edu/</a>. You should be able to find my public key there or you can <a href="archive/JimmyMcGibney_public_key.txt">copy it directly from here</a>. Import these into your GPG installation. Beware that there may be fake keys out there...</p>
 </li>
 </ul>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="3">
+      <div  class="ui tab segment lab" data-tab="4">
         <h2>3. Sharing encrypted files</h2>
 <p><em>Note: When you encrypt a file to give to someone else, you do so with their public key. When you decrypt a file, you do so with your private key.</em></p>
 <ul>
@@ -339,7 +355,7 @@ body
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="4">
+      <div  class="ui tab segment lab" data-tab="5">
         <h2>4. Authenticating files</h2>
 <p><em>Note: When you verify someone else’s signed file, you do so with their public key. When you sign a file, you do so with your private key.</em></p>
 <ul>
@@ -352,9 +368,9 @@ body
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="5">
+      <div  class="ui tab segment lab" data-tab="6">
         <h2>5. Command-line GPG – <em>optional</em></h2>
-<p><em>You may optionally skip this step if you have used a GPG or PGP GUI application and proceed to step 6.</em></p>
+<p><em>You may optionally skip this step if you have used a GPG or PGP GUI application and proceed to step 7.</em></p>
 <p>Command-line GPG is included in many Linux distributions (e.g. Ubuntu) and versions for other operating systems can be downloaded from <a href="http://www.gnupg.org/download/">http://www.gnupg.org/download/</a>. The instructions below are based on command-line usage on Linux. </p>
 <p>As with most Linux commands, you can get a full list of usage options by entering:</p>
 <pre><code>man gpg</code></pre>
@@ -379,7 +395,7 @@ gpg --verify [File]                     #verify</code></pre>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="6">
+      <div  class="ui tab segment lab" data-tab="7">
         <h2>6. Upload to Moodle</h2>
 <p>Create and upload to moodle a zip file called <em>GPG-yourfirstname-lastname.zip</em> to contain the following four files:</p>
 <ul>
@@ -401,14 +417,14 @@ Before signing, the file should be named <em>yourfirstname-lastname-answer.txt</
 </li>
 <li><p>(4) An encrypted file</p>
 <ul>
-<li>A file encrypted so that only I (J McGibney) can read it. Before encryption, this file should be named <em>yourfirstname-lastname-secret.txt</em>.  This file can contain any text at all.  </li>
+<li>A file encrypted so that only I (J McGibney) can read it. Before encryption, this file should be named <em>yourfirstname-lastname-secret.txt</em>.  This file can contain any text at all.  You can find <a href="archive/JimmyMcGibney_public_key.txt">my public key here</a></li>
 </ul>
 </li>
 </ul>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="7">
+      <div  class="ui tab segment lab" data-tab="8">
         <h2>7. Further Exploration</h2>
 <p>Explore the PGP application further. Experiment with certifying other people’s keys. Also experiment with trusting others’ keys (by changing <em>Certification Trust</em> settings). </p>
 

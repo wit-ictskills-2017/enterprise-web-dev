@@ -1,0 +1,576 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      14: Foundations of security
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-14 OpenSSL and Certificates">
+      Lab-14 OpenSSL and Certificates
+    </a>
+    
+    <a class="item" data-tab="1-Intro">
+      1-Intro
+    </a>
+    
+    <a class="item" data-tab="2">
+      2
+    </a>
+    
+    <a class="item" data-tab="3">
+      3
+    </a>
+    
+    <a class="item" data-tab="4">
+      4
+    </a>
+    
+    <a class="item" data-tab="5">
+      5
+    </a>
+    
+    <a class="item" data-tab="6">
+      6
+    </a>
+    
+    <a class="item" data-tab="7">
+      7
+    </a>
+    
+    <a class="item" data-tab="8">
+      8
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-14 OpenSSL and Certificates">
+        <h1>Objectives</h1>
+<p>Use OpenSSL for key generation, encryption, authentication and digital certificate issuance</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="1-Intro">
+        <h1>OpenSSL</h1>
+<p>OpenSSL is an open source cryptographic toolkit that implements SSL/TLS. Tools are available to carry out key generation and storage, encryption and authentication with a selection of the most widely used algorithms, the creation and management of digital certificates, and various other related activities.</p>
+<p>OpenSSL is available from <a href="http://www.openssl.org/"><a href="http://www.openssl.org/">http://www.openssl.org/</a></a>. OpenSSL tools are available at the command line and as an API. We will use the command-line OpenSSL tools in this exercise.</p>
+<p>OpenSSL comes pre-installed with most versions of Linux and MacOS. To use it, you just need to enter the <em>openssl</em> command in a terminal. You may use an Amazon instance or your local machine.
+Linux is recommended for OpenSSL but, if you prefer to work in Microsoft Windows, there is a <a href="http://slproweb.com/products/Win32OpenSSL.html">Windows version</a> </p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="2">
+        <h2>OpenSSL Interactive mode</h2>
+<p>With OpenSSL, by entering the <em>openssl</em> command (with no option or arguments), the tool enters “interactive” mode; a prompt indicates that the program is ready to process standard openssl commands. Entering:</p>
+<pre><code>openssl</code></pre>
+<p>gives a prompt that looks like this:</p>
+<pre><code>OpenSSL &gt;</code></pre>
+<p>When the execution of a command is completed, the prompt reappears, indicating that the tools is ready to execute another openssl command. OpenSSL commands can be followed by zero or more options, depending on the command and how it is used. </p>
+<p>You can exit from the command-line tool by executing: </p>
+<pre><code>OpenSSL &gt; quit</code></pre>
+<p>You can see what version of OpenSSL is installed by going back into interactive mode and entering:</p>
+<pre><code>OpenSSL &gt; version</code></pre>
+<pre>
+&nbsp;OpenSSL 1.0.2g  1 Mar 2016
+</pre>
+
+<p>You can get a list of OpenSSL commands by entering any invalid command, or by reading the online <a href="https://www.openssl.org/docs/manpages.html">OpenSSL documentation online</a>.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="3">
+        <h2>OpenSSL Batch mode</h2>
+<p>Alternatively you can execute OpenSSL commands directly from the Linux prompt using the general command format:</p>
+<pre><code>openssl command [options]</code></pre>
+<p>Depending on the command, there may be zero or more options. For example, you could enter:</p>
+<pre><code>openssl version</code></pre>
+<pre>
+&nbsp;OpenSSL 1.0.2g  1 Mar 2016
+</pre>
+
+<p>We will use <em>Batch mode</em> in this exercise.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="4">
+        <h1>Symmetric Encryption</h1>
+<h2>Key generation</h2>
+<ul>
+<li><p>Launch Linux or other environment that has OpenSSL installed and start a terminal session.</p>
+</li>
+<li><p>Create a new folder and navigate into that folder (using the cd command).</p>
+</li>
+<li><p>Generate random numbers of various lengths to be used as encryption keys for various symmetric algorithms. What key length do you need for DES? AES?  Set things up for at least three different symmetric algorithms (look at the OpenSSL documentation to find another algorithm besides DES and AES). To generate a 128-bit key for example, enter the following:</p>
+<pre><code>openssl rand -out key1 16           # 128 bits is 16 bytes</code></pre>
+</li>
+</ul>
+<h2>Encryption</h2>
+<ul>
+<li><p>Create a new text file with some plaintext as its body e.g. “The quick brown fox jumped over the lazy dog”. Save this file in the folder you created.  Choose a file name containing something like “plaintext” or “unencrypted” – e.g. plaintext.txt</p>
+</li>
+<li><p>Encrypt the plaintext file using each of the three algorithms chosen, for example:</p>
+<pre><code>openssl enc -aes-128-cbc -e -kfile key1 -in plaintext.txt -out ciphertext_aes.bin
+openssl enc -des -e -kfile key2 -in plaintext.txt -out ciphertext_des.bin
+etc</code></pre>
+</li>
+</ul>
+<h2>Decryption</h2>
+<ul>
+<li><p>You may wish to share an encrypted file with a classmate and see if they can decrypt it. You’ll also need to share the key. </p>
+</li>
+<li><p>Try to read a ciphertext file to see if it makes any sense (it shouldn’t):</p>
+<pre><code>cat ciphertext_aes.bin    # (or whatever the filename is)</code></pre>
+</li>
+<li><p>Decrypt each file using commands similar to this:</p>
+<pre><code>openssl enc -aes-128-cbc -d -kfile key1 -in ciphertext_aes.bin -out decrypted.txt</code></pre>
+</li>
+<li><p>Hopefully you can read the decrypted file:</p>
+<pre><code>cat decrypted.txt</code></pre>
+</li>
+</ul>
+<h2>Effect of Compression on Encryption  (Optional)</h2>
+<ul>
+<li><p>Create a new file, this time with a lot of English language words or similar (say about 10MB in total - <a href="archive/bigplaintext.txt">here is an example you can download</a>. Call it bigplaintext.txt. Encrypt it using an algorithm of your choice to produce bigciphertext.bin. 
+Check the size of the encrypted file and compare with the original.</p>
+<pre><code>ls –l        # (this is letter “l”, not number “1”)</code></pre>
+<p>provides a detailed listing of files in the current directory, including their sizes.<br><br></p>
+</li>
+<li><p>Compress both the original text file and the encrypted file. You can use any popular general-purpose compression program such as zip; e.g.</p>
+<pre><code>zip bigplaintext.zip bigplaintext.txt
+zip bigciphertext.zip bigciphertext.bin</code></pre>
+</li>
+<li><p>Which resulting zip file is bigger?  Why is this the case?</p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="5">
+        <h1>Asymmetric Encryption using RSA</h1>
+<h2>RSA key generation</h2>
+<ul>
+<li><p>Create a new folder and navigate into that folder (using the <em>cd</em> command).</p>
+</li>
+<li><p>To generate a public/private key pair for the RSA algorithm, enter the following:   </p>
+<pre><code>openssl genrsa -aes128 -out rsa_private.pem  2048</code></pre>
+<p>You will be prompted for a protecting password.  If you don&#39;t want your private key to be protected by a password, remove the flag “-aes128” from the command line above. The number 2048 is the size of the RSA key, in bits.<br><br></p>
+</li>
+<li><p>The public key should be extracted from this to allow it to be shared with others.  You can extract the public key by entering the following:</p>
+<pre><code>openssl rsa -pubout -in rsa_private.pem -out rsa_public.pem</code></pre>
+<p>You should have two files now, a private one and a public one.</p>
+</li>
+</ul>
+<h2>RSA encryption &amp; decryption</h2>
+<ul>
+<li><p>Create a text file with some plaintext as its body”. Save this file in the folder you created.  Choose a file name containing something like “plaintext” or “unencrypted” – e.g. <em>plaintext.txt</em></p>
+</li>
+<li><p>Encrypt the plaintext file using your public key (or get a classmate to do it):</p>
+<pre><code>openssl rsautl -encrypt -inkey rsa_public.pem -pubin -in plaintext.txt -out ciphertext.bin</code></pre>
+<p>The “-pubin” option indicates that you are using a public key from the specified input key file; the default is to look for a private key.<br><br></p>
+</li>
+<li><p>Decrypt the ciphertext file using your private key:</p>
+<pre><code>openssl rsautl -decrypt -inkey rsa_private.pem -in ciphertext.bin -out decrypted.txt</code></pre>
+</li>
+<li><p>Check that the decrypted ciphertext matches the original plaintext:</p>
+<pre><code>openssl dgst –sha256 plaintext.txt 
+openssl dgst –sha256 decrypted.txt</code></pre>
+<p>(see later section on hash functions for more on the <em>dgst</em> command)</p>
+</li>
+</ul>
+<h2>RSA signing &amp; verification</h2>
+<ul>
+<li><p>Encrypt (sign) the plaintext file using your private key:</p>
+<pre><code>openssl rsautl -sign -inkey rsa_private.pem -in plaintext.txt -out plaintext_sig.bin</code></pre>
+</li>
+<li><p>Decrypt (verify) the signed file using your public key (or get a classmate to do it):</p>
+<pre><code>openssl rsautl -verify -inkey rsa_public.pem -pubin -in plaintext_sig.bin</code></pre>
+<p>The verfied original text will be output to the console.  This can alternatively be directed to a file using “-out filename”.</p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="6">
+        <h1>Hash functions</h1>
+<p>A cryptographic hash function is used to provide message integrity. A signed hash is often also used for message authentication. Hash functions are one-way functions that provide a fixed-sized output, regardless of the size of the input.</p>
+<ul>
+<li><p>Create a test file containing some text.<br><br></p>
+</li>
+<li><p>Using OpenSSL, find MD5, SHA1 and SHA-256 hash values for this file.  Verify the number of bits generated in each case. 
+To find the SHA-1 hash of a file called testfile.txt, you would enter:</p>
+<pre><code>openssl dgst –sha1 testfile.txt         # SHA-1 algorithm in this example</code></pre>
+<p>Alternatively, you can provide the input to openssl’s standard input; e.g.:</p>
+<pre><code>echo -n &quot;topsecretpassword&quot; | openssl dgst -sha256     # SHA-256 algorithm</code></pre>
+<p><em>(Note that the echo statement normally adds a newline character to the end of the supplied string and this would affect the hash value output. The -n switch removes this.)</em><br><br></p>
+</li>
+<li><p>Modify the input very slightly and see how the hash values change.<br><br></p>
+</li>
+<li><p>Add some additional text. Do the hash values increase in size?<br><br></p>
+</li>
+<li><p>Find the hash values of some common dictionary words.  Give them to a classmate.<br><br></p>
+</li>
+<li><p>See if you can find a way to reverse the hashing process – i.e. get hash values from a classmate and try to find the original input. Hint: Google</p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="7">
+        <h1>Digital Certificates</h1>
+<p>The objectives of this step are to examine digital certificates.  </p>
+<ul>
+<li><p>Visit any website that provides <em>https://</em> access. </p>
+</li>
+<li><p>Copy its server certificate to a DER-encoded or PEM-encoded file (usually &quot;.cer&quot;, “.crt” or &quot;.pem&quot; extension”). How you do this depends on the browser:</p>
+<ul>
+<li>Chrome on Windows: right-click anywhere on the page and select <em>Inspect</em>.  Choose the <em>Security</em> tab in the inspection pane that appears. Click <em>View Certificate</em>. Select the <em>Details</em> tab and click <em>Copy to file</em>. This allows you to create a DER-encoded file.</li>
+<li>Chrome on Mac: right-click anywhere on the page and select <em>Inspect</em>.  Choose the <em>Security</em> tab in the inspection pane that appears. Click <em>View Certificate</em> and drag the certificate graphic into a folder. This should create a DER-encoded file by default.</li>
+<li>Firefox: click on the lock icon beside the browser’s address bar. Click the right arrow beside <em>Secure Connection</em> and then <em>More information</em> and <em>View Certificate</em>. In the Certificate Viewer, select the <em>Details</em> tab and click <em>Export</em>.  This will create a PEM-encoded file.</li>
+<li>Internet Explorer: click on the lock icon beside the browser’s address bar and then <em>View certificates</em>. . In the <em>Certificate Viewer</em>, select the <em>Details</em> tab and click <em>Copy to file</em>. If using Windows 10, this may be greyed out if you are not an administrator. In this case restart IE by right clicking and <em>Run as Administrator</em>.</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/aib-cert.png" alt="AIB certificate">
+<br></p>
+<ul>
+<li><p>These certificate formats are binary.  Try to read them with a text editor; e.g.</p>
+<pre><code>cat moodlecert.cer</code></pre>
+<p>or</p>
+<pre><code>cat moodlecert.pem</code></pre>
+<p>(actually PEM format is Base64-encoded, meaning that it is printable text, but it is not human-readable)<br><br></p>
+</li>
+<li><p>OpenSSL provides tools to allow us to examine and manipulate certificates. For example the following command allows us to view certificate details; e.g.</p>
+<pre><code>openssl x509 -inform DER -in moodlecert.cer -text -noout</code></pre>
+<p>or</p>
+<pre><code>openssl x509 -inform PEM -in moodlecert.crt -text -noout</code></pre>
+<p>(the -noout option here suppresses printing of the PEM-encoding as well, which is the default)<br><br>
+or output to a human-readable text file:</p>
+<pre><code>openssl x509 -inform DER -in moodlecert.cer -text –noout &gt; moodlecert.txt</code></pre>
+</li>
+<li><p>You can also convert between certificate formats using OpenSSL:</p>
+<pre><code>openssl x509 -inform DER -in moodlecert.cer -outform PEM -out moodlecert.pem</code></pre>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="8">
+        <h1>Algorithm Performance Testing (Optional)</h1>
+<p>In this step, you will benchmark the performance of various encryption algorithms on your machine.</p>
+<ul>
+<li><p>Create or locate a large test file, say 1GB - <a href="http://ftp.heanet.ie/pub/ubuntu-cdimage/releases/14.04.5/release/ubuntu-14.04.5-desktop-amd64+mac.iso">link to sample 1GB file</a>.</p>
+</li>
+<li><p>Record how much time it takes to encrypt it using various encryption algorithms . Which is fastest? To do this, use the time command, which is simply prefixed to the command you are running, like this:</p>
+<pre><code>time openssl enc -aes-128-ecb -e -kfile key128 -in plaintext.zip -out /dev/null</code></pre>
+<p><pre>
+&nbsp;real  0m0.736s
+&nbsp;user  0m0.576s
+&nbsp;sys   0m0.057s
+</pre>
+(the sum of <em>user</em> and <em>sys</em> time is what matters)<br><br>
+Ideally, take each time measurement a few times (say 3 times) and exclude any that are noticeably slower than the others (to reduce impact of short-term processor activity from running programs).<br><br></p>
+</li>
+<li><p>If you have time, see how the performance of RSA public key encryption compares to the symmetric algorithms above. How about the performance of RSA key generation (try large RSA keys – e.g. 2048/4096/8192 bits)?</p>
+</li>
+</ul>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
