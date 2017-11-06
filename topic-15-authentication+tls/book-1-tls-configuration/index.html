@@ -330,22 +330,22 @@ You&#39;ll be prompted for identification data for the subject of the signing re
 <li><p>Make a directory (called <em>private</em>, for example) in a Hapi application and copy your <em>webserver.key</em> and <em>webserver.crt</em> files there. You may use an application you are working on, or download the very basic application provided on Moodle.<br><br></p>
 </li>
 <li><p>Add the following lines before adding a server connection:</p>
-</li>
-</ul>
-<pre><code>const fs = require(&#39;fs&#39;);
-
+<pre>
+const fs = require('fs');
 var options = {
-    port: 4443,     //  or any port you wish
-    tls: {
-        key: fs.readFileSync(&#39;private/webserver.key&#39;),
-        cert: fs.readFileSync(&#39;private/webserver.crt&#39;)
-    }
-};</code></pre>
-<ul>
-<li>Then pass options as a parameter to <em>server.connection()</em>:</li>
-</ul>
-<pre><code>server.connection(options);</code></pre>
-<ul>
+  port: 4443,     //  or any port you wish
+  tls: {
+      key: fs.readFileSync('private/webserver.key'),
+      cert: fs.readFileSync('private/webserver.crt')
+  }
+};
+</pre>
+</li>
+<li><p>Then pass options as a parameter to <em>server.connection()</em>:</p>
+<pre>
+server.connection(options);
+</pre>
+</li>
 <li><p>Next start the server </p>
 <pre><code>node hapi_tls_example.js</code></pre>
 </li>
