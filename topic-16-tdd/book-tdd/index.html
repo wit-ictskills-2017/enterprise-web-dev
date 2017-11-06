@@ -1,0 +1,902 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      16: TDD
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-16 Tdd">
+      Lab-16 Tdd
+    </a>
+    
+    <a class="item" data-tab="Lab-12-Solutions">
+      Lab-12-Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07.Exercises">
+      07.Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-16 Tdd">
+        <h1>Objectives</h1>
+<p>Expand the rudimentary test from the last lab into a more comprehensive suit of tests, exercising the api in depth.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Lab-12-Solutions">
+        <h1>Lab 12 Solutions</h1>
+<h2>Exercise 3: User Endpoints</h2>
+<p>Using this lab as a guide, develop a set of endpoints for the users collection, including:</p>
+<ul>
+<li>get all users</li>
+<li>create a user</li>
+<li>delete a user</li>
+<li>delete all users</li>
+</ul>
+<p>Also implement tests to verify the endpoints work as expected.</p>
+<h2>routesapi.js</h2>
+<pre><code>const CandidatesApi = require(&#39;./app/api/candidatesapi&#39;);
+const UsersApi = require(&#39;./app/api/usersapi&#39;);
+
+module.exports = [
+  { method: &#39;GET&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.find },
+  { method: &#39;GET&#39;, path: &#39;/api/candidates/{id}&#39;, config: CandidatesApi.findOne },
+  { method: &#39;POST&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.create },
+  { method: &#39;DELETE&#39;, path: &#39;/api/candidates/{id}&#39;, config: CandidatesApi.deleteOne },
+  { method: &#39;DELETE&#39;, path: &#39;/api/candidates&#39;, config: CandidatesApi.deleteAll },
+
+  { method: &#39;GET&#39;, path: &#39;/api/users&#39;, config: UsersApi.find },
+  { method: &#39;GET&#39;, path: &#39;/api/users/{id}&#39;, config: UsersApi.findOne },
+  { method: &#39;POST&#39;, path: &#39;/api/users&#39;, config: UsersApi.create },
+  { method: &#39;DELETE&#39;, path: &#39;/api/users/{id}&#39;, config: UsersApi.deleteOne },
+  { method: &#39;DELETE&#39;, path: &#39;/api/users&#39;, config: UsersApi.deleteAll },
+];</code></pre>
+<h2>app/api/usersapi.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const User = require(&#39;../models/user&#39;);
+const Boom = require(&#39;boom&#39;);
+
+exports.find = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    User.find({}).exec().then(users =&gt; {
+      reply(users);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error accessing db&#39;));
+    });
+  },
+
+};
+
+exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    User.findOne({ _id: request.params.id }).then(user =&gt; {
+      reply(user);
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};
+
+exports.create = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    const user = new User(request.payload);
+    user.save().then(newUser =&gt; {
+      reply(newUser).code(201);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error creating User&#39;));
+    });
+  },
+
+};
+
+exports.deleteAll = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    User.remove({}).then(err =&gt; {
+      reply().code(204);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error removing Users&#39;));
+    });
+  },
+
+};
+
+exports.deleteOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    User.remove({ _id: request.params.id }).then(user =&gt; {
+      reply(User).code(204);
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Http &amp; Donation Service Encapsulation classes</h1>
+<p>The tests we have written so far are somewhat verbose and repetitive. For tests to be effective, they must remain concise and easy to maintain and evolve. </p>
+<p>To facilitate this, we attempt to encapsulate both the http requests and the donation service access into a set of classes. These classes should simplify our tests and enable us to more easily devise more tests as the API evolves.</p>
+<h2>sync-http-service.js</h2>
+<p>This class will encapsulate all lower level http request composition and transmission.</p>
+<pre><code>var request = require(&#39;sync-request&#39;);
+
+class SyncHttpService {
+
+  constructor(baseUrl) {
+    this.baseUrl = baseUrl;
+  }
+
+  get(url) {
+    var returnedObj = null;
+    var res = request(&#39;GET&#39;, this.baseUrl + url);
+    if (res.statusCode &lt; 300) {
+      returnedObj = JSON.parse(res.getBody(&#39;utf8&#39;));
+    }
+
+    return returnedObj;
+  }
+
+  post(url, obj) {
+    var returnedObj = null;
+    var res = request(&#39;POST&#39;, this.baseUrl + url, { json: obj });
+    if (res.statusCode &lt; 300) {
+      returnedObj = JSON.parse(res.getBody(&#39;utf8&#39;));
+    }
+
+    return returnedObj;
+  }
+}
+
+module.exports = SyncHttpService;</code></pre>
+<p>The class assumes we are always dealing with JSON payloads.</p>
+<p>This is the first example of an ES6 Class in our labs so far. We will be making more use of these modern features in forthcoming labs.</p>
+<h2>donation-service.js</h2>
+<p>This class encapsulates the client side of the donation api. It is layered on top of the SyncHttpClient class, and delivers a simplified interface to the unit tests.</p>
+<pre><code>&#39;use strict&#39;;
+
+const SyncHttpService = require(&#39;./sync-http-service&#39;);
+const baseUrl = &#39;http://localhost:4000&#39;;
+
+class DonationService {
+
+  constructor(baseUrl) {
+    this.httpService = new SyncHttpService(baseUrl);
+  }
+
+  getCandidates() {
+    return this.httpService.get(&#39;/api/candidates&#39;);
+  }
+
+  getCandidate(id) {
+    return this.httpService.get(&#39;/api/candidates/&#39; + id);
+  }
+
+  createCandidate(newCandidate) {
+    return this.httpService.post(&#39;/api/candidates&#39;, newCandidate);
+  }
+
+  getUsers() {
+    return this.httpService.get(&#39;/api/users&#39;);
+  }
+
+  getUser(id) {
+    return this.httpService.get(&#39;/api/users/&#39; + id);
+  }
+
+  createUser(newUser) {
+    return this.httpService.post(&#39;/api/users&#39;, newUser);
+  }
+}
+
+module.exports = DonationService;</code></pre>
+<p>Place both of the classes in the test folder. Your project should look like this now:</p>
+<p><img src="img/01.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Test Fixture + Simple Test</h1>
+<p>With these utility classes in place, we can proceed to a simpler, more robust unit tests. </p>
+<p>We start by factoring out our test data into a separate JSON file:</p>
+<h2>fixtures.json</h2>
+<pre><code>{
+  &quot;candidates&quot;: [
+    {
+      &quot;firstName&quot;: &quot;Lisa&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    },
+    {
+      &quot;firstName&quot;: &quot;Donald&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    }
+  ],
+  &quot;newCandidate&quot;:
+  {
+    &quot;firstName&quot;: &quot;Barnie&quot;,
+    &quot;lastName&quot;: &quot;Grumble&quot;,
+    &quot;office&quot;: &quot;President&quot;
+  }
+}</code></pre>
+<p>Keeping our test data - termed fixtures - in a separate file will keep the tests themselves more concise.</p>
+<p>Replace the current <code>candidatesapitest.js</code> with the following version:</p>
+<h2>candidateteapitet.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const assert = require(&#39;chai&#39;).assert;
+const DonationService = require(&#39;./donation-service&#39;);
+const fixtures = require(&#39;./fixtures.json&#39;);
+
+suite(&#39;Candidate API tests&#39;, function () {
+
+  let candidates = fixtures.candidates;
+  let newCandidate = fixtures.newCandidate;
+
+  const donationService = new DonationService(&#39;http://localhost:4000&#39;);
+
+  test(&#39;create a candidate&#39;, function () {
+    const returnedCandidate = donationService.createCandidate(newCandidate);
+    assert.equal(returnedCandidate.firstName, newCandidate.firstName);
+    assert.equal(returnedCandidate.lastName, newCandidate.lastName);
+    assert.equal(returnedCandidate.office, newCandidate.office);
+    assert.isDefined(returnedCandidate._id);
+  });
+});</code></pre>
+<p> Run this test now - it should pass. </p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Equals Superset Test using lodash</h1>
+<p>Looking at the test again:</p>
+<pre><code>  test(&#39;create a candidate&#39;, function () {
+    const returnedCandidate = donationService.createCandidate(newCandidate);
+    assert.equal(returnedCandidate.firstName, newCandidate.firstName);
+    assert.equal(returnedCandidate.lastName, newCandidate.lastName);
+    assert.equal(returnedCandidate.office, newCandidate.office);
+    assert.isDefined(returnedCandidate._id);
+  });</code></pre>
+<p>..perhaps we can simplify further, deploying the assert,equal method:</p>
+<pre><code>  test(&#39;create a candidate&#39;, function () {
+    const returnedCandidate = donationService.createCandidate(newCandidate);
+    assert.equal(returnedCandidate, newCandidate);
+    assert.isDefined(returnedCandidate._id);
+  });</code></pre>
+<p>This looks reasonable, however when we run it the test if fails. The test runner in WebStorm can show us why:</p>
+<p><img src="img/02.png" alt=""></p>
+<p>The returned object contains the fields as expected, but also additional, legitimate, fields that cause the equals test to fail. We need a comparison that will test to see if the returnedCandidate is a superset of the newCandidate object. Some solutions are discussed here:</p>
+<ul>
+<li><p><a href="http://stackoverflow.com/questions/26092819/how-to-check-if-an-objects-properties-represent-a-super-set-of-another-object">http://stackoverflow.com/questions/26092819/how-to-check-if-an-objects-properties-represent-a-super-set-of-another-object</a></p>
+<p>The simplest involves including the <code>lodash</code> library</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://lodash.com/">https://lodash.com/</a></li>
+</ul>
+<p>This provides many useful utilities functions, including :</p>
+<ul>
+<li><a href="https://lodash.com/docs#some">https://lodash.com/docs#some</a></li>
+</ul>
+<p>First we install lodash:</p>
+<pre><code>npm install lodash -save</code></pre>
+<p>Require is at the top of our test:</p>
+<pre><code>const _ = require(&#39;lodash&#39;);</code></pre>
+<p>And now we can try this version of the test:</p>
+<pre><code>  test(&#39;create a candidate&#39;, function () {
+    const returnedCandidate = donationService.createCandidate(newCandidate);
+    assert(_.some([returnedCandidate], newCandidate),  &#39;returnedCandidate must be a superset of newCandidate&#39;);
+    assert.isDefined(returnedCandidate._id);
+  });</code></pre>
+<p>This should pass now.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Comprehensive Candidate Tests</h1>
+<p>With fixtures and an simplified comparison capability mow in place, we can proceed to evolve a more comprehensive set of tests.</p>
+<p>First we need to provide support for the <code>delete</code> operations in our encapsulated layers:</p>
+<h2>sync-http-client.js</h2>
+<pre><code>  delete (url) {
+    var res = request(&#39;DELETE&#39;, this.baseUrl + url);
+    return res.statusCode;
+  }</code></pre>
+<h2>donation-service.js</h2>
+<pre><code>  deleteAllCandidates() {
+    return this.httpService.delete(&#39;/api/candidates&#39;);
+  }
+
+  deleteOneCandidate(id) {
+    return this.httpService.delete(&#39;/api/candidates/&#39; + id);
+  }</code></pre>
+<p>Now we write a new test to verify delete:</p>
+<pre><code> test(&#39;delete a candidate&#39;, function () {
+    const c = donationService.createCandidate(newCandidate);
+    assert(donationService.getCandidate(c._id) != null);
+    donationService.deleteOneCandidate(c._id);
+    assert(donationService.getCandidate(c._id) == null);
+  });</code></pre>
+<p>This seems like an easy test - create a candidate, delete it, and then attempt to retrieve the deleted candidate using the id. It should pass. However, we get the following error reported in the test runnner:</p>
+<pre><code>SyntaxError: Unexpected end of JSON input
+    at Object.parse (native)
+    at SyncHttpService.get (test/sync-http-client.js:13:26)
+    at DonationService.getCandidate (test/donation-service.js:17:29)
+    at Context.&lt;anonymous&gt; (test/candidateapitest.js:35:28)</code></pre>
+<p>This seems to be a failure in our utility classes, not in the donation-web server. However, on closer inspection it is in fact a failure in the donation-web application itself. Specifically in our <code>candidatesapi</code> method:</p>
+<pre><code>exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.findOne({ _id: request.params.id }).then(candidate =&gt; {
+        reply(candidate);
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};</code></pre>
+<p>This looks ok, and if we try an arbitrary request:</p>
+<ul>
+<li><a href="http://localhost:4000/api/candidates/1234">http://localhost:4000/api/candidates/1234</a></li>
+</ul>
+<p>Then it will seem to work ok:</p>
+<pre><code>{
+  statusCode: 404,
+  error: &quot;Not Found&quot;,
+  message: &quot;id not found&quot;
+}</code></pre>
+<p>However, this masks a serious error - try this request in a browser:</p>
+<ul>
+<li><a href="http://localhost:4000/api/candidates/012345678901234567890123">http://localhost:4000/api/candidates/012345678901234567890123</a></li>
+</ul>
+<p>This is a concocted id, but the request is succeeding, but returning null. This is what is causing our utilities to generate an error in the test client.</p>
+<p>Here is an alternative version of findOne to fix this issue:</p>
+<pre><code>exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.findOne({ _id: request.params.id }).then(candidate =&gt; {
+      if (candidate != null) {
+        reply(candidate);
+      }
+
+      reply(Boom.notFound(&#39;id not found&#39;));
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};</code></pre>
+<p>the findOne query will generate an exception if the key is an invalid length, but will return a null object if it fails to find a matching object for a correctly formed key.</p>
+<p>The above demonstrates they type of errors / misunderstanding that more thorough tests will uncover.</p>
+<p>There is a corresponding method on `app/api/usersapi.js&#39; that must also be fixed:</p>
+<pre><code>exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    User.findOne({ _id: request.params.id }).then(user =&gt; {
+      if (user != null) {
+        reply(user);
+      }
+
+      reply(Boom.notFound(&#39;id not found&#39;));
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;id not found&#39;));
+    });
+  },
+
+};</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>candidatesapi Comprehensive Tests</h1>
+<p>Here is a more comprehensive set of tests - which all should pass at this stage:</p>
+<h2>test/candidatestest.js</h2>
+<pre><code>&#39;use strict&#39;;
+
+const assert = require(&#39;chai&#39;).assert;
+const DonationService = require(&#39;./donation-service&#39;);
+const fixtures = require(&#39;./fixtures.json&#39;);
+const _ = require(&#39;lodash&#39;);
+
+suite(&#39;Candidate API tests&#39;, function () {
+
+  let candidates = fixtures.candidates;
+  let newCandidate = fixtures.newCandidate;
+
+  const donationService = new DonationService(&#39;http://localhost:4000&#39;);
+
+  beforeEach(function () {
+    donationService.deleteAllCandidates();
+  });
+
+  afterEach(function () {
+    donationService.deleteAllCandidates();
+  });
+
+  test(&#39;create a candidate&#39;, function () {
+    const returnedCandidate = donationService.createCandidate(newCandidate);
+    assert(_.some([returnedCandidate], newCandidate), &#39;returnedCandidate must be a superset of newCandidate&#39;);
+    assert.isDefined(returnedCandidate._id);
+  });
+
+  test(&#39;get candidate&#39;, function () {
+    const c1 = donationService.createCandidate(newCandidate);
+    const c2 = donationService.getCandidate(c1._id);
+    assert.deepEqual(c1, c2);
+  });
+
+  test(&#39;get invalid candidate&#39;, function () {
+    const c1 = donationService.getCandidate(&#39;1234&#39;);
+    assert.isNull(c1);
+    const c2 = donationService.getCandidate(&#39;012345678901234567890123&#39;);
+    assert.isNull(c2);
+  });
+
+  test(&#39;delete a candidate&#39;, function () {
+    const c = donationService.createCandidate(newCandidate);
+    assert(donationService.getCandidate(c._id) != null);
+    donationService.deleteOneCandidate(c._id);
+    assert(donationService.getCandidate(c._id) == null);
+  });
+
+  test(&#39;get all candidates&#39;, function () {
+    for (let c of candidates) {
+      donationService.createCandidate(c);
+    }
+
+    const allCandidates = donationService.getCandidates();
+    assert.equal(allCandidates.length, candidates.length);
+  });
+
+  test(&#39;get candidates detail&#39;, function () {
+    for (let c of candidates) {
+      donationService.createCandidate(c);
+    }
+
+    const allCandidates = donationService.getCandidates();
+    for (var i = 0; i &lt; candidates.length; i++) {
+      assert(_.some([allCandidates[i]], candidates[i]), &#39;returnedCandidate must be a superset of newCandidate&#39;);
+    }
+  });
+
+  test(&#39;get all candidates empty&#39;, function () {
+    const allCandidates = donationService.getCandidates();
+    assert.equal(allCandidates.length, 0);
+  });
+});</code></pre>
+<p>Note the extra methods at the start:</p>
+<pre><code>  beforeEach(function () {
+    donationService.deleteAllCandidates();
+  });
+
+  afterEach(function () {
+    donationService.deleteAllCandidates();
+  });</code></pre>
+<p>These are run before and after each test - clearing our the candidates model so that each test can be considered completely independently.</p>
+<p>Read the tests carefully - they should be self explanatory.</p>
+<p>See the use of <code>deepEqual</code>:</p>
+<ul>
+<li><a href="http://chaijs.com/api/assert/#method_deepequal">http://chaijs.com/api/assert/#method_deepequal</a></li>
+</ul>
+<p>Experiment with <code>equal</code> and <code>deepEqual</code> assertions.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07.Exercises">
+        <h1>Exercises</h1>
+<p>Here is a revised fixture including test user data:</p>
+<h2>test/fixtures.json</h2>
+<pre><code>{
+  &quot;donationService&quot;: &quot;https://stormy-brushlands-56991.herokuapp.com&quot;,
+  &quot;users&quot;: [
+    {
+      &quot;firstName&quot;: &quot;Homer&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;homer@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    {
+      &quot;firstName&quot;: &quot;Marge&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;marge@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    },
+    {
+      &quot;firstName&quot;: &quot;Bart&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;email&quot;: &quot;bart@simpson.com&quot;,
+      &quot;password&quot;: &quot;secret&quot;
+    }
+  ],
+  &quot;candidates&quot;: [
+    {
+      &quot;firstName&quot;: &quot;Lisa&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    },
+    {
+      &quot;firstName&quot;: &quot;Donald&quot;,
+      &quot;lastName&quot;: &quot;Simpson&quot;,
+      &quot;office&quot;: &quot;President&quot;
+    }
+  ],
+  &quot;newCandidate&quot;: {
+    &quot;firstName&quot;: &quot;Barnie&quot;,
+    &quot;lastName&quot;: &quot;Grumble&quot;,
+    &quot;office&quot;: &quot;President&quot;
+  },
+  &quot;newUser&quot;: {
+    &quot;firstName&quot;: &quot;Maggie&quot;,
+    &quot;lastName&quot;: &quot;Simpson&quot;,
+    &quot;email&quot;: &quot;maggie@simpson.com&quot;,
+    &quot;password&quot;: &quot;secret&quot;
+  }
+}</code></pre>
+<h2>Exercise 1: Candidates API</h2>
+<p>Using <code>candidatesapitest.js</code> as an example, write/rewrite your <code>usersapitest.js</code> to comprehensively exercise the users api.</p>
+<h2>Exercise 2: Deployment</h2>
+<p>Reconfigure the candidateapitest to read the server address from the above <code>fixtures.json</code>. Deploy the application and insert the deployed app address into the <code>fixtures.json</code>. Run the tests against the deployed app.</p>
+<p>You may notice some of the tests fail with a &#39;timeout error&#39;:</p>
+<pre><code>Error: timeout of 2000ms exceeded. Ensure the done() callback is being called in this test.</code></pre>
+<p>This timeout is coming from the mocha test runner, not the application. You can extend the launch configuration with additional timeout parameters:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>This should enable the tests against the deployed app to run successfully to conclusion</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
