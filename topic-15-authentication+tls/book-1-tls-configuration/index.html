@@ -140,6 +140,10 @@ body
       4
     </a>
     
+    <a class="item" data-tab="5">
+      5
+    </a>
+    
     <div class="item">
       
     </div>
@@ -327,7 +331,7 @@ You&#39;ll be prompted for identification data for the subject of the signing re
         <h1>Hapi/Node TLS Configuration</h1>
 <p>You can configure a Hapi.js server to listen for HTTPS connections.</p>
 <ul>
-<li><p>Make a directory (called <em>private</em>, for example) in a Hapi application and copy your <em>webserver.key</em> and <em>webserver.crt</em> files there. You may use an application you are working on, or download the very basic application provided on Moodle.<br><br></p>
+<li><p>Make a directory (called <em>private</em>, for example) in a Hapi application and copy your <em>webserver.key</em> and <em>webserver.crt</em> files there. You may use an application you are working on, or download the very basic application provided <a href="archive/hapi_example.js">here</a>.<br><br></p>
 </li>
 <li><p>Add the following lines before adding a server connection:</p>
 <pre>
@@ -418,6 +422,23 @@ sudo cp webserver.crt /etc/pki/nginx</code></pre>
 <pre><a href="https://ip_address">https://ip_address</a></pre>    (replacing <em>ip_address</em> with your instance’s Public IP address)<br><br></p>
 </li>
 <li><p>You&#39;ll get a warning as your certificate is signed by a CA that your browser doesn&#39;t trust.  You should be able to view the certificate and verify that it&#39;s the one that you created.</p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="5">
+        <h1>(Optional) Configuring cipher suites</h1>
+<ul>
+<li><p>Using <a href="https://www.wireshark.org/">Wireshark</a> or equivalent, capture the setup of a TLS session from a browser to a web server. It should start with a &quot;Client Hello&quot; message, something like that shown here: <img src="img/tls_wireshark.png" alt="Tracing establishment of TLS connection"></p>
+</li>
+<li><p>Trace the TLS handshake. What TLS version is used? What Cipher Suite does the browser prefer?  Does the server match this?  Try a variety of browsers and web servers and see if you can find examples where they don&#39;t match.</p>
+</li>
+<li><p>On your Nginx configuration, edit the <em>nginx.conf</em> files to force browsers to downgrade from TLSv1 and describe what happens.  Try a variety of browsers and see if they all treat this in the same way.</p>
+</li>
+<li><p>Re-enable TLSv1 and now see what happens when you change the supported cipher specs to something different, and see how various browsers respond.  You&#39;ll need to change the line in the nginx SSL configuration that begins with <em>ssl_ciphers</em>.  Try for example to change it to: <em>RC4-MD5</em></p>
+</li>
+<li><p>Note that you can also force browsers to only use an up to date version and/or cipher – e.g. TLSv1.2.  Are there any disadvantages in doing this?  There are various test suites available that allow you to try old browser versions – e.g. <a href="https://crossbrowsertesting.com"><a href="https://crossbrowsertesting.com">https://crossbrowsertesting.com</a></a> or <a href="https://www.browserling.com"><a href="https://www.browserling.com">https://www.browserling.com</a></a></p>
 </li>
 </ul>
 

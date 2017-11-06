@@ -1,0 +1,248 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+
+  <header class="ui center aligned middle aligned stackable grid segment">
+
+    
+      
+  <a class="ui blue left corner label">
+    <div id="showTOC" class="popup" data-content="Reveal TOC">
+      <i id="toc" class="sitemap big  icon"></i>
+    </div>
+  </a>
+
+    
+
+    <div class="ui five wide column">
+      <h2> Building Modern Web Applications & Services </h2>
+    </div>
+
+    <div class="ui two wide column">
+      
+          
+  <div class="two wide column sitemap">
+    <div class="popup" data-content="To the top level Topics for this Module...">
+      <a href="index.html"> <i class="huge home icon"></i> <br> Module Home </a>
+    </div>
+  </div>
+
+        
+    </div>
+
+    
+
+    <div class="ui three wide column">
+      
+  <div class="four wide column">
+    <div class="ui center aligned mini message segment">
+      <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+
+    </div>
+
+    <div class="three wide column">
+      
+        
+  <div class="ui equal width center aligned grid segment">
+    
+      
+        <div class="column">
+          <div class="popup" data-content="All talk's in Course">
+            <a href="talkwall.html"> <i class="big object group icon"></i> </a>
+            <div class="ui blue mini circular label">
+              44
+            </div>
+          </div>
+        </div>
+      
+    
+      
+        <div class="column">
+          <div class="popup" data-content="All lab's in Course">
+            <a href="labwall.html"> <i class="big lab icon"></i> </a>
+            <div class="ui blue mini circular label">
+              16
+            </div>
+          </div>
+        </div>
+      
+    
+      
+    
+      
+    
+      
+        <div class="column">
+          <div class="popup" data-content="All archive's in Course">
+            <a href="archivewall.html"> <i class="big archive icon"></i> </a>
+            <div class="ui blue mini circular label">
+              1
+            </div>
+          </div>
+        </div>
+      
+    
+  </div>
+
+      
+    </div>
+
+
+  </header>
+  
+  
+
+
+
+  <div class="ui bottom attached segment pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      
+    </div>
+    <div class="pusher">
+      <div class="ui container">
+        <div class="ui basic segment">
+          <div class="ui centered four doubling stackable cards">
+            
+              
+                
+
+  <div class="ui raised link card">
+
+    <div class="center aligned content">
+      <div class="right floated meta"><i class="huge archive icon"></i></div>
+      <div class="header"> </div>
+    </div>
+
+    
+    <a class="ui raised link card" href="undefined//error: missing archive">
+    
+      <div class="image">
+        <img class="ui bordered rounded image" src="undefined//">
+      </div>
+    </a>
+
+
+    <div class="center aligned content">
+      <div class="description">
+        
+      </div>
+    </div>
+      
+
+    
+
+  </div>
+
+
+
+              
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
