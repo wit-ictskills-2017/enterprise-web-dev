@@ -434,7 +434,7 @@ sudo cp webserver.crt /etc/pki/nginx</code></pre>
 </li>
 <li><p>Trace the TLS handshake. What TLS version is used? What Cipher Suite does the browser prefer?  Does the server match this?  Try a variety of browsers and web servers and see if you can find examples where they don&#39;t match.</p>
 </li>
-<li><p>On your Nginx configuration, edit the <em>nginx.conf</em> files to force browsers to downgrade from TLSv1 and describe what happens.  Try a variety of browsers and see if they all treat this in the same way.</p>
+<li><p>On your Nginx configuration, edit the <em>nginx.conf</em> file to force browsers to downgrade from TLSv1 and describe what happens.  Try a variety of browsers and see if they all treat this in the same way.</p>
 </li>
 <li><p>Re-enable TLSv1 and now see what happens when you change the supported cipher specs to something different, and see how various browsers respond.  You&#39;ll need to change the line in the nginx SSL configuration that begins with <em>ssl_ciphers</em>.  Try for example to change it to: <em>RC4-MD5</em></p>
 </li>
