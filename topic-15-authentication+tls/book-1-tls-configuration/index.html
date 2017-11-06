@@ -1,0 +1,506 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      15: Authentication & TLS
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-15 TLS Configuration">
+      Lab-15 TLS Configuration
+    </a>
+    
+    <a class="item" data-tab="1-Intro">
+      1-Intro
+    </a>
+    
+    <a class="item" data-tab="2">
+      2
+    </a>
+    
+    <a class="item" data-tab="3">
+      3
+    </a>
+    
+    <a class="item" data-tab="4">
+      4
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-15 TLS Configuration">
+        <h1>Objectives</h1>
+<p>The objective of this lab is to learn about configuring TLS (formerly SSL) on web servers. </p>
+<p>In this exercise, you will: </p>
+<ul>
+<li><p>Set yourself up as a Certification Authority</p>
+<ul>
+<li>Create private key and certificate request for yourself as a CA</li>
+<li>Create and install CA self-signed certificate (effectively a root certificate)<br><br></li>
+</ul>
+</li>
+<li><p>Configure web server security</p>
+<ul>
+<li>Install server private key and server (public key) certificate</li>
+<li>Configure nginx and node/hapi for TLS</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="1-Intro">
+        <h2>Certificate Authorities</h2>
+<p>The term <em>Certificate Authority (CA)</em> refers to anyone who issues (i.e. signs) digital certificates. 
+As we&#39;ll see below, anyone (even you!) can be a CA, though certain CAs are widely trusted on the Internet and their certificates are accepted by browsers that support them.</p>
+<p>Most widely-recognised certificate authorities charge a fee for issuing certificates. Examples are Comodo GoDaddy, DigiCert and GlobalSign. Some have free trial certificates with short validity period (e.g. 30 days).  There are also some free services, including <a href="https://letsencrypt.org/">Let&#39;s Encrypt</a>.
+In practice, this is where you would get a certificate for a production server.  For the purposes of this lab, however, we will generate our own.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="2">
+        <h1>Getting a signed certificate</h1>
+<h2>Become a Certificate Authority yourself</h2>
+<p>To be a CA, you create a public/private key pair and issue yourself with a certificate containing this public key.  This cert will be self-signed, meaning you&#39;ll be signing it with your private key.</p>
+<ul>
+<li><p>Launch Linux or other environment that has OpenSSL installed and start a terminal session. In you do not have Linux on your own machine, you can create an AWS EC2 instance and connect to it using SSH.</p>
+</li>
+<li><p>We first create a 2048-bit RSA private key for the CA</p>
+<pre><code>openssl genrsa -out myca.key 2048</code></pre>
+<p>The key is created in PEM format, which is printable:</p>
+<pre><code>cat myca.key</code></pre>
+</li>
+<li><p>Now use this to create a certificate signing request (CSR) for the certificate authority (so the CA can sign its own key):</p>
+<pre><code>openssl req -new -key myca.key -out myca.csr</code></pre>
+<p>You will be prompted for identification data for the subject of this signing request. Make up an identity for your &quot;pretend&quot; CA (e.g. Highly Secure Certificates Ltd, or suchlike).<br><br></p>
+</li>
+<li><p>Now, as CA, use your private key to issue a (self-)signed certificate based on the CSR:</p>
+<pre><code>openssl x509 -req -trustout -signkey myca.key -in myca.csr -out myca.crt</code></pre>
+<p>The resulting certificate is valid for just 30 days (default). If you would like it to last longer (e.g. a year), run again with the additional option <em>-days 365</em></p>
+</li>
+</ul>
+<h2>Create keys and a certificate signing request for an application (e.g. web server)</h2>
+<ul>
+<li>We now create a 2048-bit RSA private key for the web server<pre><code>openssl genrsa -out webserver.key 2048</code></pre>
+</li>
+<li>Now use this to create a certificate signing request for the web server:<pre><code>openssl req -new -key webserver.key -out webserver.csr</code></pre>
+You&#39;ll be prompted for identification data for the subject of the signing request. Make up an identity for your web server here.</li>
+</ul>
+<h2>Get your own CA to create and sign the web server certificate</h2>
+<ul>
+<li><p>Get the CA, using its private key, to sign the server’s CSR file:</p>
+<pre><code>openssl x509 -req -CA myca.crt -CAkey myca.key -CAcreateserial -in webserver.csr -out webserver.crt</code></pre>
+<p>You now have a web server public key, signed by a third party (the CA), in the file <em>webserver.crt</em>. You also have the web server&#39;s private key in the file <em>webserver.key</em> that you generated above.<br><br></p>
+</li>
+<li><p>(Optional) You could alternatively have got your web server to self-sign its certificate. The command for this is:</p>
+<pre><code>openssl x509 -req -in webserver.csr -signkey webserver.key -out webserver_self.crt</code></pre>
+<p>The next step is to configure your web server to be able to locate these keys. </p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="3">
+        <h1>Hapi/Node TLS Configuration</h1>
+<p>You can configure a Hapi.js server to listen for HTTPS connections.</p>
+<ul>
+<li><p>Make a directory (called <em>private</em>, for example) in a Hapi application and copy your <em>webserver.key</em> and <em>webserver.crt</em> files there. You may use an application you are working on, or download the very basic application provided on Moodle.<br><br></p>
+</li>
+<li><p>Add the following lines before adding a server connection:</p>
+</li>
+</ul>
+<pre><code>const fs = require(&#39;fs&#39;);
+
+var options = {
+    port: 4443,     //  or any port you wish
+    tls: {
+        key: fs.readFileSync(&#39;private/webserver.key&#39;),
+        cert: fs.readFileSync(&#39;private/webserver.crt&#39;)
+    }
+};</code></pre>
+<ul>
+<li>Then pass options as a parameter to <em>server.connection()</em>:</li>
+</ul>
+<pre><code>server.connection(options);</code></pre>
+<ul>
+<li><p>Next start the server </p>
+<pre><code>node hapi_tls_example.js</code></pre>
+</li>
+<li><p>Test that it’s working by pointing a web browser to <a href="https://localhost:4443"><a href="https://localhost:4443">https://localhost:4443</a></a> (replace <em>localhost</em> if published elsewhere).<br><br></p>
+</li>
+<li><p>Replace the reference to webserver.crt with <em>webserver_self.crt</em> as created in step 2, restart node and browse again to <a href="https://localhost:4443"><a href="https://localhost:4443">https://localhost:4443</a></a>. Have a look at the certificate trust chain and see the difference.</p>
+</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="4">
+        <h1>Nginx TLS Configuration (e.g. on AWS EC2 instance)</h1>
+<p>Here, we similarly configure a Nginx server to listen for HTTPS connections.</p>
+<h2>Create an nginx web server</h2>
+<ul>
+<li><p>Create an EC2 instance and connect to it with SSH/PuTTY. </p>
+</li>
+<li><p>Install nginx, enable at startup, and start service.</p>
+<pre><code>sudo yum -y update
+sudo yum –y install nginx
+sudo chkconfig nginx on
+sudo service nginx start</code></pre>
+<p>You should now be able to browse to the public IP address of your instance and see the nginx welcome page.</p>
+</li>
+</ul>
+<h2>Configure TLS on nginx</h2>
+<ul>
+<li><p>Create a directory for the web server certificate and private key you created in part A above. You will need to copy them to your EC2 instance using SCP/WinSCP unless you wish to create new versions.</p>
+<pre><code>sudo mkdir /etc/pki/nginx</code></pre>
+</li>
+<li><p>Copy the certificate and key files to this location </p>
+<pre><code>sudo cp webserver.key /etc/pki/nginx
+sudo cp webserver.crt /etc/pki/nginx</code></pre>
+</li>
+<li><p>Now edit the nginx configuration:</p>
+<pre><code>sudo nano /etc/nginx/nginx.conf</code></pre>
+</li>
+<li><p>Scroll down to the bottom of the file and find the section that begins with:</p>
+<pre>
+# HTTPS server
+</pre>
+</li>
+<li><p>Nginx supports having more than one website enabled at the same time, which in effect means listening on a different port for each one. By default, one site is configured to listen on port 80. Your objective is to enable another site to listen on port 443.</p>
+</li>
+<li><p>To do this, uncomment the entire section under this heading </p>
+<pre>
+  # Settings for a TLS enabled server.
+  #
+  server {
+      listen       443;
+  etc…
+</pre>
+</li>
+<li><p>and make the two changes shown here:</p>
+<pre>
+     ssl_certificate      /etc/pki/nginx/webserver.crt;
+     ssl_certificate_key  /etc/pki/nginx/webserver.key;
+</pre>
+</li>
+<li><p>Finally, restart nginx:</p>
+<pre><code>sudo service nginx restart</code></pre>
+</li>
+</ul>
+<h2>Test it</h2>
+<ul>
+<li><p>Edit your instance&#39;s security group to allow incoming connections to port 443.<br><br></p>
+</li>
+<li><p>Enter the following in a web browser:
+<pre><a href="https://ip_address">https://ip_address</a></pre>    (replacing <em>ip_address</em> with your instance’s Public IP address)<br><br></p>
+</li>
+<li><p>You&#39;ll get a warning as your certificate is signed by a CA that your browser doesn&#39;t trust.  You should be able to view the certificate and verify that it&#39;s the one that you created.</p>
+</li>
+</ul>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
