@@ -1,0 +1,919 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      22: Aurelia Introduction
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-Aurelia 1">
+      Lab-Aurelia 1
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-Aurelia 1">
+        <h1>Objectives</h1>
+<p>Commence an exploration of the Aurelia library by building small app that demonstrates so basic features.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Setup</h1>
+<p>We first need to install a new tools - the Aurelia Command Line client. This is outlined here:</p>
+<ul>
+<li><a href="http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli/1">http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/the-aurelia-cli/1</a></li>
+</ul>
+<p>However, we just need one command:</p>
+<pre><code>npm install aurelia-cli -g</code></pre>
+<p>In a suitable location create a new project called <code>donation-client</code>:</p>
+<pre><code>au new donation-client</code></pre>
+<p>accept all defaults...</p>
+<p>Open in webstorm. You may need to disable jscsrc code quality tools:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>and you should enable eslint:</p>
+<p><img src="img/02.png" alt=""></p>
+<p>The Eslint rules are built in to the project as generated by the cli.</p>
+<p>We need to ammend the gitignore file to exclude generated scripts files:</p>
+<h2>.gitignore</h2>
+<pre><code>node_modules
+.idea
+.DS_STORE
+scripts/app-bundle.js
+scripts/app-bundle.js.map
+scripts/vendor-bundle.js</code></pre>
+<p>You can now run the client application via this command:</p>
+<pre><code>au run --watch</code></pre>
+<p>A &#39;Hello World&#39; app is now being served here:</p>
+<ul>
+<li><a href="http://localhost:9000/">http://localhost:9000/</a></li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Assets &amp; Stylesheets</h1>
+<p>Create a folder in the project root called <code>assets</code> and a subfolder <code>images</code>. Bring in your <code>homer.*</code> set of images from <code>donation-web</code> into this folder.</p>
+<p>Edit <code>index.html</code> - also in the root, and include links to the semantic ui stylesheets + js from the usual CDN:</p>
+<h2>index.html</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Donation&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css&quot; type=&quot;text/css&quot;&gt;
+  &lt;/head&gt;
+
+  &lt;body aurelia-app=&quot;main&quot;&gt;
+    &lt;script src=&quot;scripts/vendor-bundle.js&quot; data-main=&quot;aurelia-bootstrapper&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>First View/Model</h1>
+<p>Create a folder in <code>src</code> called <code>viewmodels</code>. Include these new files in this folder:</p>
+<h2>src/viewmodels/donate.html</h2>
+<pre><code>&lt;template&gt;
+  &lt;section class=&quot;ui two column stackable grid basic segment&quot;&gt;
+
+    &lt;form submit.trigger=&quot;makeDonation()&quot; class=&quot;ui form four wide column stacked segment&quot;&gt;
+
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3&gt;Enter Amount &lt;/h3&gt;
+        &lt;div class=&quot;field&quot;&gt;
+          &lt;label&gt;Amount&lt;/label&gt; &lt;input type=&quot;number&quot; value.bind=&quot;amount&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;
+
+    &lt;/form&gt;
+
+    &lt;aside class=&quot;ui wide twelve wide center aligned middle aligned column&quot;&gt;
+      &lt;img src=&quot;assets/images/homer4.jpeg&quot; class=&quot;ui medium image&quot;&gt;
+    &lt;/aside&gt;
+
+  &lt;/section&gt;
+&lt;/template&gt;</code></pre>
+<h2>src/viewmodels/donate.js</h2>
+<pre><code>export class Donate {
+
+  amount = 5;
+
+  makeDonation() {
+    console.log(`Amount = ${this.amount}`);
+  }
+}</code></pre>
+<p>Now edite <code>src/app.html</code> to include this view/model into the app:</p>
+<pre><code>&lt;template&gt;
+  &lt;compose view-model=&quot;./viewmodels/donate&quot;&gt;&lt;/compose&gt;
+&lt;/template&gt;</code></pre>
+<p>Browse the app now (make sure it is still running), and a first version of a donation form should be visible. Open the developer tools, so you can see the console log:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>This log should be updated live as you press the donation button.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Binding</h1>
+<p>In <code>donate.html</code>, introduce a new element to capture the payment method:</p>
+<h2>src/viewmodels/donate.html</h2>
+<pre><code>      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3 class=&quot;ui dividing header&quot;&gt; Select Method &lt;/h3&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;method of methods&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;method&quot; checked.bind=&quot;selectedMethod&quot;&gt;
+            &lt;label&gt;${method}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedMethod} &lt;/label&gt;
+      &lt;/div&gt;</code></pre>
+<p>Place this just before the submit button element in the form.</p>
+<p>Revise the viewmodel class to include extra fields for the bound properties:</p>
+<pre><code>export class Donate {
+
+  amount = 5;
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+  selectedMethod = &#39;Cash&#39;;
+
+  makeDonation() {
+    console.log(`Amount = ${this.amount}`);
+    console.log(`Method = ${this.selectedMethod}`);
+  }
+}</code></pre>
+<p>Test the app now - the donation panel should look like this:</p>
+<p><img src="img/04.png" alt=""></p>
+<p>As you press the radio button, note how the on screen label changes. Also, keep an eye on the console log for updates from the event handler.</p>
+<p>Now look carefully at the Donate class - notice how simple it is, and how the visual components are automatically <code>bound</code> to the class attributes.</p>
+<p>We can continue working on this view with to support a candidate list. First, we define some candidates in the donate class:</p>
+<h2>src/viewmodels/donate.js</h2>
+<pre><code>export class Donate {
+
+  amount = 5;
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+  selectedMethod = &#39;Cash&#39;;
+
+  candidates = [
+    {
+      firstName: &#39;Lisa&#39;,
+      lastName: &#39;Simpson&#39;
+    },
+    {
+      firstName: &#39;Bart&#39;,
+      lastName: &#39;Simpson&#39;
+    }
+  ];
+  selectedCandidate = this.candidates[0];
+
+  makeDonation() {
+    console.log(`Amount = ${this.amount}`);
+    console.log(`Method = ${this.selectedMethod}`);
+    console.log(`Candidate = ${this.selectedCandidate.firstName} ${this.selectedCandidate.lastName}`);
+  }
+}</code></pre>
+<p>This is the candidate list view elements:</p>
+<h2>src/viewmodels/donate.html</h2>
+<pre><code>      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3 class=&quot;ui dividing header&quot;&gt; Select Candidate &lt;/h3&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;candidate of candidates&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;candidate&quot; checked.bind=&quot;selectedCandidate&quot;&gt;
+            &lt;label&gt;${candidate.lastName}, ${candidate.firstName}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedCandidate.firstName} ${selectedCandidate.lastName}&lt;/label&gt;
+      &lt;/div&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>DonationService</h1>
+<p>Ultimately we will be interacting the donation-web API in this app. In preparation for this, we introduce a class to represent the API in the client. Introduce this class in a new <code>src/services</code> folder:</p>
+<h2>src/services/donation-service.js</h2>
+<pre><code>export default class DonationService {
+
+  donations = [];
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+
+  candidates = [
+    {
+      firstName: &#39;Lisa&#39;,
+      lastName: &#39;Simpson&#39;
+    },
+    {
+      firstName: &#39;Bart&#39;,
+      lastName: &#39;Simpson&#39;
+    }
+  ];
+  selectedCandidate = this.candidates[0];
+
+  donate(amount, method, candidate) {
+    let donation = {
+      amount: amount,
+      method: method,
+      candidate: candidate
+    };
+    this.donations.push(donation);
+    console.log(amount + &#39; donated to &#39; + candidate.firstName + &#39; &#39; + candidate.lastName + &#39;: &#39; + method);
+  }
+}</code></pre>
+<p>This is a simple class - with no view aspects - that represents the API with a single &#39;donate&#39; method.</p>
+<p>Rewrite the donate view model class now to use this service:</p>
+<h2>src/viewmodels/donate.js</h2>
+<pre><code>import {inject} from &#39;aurelia-framework&#39;;
+import DonationService from &#39;../services/donation-service&#39;;
+
+@inject(DonationService)
+export class Donate {
+
+  amount = 0;
+
+  methods = [];
+  selectedMethod = &#39;&#39;;
+
+  candidates = [];
+  selectedCandidate = &#39;&#39;;
+
+  constructor(ds) {
+    this.donationService = ds;
+    this.methods = ds.methods;
+    this.selectedMethod = this.methods[0];
+    this.candidates = ds.candidates;
+    this.selectedCandidate = this.candidates[0];
+  }
+
+  makeDonation() {
+    this.donationService.donate(this.amount, this.selectedMethod, this.selectedCandidate);
+  }
+}</code></pre>
+<p>We are using Aurelia Dependency Injection to locate a references to the service object, and in our constructor we are binding the visual components directly to service data structures.</p>
+<p>This should now be running as before - there is no change to the html template.</p>
+<h2>Fixtures</h2>
+<p>To keep the donation-service class clean, we can load candidates and methods (and sample donations) from an external file.</p>
+<h2>src/services/fixtures.js</h2>
+<pre><code>export default class Fixtures {
+
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+
+  candidates = [
+    {
+      firstName: &#39;Lisa&#39;,
+      lastName: &#39;Simpson&#39;
+    },
+    {
+      firstName: &#39;Bart&#39;,
+      lastName: &#39;Simpson&#39;
+    }
+  ];
+
+  donations = [
+    {
+      amount: 23,
+      method: &#39;cash&#39;,
+      candidate: this.candidates[0]
+    },
+    {
+      amount: 212,
+      method: &#39;paypal&#39;,
+      candidate: this.candidates[1]
+    }
+  ];
+}</code></pre>
+<p>This is a refactored donation-service to load this data:</p>
+<pre><code>import {inject} from &#39;aurelia-framework&#39;;
+import Fixtures from &#39;./fixtures&#39;;
+
+@inject(Fixtures)
+export default class DonationService {
+
+  donations = [];
+  methods = [];
+  candidates = [];
+
+  constructor(data) {
+    this.donations = data.donations;
+    this.candidates = data.candidates;
+    this.methods = data.methods;
+  }
+
+  donate(amount, method, candidate) {
+    const donation = {
+      amount: amount,
+      method: method,
+      candidate: candidate
+    };
+    this.donations.push(donation);
+    console.log(amount + &#39; donated to &#39; + candidate.firstName + &#39; &#39; + candidate.lastName + &#39;: &#39; + method);
+  }
+}</code></pre>
+<p>All should work as before.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Report</h1>
+<p>Introduce the following viewmodel + template pair to render the list of donations:</p>
+<h2>src/viewmodels/report.js</h2>
+<pre><code>import {inject} from &#39;aurelia-framework&#39;;
+import DonationService from &#39;../services/donation-service&#39;;
+
+@inject(DonationService)
+export class Report {
+
+  donations = [];
+
+  constructor(ds) {
+    this.donationService = ds;
+    this.donations = this.donationService.donations;
+  }
+}</code></pre>
+<h2>src/viewmodels/report.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;section class=&quot;ui stacked segment&quot;&gt;
+    &lt;article class=&quot;eight wide column&quot;&gt;
+      &lt;table class=&quot;ui celled table segment&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Amount&lt;/th&gt;
+            &lt;th&gt;Method donated&lt;/th&gt;
+            &lt;th&gt;Candidate&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr repeat.for=&quot;donation of donations&quot;&gt;
+            &lt;td&gt; ${donation.amount}&lt;/td&gt;
+            &lt;td&gt; ${donation.method}&lt;/td&gt;
+            &lt;td&gt; ${donation.candidate.lastName}, ${donation.candidate.firstName}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+
+&lt;/template&gt;</code></pre>
+<p>Change <code>src/app.html</code> to include this viewmodel instead:</p>
+<h2>src/app.html</h2>
+<pre><code>&lt;template&gt;
+  &lt;compose view-model=&quot;./viewmodels/report&quot;&gt;&lt;/compose&gt;
+&lt;/template&gt;</code></pre>
+<p>The table should render - with the sample data we loaded from the fixture:</p>
+<p><img src="img/06.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Viewmodel Composition</h1>
+<p>We would like to display both viewmodels on the same page, and explore how databinding works in practice.</p>
+<p>First, simplify <code>donate.html</code> by removing the image and simplifying the layout slightly:</p>
+<h2>src/viewmodels/donate.html</h2>
+<pre><code>&lt;template&gt;
+  &lt;section class=&quot;ui two column stackable grid basic segment&quot;&gt;
+
+    &lt;form submit.trigger=&quot;makeDonation()&quot; class=&quot;ui form  column stacked segment&quot;&gt;
+
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3&gt;Enter Amount &lt;/h3&gt;
+        &lt;div class=&quot;field&quot;&gt;
+          &lt;label&gt;Amount&lt;/label&gt; &lt;input type=&quot;number&quot; value.bind=&quot;amount&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3 class=&quot;ui dividing header&quot;&gt; Select Method &lt;/h3&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;method of methods&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;method&quot; checked.bind=&quot;selectedMethod&quot;&gt;
+            &lt;label&gt;${method}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedMethod} &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;h3 class=&quot;ui dividing header&quot;&gt; Select Candidate &lt;/h3&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;candidate of candidates&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;candidate&quot; checked.bind=&quot;selectedCandidate&quot;&gt;
+            &lt;label&gt;${candidate.lastName}, ${candidate.firstName}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedCandidate.firstName} ${selectedCandidate.lastName}&lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;
+
+    &lt;/form&gt;
+
+  &lt;/section&gt;
+&lt;/template&gt;</code></pre>
+<p>Now we can replace the current <code>app.html</code> with a version that composes a view from the two viewmodels:</p>
+<h2>src/app.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;section class=&quot;ui two column stackable grid basic center aligned segment&quot;&gt;
+    &lt;aside class=&quot;column&quot;&gt;
+      &lt;compose view-model=&quot;./viewmodels/donate&quot;&gt;&lt;/compose&gt;
+    &lt;/aside&gt;
+    &lt;article class=&quot;column&quot;&gt;
+      &lt;compose view-model=&quot;./viewmodels/report&quot;&gt;&lt;/compose&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+
+&lt;/template&gt;</code></pre>
+<p>The app should now render like this:</p>
+<p><img src="img/07.png" alt=""></p>
+<p>The nature of databinding in the app now is such that the donation list view is automatically synchronised with the donate view model. Try it now, and confirm that the report view will be expanded as you make donations.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the lab so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.1.end">https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.1.end</a></li>
+</ul>
+<h2>Exercise 1: Simplified Layouts</h2>
+<p>Here are revisions to the current layouts, which simplify them marginally:</p>
+<h3>src/app.html</h3>
+<pre><code>&lt;template&gt;
+
+  &lt;div class=&quot;ui container&quot;&gt;
+    &lt;section class=&quot;ui three column stackable grid basic segment&quot;&gt;
+      &lt;div class=&quot;ui row&quot;&gt;
+        &lt;aside class=&quot;column&quot;&gt;
+          &lt;compose view-model=&quot;./viewmodels/donate&quot;&gt;&lt;/compose&gt;
+        &lt;/aside&gt;
+        &lt;article class=&quot;column&quot;&gt;
+          &lt;compose view-model=&quot;./viewmodels/report&quot;&gt;&lt;/compose&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+&lt;/template&gt;</code></pre>
+<h3>src/templates/donate.html</h3>
+<pre><code>&lt;template&gt;
+
+    &lt;form submit.trigger=&quot;makeDonation()&quot; class=&quot;ui form stacked segment&quot;&gt;
+
+      &lt;h3 class=&#39;ui dividing header&#39;&gt; Make a Donation &lt;/h3&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;div class=&quot;field&quot;&gt;
+          &lt;label&gt;Amount&lt;/label&gt; &lt;input type=&quot;number&quot; value.bind=&quot;amount&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;h4 class=&quot;ui dividing header&quot;&gt; Select Method &lt;/h4&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+
+        &lt;div class=&quot;field&quot; repeat.for=&quot;method of methods&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;method&quot; checked.bind=&quot;selectedMethod&quot;&gt;
+            &lt;label&gt;${method}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedMethod} &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;h4 class=&quot;ui dividing header&quot;&gt; Select Candidate &lt;/h4&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;candidate of candidates&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;candidate&quot; checked.bind=&quot;selectedCandidate&quot;&gt;
+            &lt;label&gt;${candidate.lastName}, ${candidate.firstName}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedCandidate.firstName} ${selectedCandidate.lastName}&lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<h3>src/templates/report.html</h3>
+<pre><code>&lt;template&gt;
+
+  &lt;article class=&quot;ui stacked segment&quot;&gt;
+    &lt;h3 class=&#39;ui dividing header&#39;&gt; Donations to Date &lt;/h3&gt;
+    &lt;table class=&quot;ui celled table segment&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Amount&lt;/th&gt;
+          &lt;th&gt;Method donated&lt;/th&gt;
+          &lt;th&gt;Candidate&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr repeat.for=&quot;donation of donations&quot;&gt;
+          &lt;td&gt; ${donation.amount}&lt;/td&gt;
+          &lt;td&gt; ${donation.method}&lt;/td&gt;
+          &lt;td&gt; ${donation.candidate.lastName}, ${donation.candidate.firstName}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/article&gt;
+
+&lt;/template&gt;</code></pre>
+<p>Include them now and verify that they layouts perform as expected.</p>
+<h2>Candidates ViewModel</h2>
+<p>We need a new viewmodel + template to enable a user to add a candidate to the election.</p>
+<p>Here is the layout:</p>
+<h3>src/layouts/candidates.html</h3>
+<pre><code>&lt;template&gt;
+
+  &lt;form submit.trigger=&quot;addCandidate()&quot; class=&quot;ui form stacked segment&quot;&gt;
+    &lt;h3 class=&quot;ui dividing header&quot;&gt; Add a Candidate &lt;/h3&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;First Name &lt;/label&gt; &lt;input value.bind=&quot;firstName&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Last Name &lt;/label&gt; &lt;input value.bind=&quot;lastName&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Office &lt;/label&gt; &lt;input value.bind=&quot;office&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Add&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<p>.. and here is the (incomplete) viewmodel:</p>
+<pre><code>
+export class Candidate {
+
+}</code></pre>
+<p>Using the donation viewmodel as a guide, see if you can implement this viewmodel.</p>
+<p>HINT:  Your objective should be to read the firstname, lastname and office from the view and invoke a new <code>addCandidate</code> method on donationService. This should push a new candidate onto the candidates array it is managing. You will also need to include this viewmodel in <code>app.html</code> so that it will display (just create a new column);</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
