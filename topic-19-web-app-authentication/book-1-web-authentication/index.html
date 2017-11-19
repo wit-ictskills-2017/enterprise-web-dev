@@ -1,0 +1,485 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      19: Web app authentication
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-19 Authentication techniques">
+      Lab-19 Authentication techniques
+    </a>
+    
+    <a class="item" data-tab="1-Passwords">
+      1-Passwords
+    </a>
+    
+    <a class="item" data-tab="2-Basic Auth">
+      2-Basic Auth
+    </a>
+    
+    <a class="item" data-tab="3-OAuth">
+      3-OAuth
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-19-web-app-authentication/book-1-web-authentication/index.html">
+          Lab-19 Authentication techniques
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-19 Authentication techniques">
+        <h1>Objectives</h1>
+<p>In this lab, we we will walk through some examples in class of how to add various authentication-related features to a web application.  You may adapt these for the purposes of your web application security assignment report. In particular we will examine:</p>
+<ol>
+<li>Password hashing &amp; salting</li>
+<li>HTTP Basic authentication</li>
+<li>Using OAuth</li>
+</ol>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="1-Passwords">
+        <h2>Password hashing &amp; salting</h2>
+<p>The <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a> module provides password hashing and salting.</p>
+<p>When <em>registering</em> a new user or <em>changing</em> password, convert the supplied password to a hashed and salted version with <font face="Courier">bcrypt.hash</font></p>
+<pre><code>bcrypt.hash(plaintextPassword, saltRounds, function(err, hash) {
+   // Store hash in your password DB. 
+});</code></pre>
+<p>To <em>check</em> a password entered by a user against the stored value, read the stored value (called <strong>hash</strong> here) and compare with <font face="Courier">bcrypt.compare</font></p>
+<pre><code>bcrypt.compare(candidatePassword, hash, function(err, res) { 
+  // res is true if password is correct
+});</code></pre>
+<p>This <a href="archive/accounts.js">edited version of the accounts.js</a> controller from <a href="https://bitbucket.org/edeleastar/donation-web-final">donation-web-final</a> implements both of these for user registration, password update and authentication.</p>
+<p>Note that any database initialisation you have will also need to be updated - see new version of <a href="archive/initdata.json">initdata.json</a>. These were populated with values created with an <a href="https://www.dailycred.com/article/bcrypt-calculator">online bcrypt calculator</a>.</p>
+<p>The lecture notes contain some background on password hashing and salting.</p>
+<p>Resources:</p>
+<ul>
+<li><a href="archive/accounts.js">accounts.js with password hashing and salting</a></li>
+<li><a href="archive/initdata.json">initdata.json (updated with hashed and salted passwords)</a></li>
+<li><a href="https://www.dailycred.com/article/bcrypt-calculator">Online bcrypt calculator (for initialisation/testing)</a></li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="2-Basic Auth">
+        <h1>HTTP Basic Authentication demo</h1>
+<p>This code demonstrates HTTP Basic Authentication using the <em>hapi-auth-basic</em> module</p>
+<p>Required modules: hapi, bcrypt, hapi-auth-basic</p>
+<pre><code>&#39;use strict&#39;;
+
+const Hapi = require(&#39;hapi&#39;);
+
+const server = new Hapi.Server();
+server.connection({port:4000});
+
+server.start((err) =&gt; {
+
+    if (err) {
+        throw err;
+    }
+    console.log(`Server running at: ${server.info.uri}`);
+});
+
+const Bcrypt = require(&#39;bcrypt&#39;);
+
+const users = {
+    john: {
+        username: &#39;john&#39;,
+        password: &#39;$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm&#39;,   // &#39;secret&#39;
+        name: &#39;John Doe&#39;,
+        id: &#39;2133d32a&#39;
+    }
+};
+
+const validate = function (request, username, password, callback) {
+
+    const user = users[username];
+    if (!user) {
+        return callback(null, false);
+    }
+
+    Bcrypt.compare(password, user.password, (err, isValid) =&gt; {
+
+        callback(err, isValid, { id: user.id, name: user.name });
+    });
+};
+
+server.register(require(&#39;hapi-auth-basic&#39;), (err) =&gt; {
+
+    server.auth.strategy(&#39;simple&#39;, &#39;basic&#39;, { validateFunc: validate });
+
+    server.route({ 
+        method: &#39;GET&#39;, 
+        path: &#39;/&#39;, 
+        config: { auth: &#39;simple&#39; } ,
+        handler: function (request, reply) {
+            reply(&#39;Hello, world!&#39;);
+        }
+    });
+});</code></pre>
+<p>To run this, save <a href="archive/basic.js">this program (basic.js)</a> to a new folder and run:</p>
+<pre>
+npm install hapi bcrypt hapi-auth-basic
+node basic.js
+</pre>
+
+<p>Now open a new browser tab and go to Developer Tools (right click and <strong>Inspect</strong> in Chrome). Select the <strong>Network</strong> tab and browse to <a href="http://localhost:4000">http://localhost:4000</a>. </p>
+<p>Observe that a <strong>WWW-Authenticate:Basic</strong> Response Header is set.
+<img src="img/basic1.png" alt="WWW-Authenticate:Basic Response Header"></p>
+<p>Entering the correct username and password (john/secret) sets an Authorization header in <em>all</em> requests to that domain until the browser is closed.  Note that this the username and password are just encoded and not encrypted. </p>
+<p><img src="img/basic2.png" alt="Base64-encoded Authorization header"></p>
+<p>Try any online Base64 decoder to find what <em>am9objpzZWNyZXQ</em> maps to.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="3-OAuth">
+        <h1>Using OAuth</h1>
+<p>The short tutorial linked here shows how to use the <a href="https://www.npmjs.com/package/bell">bell</a> plugin for OAuth - to allow your users to give your application privileged access to aspects of their account on any of a number of services - such as Twitter, Facebook, Google, Microsoft, LinkedIn, etc.</p>
+<ul>
+<li><a href="https://www.sitepoint.com/oauth-integration-using-hapi/">Tutorial on OAuth integration using Hapi</a></li>
+</ul>
+<p>This tutorial is based on getting access to the user&#39;s GitHub account.  The sample application code provided below is based on this (adapted to Twitter).</p>
+<ul>
+<li><a href="archive/oauth-twitter.zip">Sample code (access to Twitter account)</a>. </li>
+</ul>
+<p>This code contains placeholders for a Client ID and Client Secret which can be obtained by registering your app at <a href="https://apps.twitter.com/"><a href="https://apps.twitter.com/">https://apps.twitter.com/</a></a>. You also need to specify a callback URL which could for example be <a href="http://127.0.0.1/">http://127.0.0.1/</a> or <a href="http://127.0.0.1/account">http://127.0.0.1/account</a></p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>

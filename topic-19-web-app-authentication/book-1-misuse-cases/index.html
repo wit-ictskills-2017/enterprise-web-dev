@@ -1,0 +1,456 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      19: Web app authentication
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-17 Misuse Cases">
+      Lab-17 Misuse Cases
+    </a>
+    
+    <a class="item" data-tab="1-Intro">
+      1-Intro
+    </a>
+    
+    <a class="item" data-tab="2">
+      2
+    </a>
+    
+    <a class="item" data-tab="3">
+      3
+    </a>
+    
+    <a class="item" data-tab="4">
+      4
+    </a>
+    
+    <a class="item" data-tab="5">
+      5
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-19-web-app-authentication/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-17 Misuse Cases">
+        <h1>Objectives</h1>
+<p>The focus of this lab is this first part of the security assignment, which is broken down into the following steps:</p>
+<ol>
+<li>Specify requirements for a web application development scenario</li>
+<li>Define normal use cases</li>
+<li>Define abuse cases</li>
+<li>Augment the requirements and use cases in (a) &amp; (b) to mitigate the threats identified</li>
+</ol>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="1-Intro">
+        <h2>Threat modelling using misuse cases</h2>
+<p>Several software vulnerabilities are caused by poor specification of requirements, poor design and/or poor testing rather than specific programming flaws. It is important to consider security at all stages of the software development lifecycle.</p>
+<p>For the purpose of the assignment, you are asked to specify and analyse requirements for a software system of your choice. Besides specifying basic functionality, you should concentrate on security requirements and use threat modelling to help put together those requirements. In particular you should specify what are known as misuse cases (also called abuse cases).</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="2">
+        <h1>Requirements</h1>
+<p>Specify requirements for a software system of your choice. Make sure that it is simple enough to be specified fully in one or two pages of requirements, but sophisticated enough to be interesting – i.e. there should be at least two different types of user (actors); there should be a variety of functions, some of which are restricted to certain users; some of the functions should be multi-step (for example, a transaction might combine an order function with a payment function). You may think in terms of an application you have developed yourself (perhaps enhanced a bit) or something completely different.</p>
+<p>This should be done in text, using bulleted or numbered lists as appropriate.</p>
+<p>Some application ideas (but feel free to choose your own!)</p>
+<ul>
+<li>Online donations</li>
+<li>Online community (social network)</li>
+<li>Online shop</li>
+<li>Sports club (booking facilities)</li>
+<li>Hotel</li>
+<li>International student application system</li>
+<li>Garage (booking a car service)</li>
+<li>Bank ATM</li>
+<li>Event ticket sales</li>
+<li>Microblogging (like Twitter)</li>
+<li>Online auction</li>
+<li>Sports event registration (e.g. marathon)</li>
+<li>Library</li>
+<li>Courier service (DHL, FedEx, Parcel Motel, etc)</li>
+<li>Pay per view TV</li>
+<li>Take away food ordering system</li>
+<li>Employee timekeeping (clocking in/out etc)</li>
+<li>Student exam results system</li>
+<li>Art gallery</li>
+</ul>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="3">
+        <h1>Define normal use cases</h1>
+<p>This requires you to define the (benign) actors and how they interact with the system.</p>
+<p>For a good concise description of Use Cases, see <a href="http://www.computing.dcu.ie/~renaat/gdip/umldist-chap3.html">this extract</a> from UML Distilled, by Martin Fowler.</p>
+<p>Note that use cases are not just diagrams. They require a diagram plus a description (according to a standard template).</p>
+<p>You can use any drawing tool you wish for use case diagrams. The following are probably the two best options</p>
+<ul>
+<li><p><a href="https://draw.io">draw.io</a>. In-browser drawing tool. You can find Use Case artifacts in the &quot;UML&quot; section</p>
+<ul>
+<li><a href="archive/misusecases.xml">Misuse cases + mitigation example that you can open in draw.io</a><br><br></li>
+</ul>
+</li>
+<li><p><a href="https://www.visual-paradigm.com/download/archive/">Visual Paradigm</a>. Click &quot;Show all operating systems&quot; and select the &quot;No install&quot; version of Visual Paradigm 14.1. Unzip, run, select 30-day enterprise evaluation licence.  Then go to the <em>Diagram</em> menu and select <em>New-&gt;Use Case Diagram</em></p>
+</li>
+</ul>
+<p><img src="img/usecases.png" alt="draw.io"></p>
+<p><img src="img/visualparadigm.png" alt="Visual Paradigm"></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="4">
+        <h1>Define misuse cases</h1>
+<p>Define a selection of misuse cases using diagrams and supporting text. This will likely involve some new actors. You might wish to consider both external and internal attackers.</p>
+<p><img src="img/misusecases.png" alt="Example"></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="5">
+        <h1>Mitigation</h1>
+<p>Augment the requirements and use cases to mitigate the threats posed by the misuse cases.</p>
+<p><img src="img/mitigation.png" alt="Example"></p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
