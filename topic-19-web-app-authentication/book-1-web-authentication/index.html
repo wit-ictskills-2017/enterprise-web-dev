@@ -308,6 +308,25 @@ body
 <p>This <a href="archive/accounts.js">edited version of the accounts.js</a> controller from <a href="https://bitbucket.org/edeleastar/donation-web-final">donation-web-final</a> implements both of these for user registration, password update and authentication.</p>
 <p>Note that any database initialisation you have will also need to be updated - see new version of <a href="archive/initdata.json">initdata.json</a>. These were populated with values created with an <a href="https://www.dailycred.com/article/bcrypt-calculator">online bcrypt calculator</a>.</p>
 <p>The lecture notes contain some background on password hashing and salting.</p>
+<p>You can get donation-web-final with the following command:</p>
+<pre>
+git clone https://bitbucket.org/edeleastar/donation-web-final.git
+</pre>
+
+<p>Then overwrite <em>app/controllers/accounts.js</em> with the version of <em>accounts.js</em> linked below.
+Likewise overwrite <em>app/models/initdata.json</em> with the version of <em>initdata.json</em> linked below.</p>
+<p>Start mongod in a new terminal</p>
+<pre>
+sudo mongod
+</pre>
+
+<p>Then you should be able to run the app and see hashed and salted passwords</p>
+<pre>
+cd donation-web-final
+npm install
+node index.js
+</pre>
+
 <p>Resources:</p>
 <ul>
 <li><a href="archive/accounts.js">accounts.js with password hashing and salting</a></li>
