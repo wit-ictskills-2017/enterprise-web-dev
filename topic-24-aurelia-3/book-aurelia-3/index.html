@@ -911,6 +911,10 @@ export class Home {
       { route: &#39;logout&#39;, name: &#39;logout&#39;, moduleId: &#39;viewmodels/logout/logout&#39;, nav: true, title: &#39;Logout&#39; }
     ]);
     this.router = router;
+
+    config.mapUnknownRoutes(instruction =&gt; {
+      return &#39;home&#39;;
+    });
   }
 }</code></pre>
 <h2>src/home.html</h2>
