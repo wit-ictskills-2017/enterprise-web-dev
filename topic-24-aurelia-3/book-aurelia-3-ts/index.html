@@ -1,0 +1,1062 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      24: Aurelia Routers
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-08">
+      Lab-08
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="08">
+      08
+    </a>
+    
+    <a class="item" data-tab="09">
+      09
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-19-web-app-authentication/book-1-web-authentication/index.html">
+          Lab-19 Authentication techniques
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-1-burp-proxy/index.html">
+          Lab-Burp-Proxy
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-2-regex/index.html">
+          Regular Expressions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-3-xss/index.html">
+          XSS tips
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-23-aurelia-2/book-aurelia-2/index.html">
+          Lab-Aurelia 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-24-aurelia-3/book-aurelia-3/index.html">
+          Lab-Aurelia 3
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-24-aurelia-3/book-aurelia-3-ts/index.html">
+          Lab-08
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-08">
+        <h1>Objectives</h1>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Starter Project</h1>
+<p>Make sure you have the latest typescript and aureli-cli installed on your workstation:</p>
+<pre><code>npm install typescript -g
+npm install aurelia-cli -g</code></pre>
+<p>Create a new Aurelia project:</p>
+<pre><code>au new donstion-client-ts</code></pre>
+<p>Make sure to select [2] for typescript:</p>
+<pre><code>                      _ _          ____ _     ___
+  __ _ _   _ _ __ ___| (_) __ _   / ___| |   |_ _|
+ / _` | | | | &#39;__/ _ \ | |/ _` | | |   | |    | |
+| (_| | |_| | | |  __/ | | (_| | | |___| |___ | |
+ \__,_|\__,_|_|  \___|_|_|\__,_|  \____|_____|___|
+
+
+Would you like to use the default setup or customize your choices?
+
+1. Default ESNext (Default)
+   A basic web-oriented setup with Babel and RequireJS for modern JavaScript development.
+2. Default TypeScript
+   A basic web-oriented setup with TypeScript and RequireJS for modern JavaScript development.
+3. Custom
+   Select loaders (requirejs/systemjs), bundlers (cli/webpack), transpilers, CSS pre-processors and more.
+
+[Default ESNext]&gt;2</code></pre>
+<p>Accept all other defaults.</p>
+<p>You should be able to immediately open the project in Webstorm.</p>
+<p>When invited to compile Typescript to Javascript - press &#39;OK&#39;</p>
+<p><img src="img/01.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Services</h1>
+<p>We start by creating a new <code>services</code> folder in <code>src</code>. Create a new <code>models.ts</code> module:</p>
+<h2>src/models.ts</h2>
+<pre><code>export interface Candidate {
+  firstName: string;
+  lastName: string;
+  office: string;
+  _id?: string;
+}
+
+export interface Donation {
+  amount: number;
+  method: string;
+  candidate: Candidate;
+  _id?: string;
+}
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  _id?: string;
+}</code></pre>
+<p>This mirrors the Donation models. The <code>?</code> indicates that the id fields may initially be empty.</p>
+<p>Using these models, we can construct a class to hold some inital fixture data:</p>
+<h2>src/services/fixtures.ts</h2>
+<pre><code>import { Candidate, Donation, User } from &#39;./models&#39;;
+
+export default class Fixtures {
+  baseUrl = &#39;http://localhost:4000&#39;;
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+
+  candidates: Array&lt;Candidate&gt; = [
+    {
+      firstName: &#39;Lisa&#39;,
+      lastName: &#39;Simpson&#39;,
+      office: &#39;President&#39;,
+    },
+    {
+      firstName: &#39;Bart&#39;,
+      lastName: &#39;Simpson&#39;,
+      office: &#39;President&#39;,
+    },
+  ];
+
+  donations: Array&lt;Donation&gt; = [
+    {
+      amount: 23,
+      method: &#39;cash&#39;,
+      candidate: this.candidates[0],
+    },
+    {
+      amount: 212,
+      method: &#39;paypal&#39;,
+      candidate: this.candidates[1],
+    },
+  ];
+
+  users: Map&lt;string, User&gt; = new Map()
+    .set(&#39;homer@simpson.com&#39;, {
+      firstName: &#39;Homer&#39;,
+      lastName: &#39;Simpson&#39;,
+      email: &#39;homer@simpson.com&#39;,
+      password: &#39;secret&#39;,
+    })
+    .set(&#39;marge@simpson.com&#39;, {
+      firstName: &#39;Marge&#39;,
+      lastName: &#39;Simpson&#39;,
+      email: &#39;marge@simpson.com&#39;,
+      password: &#39;secret&#39;,
+    });
+}</code></pre>
+<p>Next, a definition of the messages to be used in the app:</p>
+<h2>src/services/messages.ts</h2>
+<pre><code>export class TotalUpdate {
+  total: number;
+  constructor(total: number) {
+    this.total = total;
+  }
+}
+
+export class LoginStatus {
+  status: boolean;
+  message: string;
+  constructor(status: boolean, message:string = &#39;&#39;) {
+    this.status = status;
+    this.message = message;
+  }
+}</code></pre>
+<p>We can now define a <code>DonationService</code> class:</p>
+<h2>src/services/donation-service.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import Fixtures from &#39;./fixtures&#39;;
+import { TotalUpdate, LoginStatus } from &#39;./messages&#39;;
+import { EventAggregator } from &#39;aurelia-event-aggregator&#39;;
+import { Candidate, Donation, User } from &#39;./models&#39;;
+
+@inject(Fixtures, EventAggregator)
+export class DonationService {
+  ea: EventAggregator;
+  donations: Array&lt;Donation&gt; = [];
+  methods: Array&lt;string&gt; = [];
+  candidates: Array&lt;Candidate&gt; = [];
+  users: Map&lt;string, User&gt;;
+  total = 0;
+
+  constructor(data: Fixtures, ea: EventAggregator) {
+    this.users = data.users;
+    this.donations = data.donations;
+    this.candidates = data.candidates;
+    this.methods = data.methods;
+    this.ea = ea;
+  }
+
+  donate(amount: number, method: string, candidate: Candidate) {
+    const donation = {
+      amount: amount,
+      method: method,
+      candidate: candidate,
+    };
+    this.donations.push(donation);
+    console.log(
+      `${amount} donated to ${candidate.firstName} ${candidate.lastName} : ${
+        method
+      }`,
+    );
+
+    this.total = this.total + amount;
+    console.log(&#39;Total so far &#39; + this.total);
+    this.ea.publish(new TotalUpdate(this.total));
+  }
+
+  addCandidate(firstName: string, lastName: string, office: string) {
+    const candidate = {
+      firstName: firstName,
+      lastName: lastName,
+      office: office,
+    };
+    this.candidates.push(candidate);
+  }
+
+  register(firstName, lastName, email, password) {
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
+    this.users.set(email, newUser);
+  }
+
+  login(email: string, password: string) {
+    const loginStatus = new LoginStatus(false);
+
+    const user = this.users.get(email);
+    if (user) {
+      if (user.password === password) {
+        loginStatus.status = true;
+        loginStatus.message = &#39;logged in&#39;;
+      } else {
+        loginStatus.message = &#39;Incorrect password&#39;;
+      }
+    } else {
+      loginStatus.message = &#39;Unknown user&#39;;
+    }
+    this.ea.publish(loginStatus);
+  }
+
+  logout() {
+    this.ea.publish(new LoginStatus(false));
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Initial Components</h1>
+<p>Create a new folder: <code>src/components</code>, and introduce these two viewmodel/view pairs:</p>
+<h2>src/components/login.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;form submit.delegate=&quot;login($event)&quot; class=&quot;ui stacked segment form&quot;&gt;
+    &lt;h3 class=&quot;ui header&quot;&gt;Log-in&lt;/h3&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt; &lt;input placeholder=&quot;Email&quot; value.bind=&quot;email&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Password&lt;/label&gt; &lt;input type=&quot;password&quot; value.bind=&quot;password&quot;/&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Login&lt;/button&gt;
+    &lt;h3&gt;${prompt}&lt;/h3&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>src/components/login.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+
+@inject(DonationService)
+export class Login {
+  donationService: DonationService;
+  email = &#39;marge@simpson.com&#39;;
+  password = &#39;secret&#39;;
+
+  constructor(ds: DonationService) {
+    this.donationService = ds;
+  }
+
+  login(e) {
+    console.log(`Trying to log in ${this.email}`);
+    this.donationService.login(this.email, this.password);
+  }
+}</code></pre>
+<h2>src/components/signup.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;form submit.delegate=&quot;register($event)&quot; class=&quot;ui stacked segment form&quot;&gt;
+    &lt;h3 class=&quot;ui header&quot;&gt;Register&lt;/h3&gt;
+    &lt;div class=&quot;two fields&quot;&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;First Name&lt;/label&gt;
+        &lt;input placeholder=&quot;First Name&quot; type=&quot;text&quot; value.bind=&quot;firstName&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field&quot;&gt;
+        &lt;label&gt;Last Name&lt;/label&gt;
+        &lt;input placeholder=&quot;Last Name&quot; type=&quot;text&quot; value.bind=&quot;lastName&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Email&lt;/label&gt;
+      &lt;input placeholder=&quot;Email&quot; type=&quot;text&quot; value.bind=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; value.bind=&quot;password&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>src/components/signup.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+
+@inject(DonationService)
+export class Signup {
+  donationService: DonationService;
+
+  firstName = &#39;Marge&#39;;
+  lastName = &#39;Simpson&#39;;
+  email = &#39;marge@simpson.com&#39;;
+  password = &#39;secret&#39;;
+
+  constructor(ds) {
+    this.donationService = ds;
+  }
+
+  register(e) {
+    this.donationService.register(
+      this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+    );
+    this.donationService.login(this.email, this.password);
+  }
+}</code></pre>
+<p>And then this view:</p>
+<h2>src/components/nav-bar.html</h2>
+<pre><code>&lt;template bindable=&quot;router&quot;&gt;
+
+  &lt;nav class=&quot;ui inverted menu&quot;&gt;
+    &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+    &lt;div class=&quot;right menu&quot;&gt;
+      &lt;div repeat.for=&quot;row of router.navigation&quot;&gt;
+        &lt;a class=&quot;${row.isActive ? &#39;active&#39; : &#39;&#39;} item&quot;  href.bind=&quot;row.href&quot;&gt;${row.title}&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+&lt;/template&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Index &amp; App</h1>
+<p>Include the semantic-ui libraries in index.html</p>
+<h1>index.html</h1>
+<pre><code>...
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css&quot; type=&quot;text/css&quot;&gt;
+ ...</code></pre>
+<p>We are now ready for to start the <code>app</code> view-model and run the application for the first time.</p>
+<h2>src/app.ts</h2>
+<pre><code>import { inject, Aurelia } from &#39;aurelia-framework&#39;;
+import { RouterConfiguration, Router } from &#39;aurelia-router&#39;;
+import { EventAggregator } from &#39;aurelia-event-aggregator&#39;;
+
+@inject(Aurelia, EventAggregator)
+export class App {
+  router: Router;
+
+  configureRouter(config: RouterConfiguration, router: Router) {
+    config.map([
+      {
+        route: [&#39;&#39;, &#39;login&#39;],
+        name: &#39;login&#39;,
+        moduleId: &#39;components/login&#39;,
+        nav: true,
+        title: &#39;Login&#39;,
+      },
+      {
+        route: &#39;signup&#39;,
+        name: &#39;signup&#39;,
+        moduleId: &#39;components/signup&#39;,
+        nav: true,
+        title: &#39;Signup&#39;,
+      },
+    ]);
+    this.router = router;
+  }
+}</code></pre>
+<h2>src/app.html</h2>
+<pre><code>&lt;template&gt;
+  &lt;require from=&quot;components/nav-bar.html&quot;&gt;&lt;/require&gt;
+  &lt;div class=&quot;ui container page-host&quot;&gt;
+    &lt;nav-bar router.bind=&quot;router&quot;&gt;&lt;/nav-bar&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+<p>Run the app now from the command line:</p>
+<pre><code> au run --watch</code></pre>
+<p>Verify that the login and signup screens are displayed - and the nav bar works as expected.</p>
+<p>Also, keep an eye on the developer console, and make sure there are no error messages appearing there.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Donate &amp; Report Components</h1>
+<p>Introduce additional these additional components:</p>
+<h2>src/components/donate.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+import { Candidate } from &#39;../services/models&#39;;
+
+@inject(DonationService)
+export class Donate {
+  donationService: DonationService;
+  amount = 0;
+
+  methods: Array&lt;string&gt; = [];
+  selectedMethod = &#39;&#39;;
+
+  candidates: Array&lt;Candidate&gt;;
+  selectedCandidate: Candidate;
+
+  constructor(ds: DonationService) {
+    this.donationService = ds;
+    this.methods = ds.methods;
+    this.selectedMethod = this.methods[0];
+    this.candidates = ds.candidates;
+    this.selectedCandidate = this.candidates[0];
+  }
+
+  makeDonation() {
+    this.donationService.donate(
+      this.amount,
+      this.selectedMethod,
+      this.selectedCandidate,
+    );
+  }
+}</code></pre>
+<h2>src/components/donate.html</h2>
+<pre><code>&lt;template&gt;
+
+    &lt;form submit.trigger=&quot;makeDonation()&quot; class=&quot;ui form stacked segment&quot;&gt;
+
+      &lt;h3 class=&#39;ui dividing header&#39;&gt; Make a Donation &lt;/h3&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;div class=&quot;field&quot;&gt;
+          &lt;label&gt;Amount&lt;/label&gt; &lt;input type=&quot;number&quot; value.bind=&quot;amount&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;h4 class=&quot;ui dividing header&quot;&gt; Select Method &lt;/h4&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+
+        &lt;div class=&quot;field&quot; repeat.for=&quot;method of methods&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;method&quot; checked.bind=&quot;selectedMethod&quot;&gt;
+            &lt;label&gt;${method}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedMethod} &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;h4 class=&quot;ui dividing header&quot;&gt; Select Candidate &lt;/h4&gt;
+      &lt;div class=&quot;grouped inline fields&quot;&gt;
+        &lt;div class=&quot;field&quot; repeat.for=&quot;candidate of candidates&quot;&gt;
+          &lt;div class=&quot;ui radio checkbox&quot;&gt;
+            &lt;input type=&quot;radio&quot; model.bind=&quot;candidate&quot; checked.bind=&quot;selectedCandidate&quot;&gt;
+            &lt;label&gt;${candidate.lastName}, ${candidate.firstName}&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;ui circular label&quot;&gt; ${selectedCandidate.firstName} ${selectedCandidate.lastName}&lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;button class=&quot;ui blue submit button&quot;&gt;Donate&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>src/components/report.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+import { Donation } from &#39;../services/models&#39;;
+
+@inject(DonationService)
+export class Report {
+  donationService: DonationService;
+  donations: Array&lt;Donation&gt;;
+
+  constructor(ds) {
+    this.donationService = ds;
+    this.donations = this.donationService.donations;
+  }
+}</code></pre>
+<h2>src/components/report.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;article class=&quot;ui stacked segment&quot;&gt;
+    &lt;h3 class=&#39;ui dividing header&#39;&gt; Donations to Date &lt;/h3&gt;
+    &lt;table class=&quot;ui celled table segment&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Amount&lt;/th&gt;
+          &lt;th&gt;Method donated&lt;/th&gt;
+          &lt;th&gt;Candidate&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr repeat.for=&quot;donation of donations&quot;&gt;
+          &lt;td&gt; ${donation.amount}&lt;/td&gt;
+          &lt;td&gt; ${donation.method}&lt;/td&gt;
+          &lt;td&gt; ${donation.candidate.lastName}, ${donation.candidate.firstName}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/article&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>src/components/logout.ts</h2>
+<pre><code>import { DonationService } from &#39;../services/donation-service&#39;;
+import { inject } from &#39;aurelia-framework&#39;;
+
+@inject(DonationService)
+export class Logout {
+  donationService: DonationService;
+
+  constructor(donationService: DonationService) {
+    this.donationService = donationService;
+  }
+
+  logout() {
+    console.log(&#39;logging out&#39;);
+    this.donationService.logout();
+  }
+}</code></pre>
+<h2>src/components/logout.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;form submit.delegate=&quot;logout($event)&quot; class=&quot;ui stacked segment form&quot;&gt;
+    &lt;h3 class=&quot;ui header&quot;&gt;Are you sure you want to log out?&lt;/h3&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Logout&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Home View Model</h1>
+<p>WE now need a new Viewmodel for the logged in users:</p>
+<h2>src/home.ts</h2>
+<pre><code>import { RouterConfiguration, Router } from &#39;aurelia-router&#39;;
+
+export class Home {
+  router: Router;
+
+  configureRouter(config: RouterConfiguration, router: Router) {
+    config.map([
+      {
+        route: [&#39;&#39;, &#39;home&#39;],
+        name: &#39;donate&#39;,
+        moduleId: &#39;components/donate&#39;,
+        nav: true,
+        title: &#39;Donate&#39;,
+      },
+      {
+        route: &#39;report&#39;,
+        name: &#39;report&#39;,
+        moduleId: &#39;components/report&#39;,
+        nav: true,
+        title: &#39;Report&#39;,
+      },
+      {
+        route: &#39;logout&#39;,
+        name: &#39;logout&#39;,
+        moduleId: &#39;components/logout&#39;,
+        nav: true,
+        title: &#39;Logout&#39;,
+      },
+    ]);
+    this.router = router;
+  }
+}</code></pre>
+<h2>src/home.html</h2>
+<pre><code>&lt;template&gt;
+  &lt;require from=&quot;components/nav-bar.html&quot;&gt;&lt;/require&gt;
+  &lt;div class=&quot;ui container page-host&quot;&gt;
+    &lt;nav-bar router.bind=&quot;router&quot;&gt;&lt;/nav-bar&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+<p>This is a revised <code>app.ts</code>:</p>
+<h2>src/app.ts</h2>
+<pre><code>import { inject, Aurelia } from &#39;aurelia-framework&#39;;
+import { RouterConfiguration, Router } from &#39;aurelia-router&#39;;
+import { EventAggregator } from &#39;aurelia-event-aggregator&#39;;
+import { LoginStatus } from &#39;./services/messages&#39;;
+
+@inject(Aurelia, EventAggregator)
+export class App {
+  router: Router;
+
+  constructor(au: Aurelia, ea: EventAggregator) {
+    ea.subscribe(LoginStatus, msg =&gt; {
+      this.router.navigate(&#39;/&#39;, { replace: true, trigger: false });
+      this.router.reset();
+      if (msg.status === true) {
+        au.setRoot(&#39;home&#39;);
+
+      } else {
+        au.setRoot(&#39;app&#39;);
+      }
+    });
+  }
+
+  configureRouter(config: RouterConfiguration, router: Router) {
+    config.map([
+      {
+        route: [&#39;&#39;, &#39;login&#39;],
+        name: &#39;login&#39;,
+        moduleId: &#39;components/login&#39;,
+        nav: true,
+        title: &#39;Login&#39;,
+      },
+      {
+        route: &#39;signup&#39;,
+        name: &#39;signup&#39;,
+        moduleId: &#39;components/signup&#39;,
+        nav: true,
+        title: &#39;Signup&#39;,
+      },
+    ]);
+    this.router = router;
+  }
+}</code></pre>
+<p>Run the app now - and verify that login/logout + the basics donation and report features work as expected.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <p>#</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08">
+        <p>#</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="09">
+        <p>#</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Solution</h1>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
