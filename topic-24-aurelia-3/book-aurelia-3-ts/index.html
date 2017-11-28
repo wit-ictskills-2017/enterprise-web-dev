@@ -376,7 +376,7 @@ Would you like to use the default setup or customize your choices?
       <div  class="ui tab segment lab" data-tab="02">
         <h1>Services</h1>
 <p>We start by creating a new <code>services</code> folder in <code>src</code>. Create a new <code>models.ts</code> module:</p>
-<h2>src/models.ts</h2>
+<h2>src/services/models.ts</h2>
 <pre><code>export interface Candidate {
   firstName: string;
   lastName: string;
@@ -715,7 +715,7 @@ export class App {
      
       <div  class="ui tab segment lab" data-tab="05">
         <h1>Donate &amp; Report Components</h1>
-<p>Introduce additional these additional components:</p>
+<p>Introduce these additional components:</p>
 <h2>src/components/donate.ts</h2>
 <pre><code>import { inject } from &#39;aurelia-framework&#39;;
 import { DonationService } from &#39;../services/donation-service&#39;;
@@ -858,7 +858,7 @@ export class Logout {
      
       <div  class="ui tab segment lab" data-tab="06">
         <h1>Home View Model</h1>
-<p>WE now need a new Viewmodel for the logged in users:</p>
+<p>We now need a new Viewmodel for the logged in users:</p>
 <h2>src/home.ts</h2>
 <pre><code>import { RouterConfiguration, Router } from &#39;aurelia-router&#39;;
 
@@ -900,7 +900,7 @@ export class Home {
     &lt;router-view&gt;&lt;/router-view&gt;
   &lt;/div&gt;
 &lt;/template&gt;</code></pre>
-<p>This is a revised <code>app.ts</code>:</p>
+<p>This is a revised <code>app.ts</code> to support log in/out events:</p>
 <h2>src/app.ts</h2>
 <pre><code>import { inject, Aurelia } from &#39;aurelia-framework&#39;;
 import { RouterConfiguration, Router } from &#39;aurelia-router&#39;;
@@ -951,16 +951,14 @@ export class App {
       <div  class="ui tab segment lab" data-tab="Exercises">
         <h1>Solution</h1>
 <ul>
-<li><a href="https://github.com/edeleastar/donation-client-ts">https://github.com/edeleastar/donation-client-ts</a></li>
+<li><a href="https://github.com/edeleastar/donation-client-ts/releases/tag/aurelia.lab.3.ts.end">https://github.com/edeleastar/donation-client-ts/releases/tag/aurelia.lab.3.ts.end</a></li>
 </ul>
-<h2>Exercises</h2>
-<p>Complete the Typescript version of the application as implemented in Aurelia Lab 3. It should include the following additional view models:</p>
-<ul>
-<li>Candidates</li>
-<li>Stats</li>
-<li>Dashboard</li>
-</ul>
-<p>These have been implemented in Aurelia Lab 3.</p>
+<h2>Exercise 1</h2>
+<p>Implement the Stats component (see Aurelia Lab 3)</p>
+<h2>Exercise 2</h2>
+<p>Implement the Candidates component (see Aurelia Lab 3)</p>
+<h2>Exercise 3</h2>
+<p>Implement the Dashboard component (see Aurelia Lab 3)</p>
 
       </div>
      
