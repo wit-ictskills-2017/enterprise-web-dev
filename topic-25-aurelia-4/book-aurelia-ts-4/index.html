@@ -1,0 +1,923 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      25: Aurelia Rest Client
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-Aurelia 4 TS">
+      Lab-Aurelia 4 TS
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-19-web-app-authentication/book-1-web-authentication/index.html">
+          Lab-19 Authentication techniques
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-1-burp-proxy/index.html">
+          Lab-Burp-Proxy
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-2-regex/index.html">
+          Regular Expressions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-3-xss/index.html">
+          XSS tips
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-23-aurelia-2/book-aurelia-2/index.html">
+          Lab-Aurelia 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-24-aurelia-3/book-aurelia-3/index.html">
+          Lab-Aurelia 3
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-24-aurelia-3/book-aurelia-3-ts/index.html">
+          Aurelia Lab 3 TS
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-25-aurelia-4/book-aurelia-4/index.html">
+          Lab-Aurelia 4
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-25-aurelia-4/book-aurelia-ts-4/index.html">
+          Lab-Aurelia 4 TS
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-26-aurelia-5/book-a-hapi-auth/index.html">
+          Lab-Hapi-JWT
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-26-aurelia-5/book-b-aurelia-5/index.html">
+          Lab-Aurelia 5
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-Aurelia 4 TS">
+        <h1>Objectives</h1>
+<p>Rework the donation-service class to communicate with the donation-web application. This will involve incorporating http components into the app and refactoring DonationService to use them.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Exercise Solutions</h1>
+<p>Archive of the lab so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.4.end">https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.4.end</a></li>
+</ul>
+<p>First the solutions, a fix to Donation.ts:</p>
+<h2>src/components/donate.ts</h2>
+<pre><code>  amount = &#39;0&#39;;
+
+  ...
+  ...
+  makeDonation() {
+    this.donationService.donate(
+      parseInt(this.amount),
+      this.selectedMethod,
+      this.selectedCandidate,
+    )
+  ...</code></pre>
+<p>This addresses an issue in binding (it may be a Javascript anomaly), discussed here:</p>
+<ul>
+<li><a href="https://github.com/aurelia/binding/issues/443">https://github.com/aurelia/binding/issues/443</a></li>
+</ul>
+<p>A more robust solution would be to use a Value Converter:</p>
+<ul>
+<li><a href="http://aurelia.io/docs/binding/value-converters#value-converters">http://aurelia.io/docs/binding/value-converters#value-converters</a></li>
+</ul>
+<h2>Exercise 1</h2>
+<p>Implement the Stats component (see Aurelia Lab 3)</p>
+<h2>src/components/stats.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { TotalUpdate } from &#39;../services/messages&#39;;
+import { EventAggregator } from &#39;aurelia-event-aggregator&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+
+@inject(EventAggregator, DonationService)
+export class Stats {
+  donationService: DonationService;
+  total = 0;
+
+  constructor(ea: EventAggregator, ds: DonationService) {
+    this.donationService = ds;
+    ea.subscribe(TotalUpdate, msg =&gt; {
+      this.total = msg.total;
+    });
+  }
+
+  attached() {
+    this.total = this.donationService.total;
+  }
+}</code></pre>
+<h2>src/components/stats.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;section class=&quot;ui stacked statistic segment&quot;&gt;
+    &lt;div class=&quot;value&quot;&gt;
+      ${total}
+    &lt;/div&gt;
+    &lt;div class=&quot;label&quot;&gt;
+      Donated
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>Exercise 2</h2>
+<p>Implement the Candidates component (see Aurelia Lab 3)</p>
+<h2>src/components/candidates.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { DonationService } from &#39;../services/donation-service&#39;;
+
+@inject(DonationService)
+export class Candidate {
+  donationService: DonationService;
+  firstName = &#39;&#39;;
+  lastName = &#39;&#39;;
+  office = &#39;&#39;;
+
+  constructor(ds: DonationService) {
+    this.donationService = ds;
+  }
+
+  addCandidate() {
+    this.donationService.addCandidate(
+      this.firstName,
+      this.lastName,
+      this.office,
+    );
+  }
+}</code></pre>
+<h2>src/components/candidates.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;form submit.trigger=&quot;addCandidate()&quot; class=&quot;ui form stacked segment&quot;&gt;
+    &lt;h3 class=&quot;ui dividing header&quot;&gt; Add a Candidate &lt;/h3&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;First Name &lt;/label&gt; &lt;input value.bind=&quot;firstName&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Last Name &lt;/label&gt; &lt;input value.bind=&quot;lastName&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;label&gt;Office &lt;/label&gt; &lt;input value.bind=&quot;office&quot;&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;ui blue submit button&quot;&gt;Add&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;</code></pre>
+<h2>Exercise 3</h2>
+<p>Implement the Dashboard component (see Aurelia Lab 3)</p>
+<h2>src/components/dashboard.ts</h2>
+<pre><code>export class Dashboard {
+}</code></pre>
+<h2>src/components/dashboard.html</h2>
+<pre><code>&lt;template&gt;
+
+  &lt;section class=&quot;ui grid segment&quot;&gt;
+    &lt;div class=&quot;four wide column&quot;&gt;
+      &lt;compose view-model=&quot;./donate&quot;&gt;&lt;/compose&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;four wide column&quot;&gt;
+      &lt;compose class=&quot;four wide column&quot; view-model=&quot;./report&quot;&gt;&lt;/compose&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;four wide column&quot;&gt;
+      &lt;compose class=&quot;four wide column&quot; view-model=&quot;./candidates&quot;&gt;&lt;/compose&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;four wide  column&quot;&gt;
+      &lt;compose class=&quot;ui column&quot; view-model=&quot;./stats&quot;&gt;&lt;/compose&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+&lt;/template&gt;</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Configuration - donation-client and donation-web</h1>
+<p>We need some preparatory steps before trying to contacting the donation-web api from donation-client-ts.</p>
+<h1>donation-client</h1>
+<p>Aurelia has some convenient http components:</p>
+<ul>
+<li><a href="http://aurelia.io/hub.html#/doc/article/aurelia/fetch-client/latest/http-services/3">http://aurelia.io/hub.html#/doc/article/aurelia/fetch-client/latest/http-services/3</a></li>
+</ul>
+<p>This is not included by default - and will need to be installed. Installing additional components is a two step process:</p>
+<h2>Step 1: Install the component via npm</h2>
+<pre><code>npm install aurelia-http-client -save</code></pre>
+<p>This will install the module into our local <code>node-modules</code> folder.</p>
+<h2>Step 2: Incorporate into Aurelia client build</h2>
+<p>This must be manual inserted into the following configuration file:</p>
+<h2>aurelia_project/aurelia.json</h2>
+<pre><code>     &quot;dependencies&quot;: [
+          ...
+          &quot;aurelia-history-browser&quot;,
+          &quot;aurelia-http-client&quot;,
+          &quot;aurelia-loader&quot;,
+          ...</code></pre>
+<p>When this is complete, make sure to rebuild the app:</p>
+<pre><code>au run --watch</code></pre>
+<h1>donation-web</h1>
+<p>This is the most recent donation-web project:</p>
+<ul>
+<li><a href="https://github.com/edeleastar/donation-web/releases/tag/lab.14.exercises">https://github.com/edeleastar/donation-web/releases/tag/lab.14.exercises</a></li>
+</ul>
+<p>Access to the donation-web api may be restricted if we are attempting access from another domain. This is the Cross Origin Sharing issue, discussed here:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">https://en.wikipedia.org/wiki/Cross-origin_resource_sharing</a></li>
+</ul>
+<p>and </p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a></li>
+</ul>
+<p>If we wish our app to be accessible from an SPA, then we may need to explicitly enable it. This package here can make it easier:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/hapi-cors">https://www.npmjs.com/package/hapi-cors</a></li>
+</ul>
+<p>First install it (remember, we are now working in <code>donation-web</code>, not <code>donation-client</code>)</p>
+<pre><code>npm install hapi-cors-headers -save</code></pre>
+<p>Then in index.html, import it:</p>
+<h2>index.js</h2>
+<pre><code>const corsHeaders = require(&#39;hapi-cors-headers&#39;);</code></pre>
+<p>Finally, we can enable the facility, with the default options:</p>
+<pre><code>...
+  server.ext(&#39;onPreResponse&#39;, corsHeaders);
+  server.route(require(&#39;./routes&#39;));
+  server.route(require(&#39;./routesapi&#39;));
+...</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>async-http-client</h1>
+<p>This is a new class, which will encapsulate access to the aurelia-http-client we installed in the last step:</p>
+<h2>src/services/async-http-client.ts</h2>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import { HttpClient } from &#39;aurelia-http-client&#39;;
+import Fixtures from &#39;./fixtures&#39;;
+
+@inject(HttpClient, Fixtures)
+export default class AsyncHttpClient {
+  http: HttpClient;
+
+  constructor(httpClient, fixtures) {
+    this.http = httpClient;
+    this.http.configure(http =&gt; {
+      http.withBaseUrl(fixtures.baseUrl);
+    });
+  }
+
+  get(url) {
+    return this.http.get(url);
+  }
+
+  post(url, obj) {
+    return this.http.post(url, obj);
+  }
+
+  delete(url) {
+    return this.http.delete(url);
+  }
+}</code></pre>
+<p>Notice that this loads the fixtures - looking for a <code>baseUrl</code> field:</p>
+<h2>src/services/fixtures.ts</h2>
+<pre><code>import { Candidate, Donation, User } from &#39;./models&#39;;
+
+export default class Fixtures {
+  baseUrl = &#39;http://localhost:4000&#39;;
+  methods = [&#39;Cash&#39;, &#39;PayPal&#39;];
+}</code></pre>
+<p>In the above, remove all the donations, users, candidates - as we not longed need this test data. Leave the fixture looking exactly as above.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>donation-service - Login</h1>
+<p>We can now try first contact from the donation-client to donation-web. Make sure donation-web is running.</p>
+<h2>src/services/donation-service.js</h2>
+<p>First modify the constructor to load the async-client we have just introduced + remove the loading of data from the fixtures:</p>
+<pre><code>...
+import AsyncHttpClient from &#39;./async-http-client&#39;;
+...
+
+@inject(Fixtures, EventAggregator, AsyncHttpClient)
+export class DonationService {
+  ea: EventAggregator;
+  ac: AsyncHttpClient;
+  donations: Array&lt;Donation&gt; = [];
+  methods: Array&lt;string&gt; = [];
+  candidates: Array&lt;Candidate&gt; = [];
+  users: Map&lt;string, User&gt; = new Map();
+  total = 0;
+
+  constructor(data: Fixtures, ea: EventAggregator, ac: AsyncHttpClient) {
+    this.methods = data.methods;
+    this.ea = ea;
+    this.ac = ac;
+    this.getCandidates();
+    this.getUsers();
+  }</code></pre>
+<p>In the above constructor - note that we are calling two new methods. These will retrieve the users and candidates list from donation-web:</p>
+<pre><code>  getCandidates() {
+    this.ac.get(&#39;/api/candidates&#39;).then(res =&gt; {
+      this.candidates = res.content;
+    });
+  }
+
+  getUsers() {
+      this.ac.get(&#39;/api/users&#39;).then(res =&gt; {
+        const users = res.content as Array&lt;User&gt;;
+        users.forEach(user =&gt; {
+          this.users.set(user.email, user);
+        });
+      });
+  }</code></pre>
+<p>Try all this now - you should be able to log in with a user credentials as stored on the server. Also, you should be retrieving the candidate list from donation-web.</p>
+<p>Do not proceed till the next step unless you have confirmed the above.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>donation-service - Donate</h1>
+<p>We can now have a go at creating a donation:</p>
+<h2>src/donation-service/DonationService.js</h2>
+<pre><code>  donate(amount: number, method: string, candidate: Candidate) {
+    const donation = {
+      amount: amount,
+      method: method,
+    };
+    this.ac
+      .post(&#39;/api/candidates/&#39; + candidate._id + &#39;/donations&#39;, donation)
+      .then(res =&gt; {
+        let returnedDonation = res.content as Donation;
+        returnedDonation.candidate = candidate;
+        this.donations.push(returnedDonation);
+        console.log(
+          `${amount} donated to ${candidate.firstName} ${
+            candidate.lastName
+          } : ${method}`,
+        );
+
+        this.total = this.total + amount;
+        console.log(&#39;Total so far &#39; + this.total);
+        this.ea.publish(new TotalUpdate(this.total));
+      });
+  }</code></pre>
+<p>Not a major change - and notice we do not need to change any of out view-models. They are data-bound to our donation-service, and we are now updating this with donation we have retrieved from the server.</p>
+<p>Make sure this works before proceeding to the next step. Check the donation-web UI and verify the donations are getting through.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>addCandidate &amp; register implementations</h1>
+<p>Because we have centralized all access to the donation-web in the donation-service class, we include candidate and user creation in here now:</p>
+<h2>src/donation-service</h2>
+<pre><code>  addCandidate(firstName: string, lastName: string, office: string) {
+    const candidate = {
+      firstName: firstName,
+      lastName: lastName,
+      office: office,
+    };
+    this.ac.post(&#39;/api/candidates&#39;, candidate).then(res =&gt; {
+      this.candidates.push(res.content);
+    });
+  }
+
+  register(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+  ) {
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
+    this.ac.post(&#39;/api/users&#39;, newUser).then(res =&gt; {
+      this.getUsers();
+    });
+  }</code></pre>
+<p>Again, hopefully our view-models require no changes. </p>
+<p>Register new users &amp; candidates now - and also verify with the donation-web that they are in fact created.</p>
+<p>Here is the donation-service class at this stage:</p>
+<pre><code>import { inject } from &#39;aurelia-framework&#39;;
+import AsyncHttpClient from &#39;./async-http-client&#39;;
+import Fixtures from &#39;./fixtures&#39;;
+import { TotalUpdate, LoginStatus } from &#39;./messages&#39;;
+import { EventAggregator } from &#39;aurelia-event-aggregator&#39;;
+import { Candidate, Donation, User } from &#39;./models&#39;;
+
+@inject(Fixtures, EventAggregator, AsyncHttpClient)
+export class DonationService {
+  ea: EventAggregator;
+  ac: AsyncHttpClient;
+  donations: Array&lt;Donation&gt; = [];
+  methods: Array&lt;string&gt; = [];
+  candidates: Array&lt;Candidate&gt; = [];
+  users: Map&lt;string, User&gt; = new Map();
+  total = 0;
+
+  constructor(data: Fixtures, ea: EventAggregator, ac: AsyncHttpClient) {
+    this.methods = data.methods;
+    this.ea = ea;
+    this.ac = ac;
+    this.getCandidates();
+    this.getUsers();
+  }
+
+  getCandidates() {
+    this.ac.get(&#39;/api/candidates&#39;).then(res =&gt; {
+      this.candidates = res.content;
+    });
+  }
+
+  getUsers() {
+    this.ac.get(&#39;/api/users&#39;).then(res =&gt; {
+      const users = res.content as Array&lt;User&gt;;
+      users.forEach(user =&gt; {
+        this.users.set(user.email, user);
+      });
+    });
+  }
+
+  donate(amount: number, method: string, candidate: Candidate) {
+    const donation = {
+      amount: amount,
+      method: method,
+    };
+    this.ac
+      .post(&#39;/api/candidates/&#39; + candidate._id + &#39;/donations&#39;, donation)
+      .then(res =&gt; {
+        let returnedDonation = res.content as Donation;
+        returnedDonation.candidate = candidate;
+        this.donations.push(returnedDonation);
+        console.log(
+          `${amount} donated to ${candidate.firstName} ${
+            candidate.lastName
+            } : ${method}`,
+        );
+
+        this.total = this.total + amount;
+        console.log(&#39;Total so far &#39; + this.total);
+        this.ea.publish(new TotalUpdate(this.total));
+      });
+  }
+
+  addCandidate(firstName: string, lastName: string, office: string) {
+    const candidate = {
+      firstName: firstName,
+      lastName: lastName,
+      office: office,
+    };
+    this.ac.post(&#39;/api/candidates&#39;, candidate).then(res =&gt; {
+      this.candidates.push(res.content);
+    });
+  }
+
+  register(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+  ) {
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
+    this.ac.post(&#39;/api/users&#39;, newUser).then(res =&gt; {
+      this.getUsers();
+    });
+  }
+
+  login(email: string, password: string) {
+    const loginStatus = new LoginStatus(false);
+
+    const user = this.users.get(email);
+    if (user) {
+      if (user.password === password) {
+        loginStatus.status = true;
+        loginStatus.message = &#39;logged in&#39;;
+      } else {
+        loginStatus.message = &#39;Incorrect password&#39;;
+      }
+    } else {
+      loginStatus.message = &#39;Unknown user&#39;;
+    }
+    this.ea.publish(loginStatus);
+  }
+
+  logout() {
+    this.ea.publish(new LoginStatus(false));
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of the lab so far:</p>
+<ul>
+<li><a href="https://github.com/edeleastar/donation-client-ts/releases/tag/aurelia.lab.4.end">https://github.com/edeleastar/donation-client-ts/releases/tag/aurelia.lab.4.end</a></li>
+</ul>
+<h2>Exercise 1: Retrieve prior donations</h2>
+<p>When you first log in, modify app such that existing donations are retrieved from donation-web. Currently we only show donations made my the current user.</p>
+<h2>Exercise 2: Show Candidate names in report</h2>
+<p>Notice that, when you make a donation - the actual candidate&#39;s name does not appear. Why is this? In chrome, debug into the app to explore why. See if you can fix this. </p>
+<p>There are two approaches:</p>
+<ul>
+<li>You already know the candidate name in the donation-client, so just insert it into the donation.</li>
+<li>Change donation-web to populate the donation&#39;s candidate field when you create a donation.</li>
+</ul>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>

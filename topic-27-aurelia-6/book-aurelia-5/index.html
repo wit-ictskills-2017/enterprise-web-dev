@@ -1,0 +1,756 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+     
+
+     <style>
+       
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+     </style>
+
+   </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom:thin solid black;
+}
+
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+body
+{
+  overflow-y: scroll;
+}
+
+.pushable > .pusher
+{
+  padding-bottom: 1.5rem;
+}
+
+.ui.segment.pushable
+{
+  margin: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted stackable menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      27: Aurelia & JWT
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-Aurelia 6">
+      Lab-Aurelia 6
+    </a>
+    
+    <a class="item" data-tab="Exercise Solutions">
+      Exercise Solutions
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="07.Exercises">
+      07.Exercises
+    </a>
+    
+    <div class="item">
+      
+    </div>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <br><br>
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-1-javascript-intro/index.html">
+          Lab-2.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-js-review/book-2-javascript-fundamentals/index.html">
+          Lab-2.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-jquery+dom/book-3-jquery/index.html">
+          Lab-3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-09-validation/book-validation/index.html">
+          Lab-9 Validation
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-10-deployment/book-deployment/index.html">
+          Lab-10 Deployment
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-11-seeding/book-seeding/index.html">
+          Lab-11 Seeding
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-12-api/book-api/index.html">
+          Lab-12 Apis
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-13-security-introduction/book-1-pgp-gpg/index.html">
+          Lab-13 GPG
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-14-security-foundations/book-1-openssl/index.html">
+          Lab-14 OpenSSL and Certificates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-15-authentication+tls/book-1-tls-configuration/index.html">
+          Lab-15 TLS Configuration
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-tdd/book-tdd/index.html">
+          Lab-16 Tdd
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-webapp-threats+vulnerabilities/book-1-misuse-cases/index.html">
+          Lab-17 Misuse Cases
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-18-rest/book-rest/index.html">
+          Lab-18 Rest
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-19-web-app-authentication/book-1-web-authentication/index.html">
+          Lab-19 Authentication techniques
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-20-rest-client/book-rest-client/index.html">
+          Lab-19 Java Rest Client
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-21-aurelia-1/book-aurelia-1/index.html">
+          Lab-Aurelia 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-1-burp-proxy/index.html">
+          Lab-Burp-Proxy
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-2-regex/index.html">
+          Regular Expressions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-22-pentesting/book-3-xss/index.html">
+          XSS tips
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-23-aurelia-2/book-aurelia-2/index.html">
+          Lab-Aurelia 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-24-aurelia-3/book-aurelia-3/index.html">
+          Lab-Aurelia 3
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-24-aurelia-3/book-aurelia-3-ts/index.html">
+          Aurelia Lab 3 TS
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-25-aurelia-4/book-aurelia-4/index.html">
+          Lab-Aurelia 4
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-25-aurelia-4/book-aurelia-ts-4/index.html">
+          Lab-Aurelia 4 TS
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-26-aurelia-5/book-a-hapi-auth/index.html">
+          Lab-Hapi jwt
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-26-aurelia-5/book-b-aurelia-5/index.html">
+          Lab-Aurelia 5
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-27-aurelia-6/book-aurelia-5/index.html">
+          Lab-Aurelia 6
+        </a>
+      
+    
+  </div>
+  <div class="pusher" tabindex="-1">
+    <div class="ui basic segment" id="labchat">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-Aurelia 6">
+        <h1>Objectives</h1>
+<p>Assuming our donation-web app api has been secured with JWT tokens, revised donation-service classes to authenticate against and use these secure routes.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercise Solutions">
+        <h1>Lab Aurelia 4 Exercises</h1>
+<h2>Exercise 1: Retrieve prior donations</h2>
+<p>When you first log in, modify app such that existing donations are retrieved from donation-web. Currently we only show donations made my the current user.</p>
+<h2>src/services/donation-service.js</h2>
+<pre><code>  ...
+  constructor(data, ea, ac) {
+    ...
+    this.getDonations();
+  }
+
+  getDonations() {
+    this.ac.get(&#39;/api/donations&#39;).then(res =&gt; {
+      this.donations = res.content;
+    });
+  }
+...
+
+Note: this solution will be invalidated by our forthcoming approach to authenticated routes, and will need to be changed later.</code></pre>
+<h1>Exercise 2: Show Candidate names in report</h1>
+<p>Notice that, when you make a donation - the actual candidate&#39;s name does not appear. Why is this? In chrome, debug into the app to explore why. See if you can fix this. </p>
+<p>There are two approaches:</p>
+<ul>
+<li>You already know the candidate name in the donation-client, so just insert it into the donation.</li>
+<li>Change donation-web to populate the donation&#39;s candidate field when you create a donation.</li>
+</ul>
+<h2>Solution</h2>
+<p>This is a modification of the donation-web api for creating donations:</p>
+<pre><code>exports.makeDonation = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    const donation = new Donation(request.payload);
+    donation.candidate = request.params.id;
+    donation.save().then(newDonation =&gt; {
+      Donation.findOne(newDonation).populate(&#39;candidate&#39;).then(donation =&gt; {
+        reply(donation).code(201);
+      });
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error making donation&#39;));
+    });
+  },
+
+};</code></pre>
+<p>When a donation is created, it populates the candidate field. No further modification should be neccessary.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>async-http-client</h1>
+<p>You must be running the jwt enabled version of the donation-web service to test these additions.</p>
+<p>This is a sophisticated change to the AsyncHttpClient class, but implemented in very concise code. </p>
+<h2>src/donation-service/async-http-client.js</h2>
+<p>First, change the constructor in import the EventAggregator:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>import {inject} from &#39;aurelia-framework&#39;;
+import {HttpClient} from &#39;aurelia-http-client&#39;;
+import Fixtures from &#39;./fixtures&#39;;
+import {EventAggregator} from &#39;aurelia-event-aggregator&#39;;
+import {LoginStatus} from &#39;./messages&#39;;
+
+@inject(HttpClient, Fixtures, EventAggregator )
+export default class AsyncHttpClient {
+
+  constructor(httpClient, fixtures, ea) {
+    this.http = httpClient;
+    this.http.configure(http =&gt; {
+      http.withBaseUrl(fixtures.baseUrl);
+    });
+    this.ea = ea;
+  }
+...</code></pre>
+<p>Now introduce a new method to authenticate a user to the api:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  authenticate(url, user) {
+    this.http.post(url, user).then(response =&gt; {
+      const status = response.content;
+      if (status.success) {
+        this.http.configure(configuration =&gt; {
+          configuration.withHeader(&#39;Authorization&#39;, &#39;bearer &#39; + response.content.token);
+        });
+      }
+      this.ea.publish(new LoginStatus(status));
+    }).catch(error =&gt; {
+      const status = {
+        success: false,
+        message: &#39;service not available&#39;
+      };
+      this.ea.publish(new LoginStatus(status));
+    });
+  }</code></pre>
+<p>In the above (invoked in the next step from donation-service), will post to an authenticate url - and if successful, attaches the returned token to all subsequent invocations. It will also store the token in local storage in case our app is suspended. However, we are not really making use of this yet.</p>
+<p>An accompanying clear method:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  clearAuthentication() {
+    this.http.configure(configuration =&gt; {
+      configuration.withHeader(&#39;Authorization&#39;, &#39;&#39;);
+    });
+  }</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>donation-service login/logout</h1>
+<p>DonationService can now have its login/logout methods use the new methods.</p>
+<p>First, remove retrieval of users and donations in the constructor:</p>
+<h2>src/services/donation-service.js</h2>
+<pre><code>  constructor(data, ea, ac) {
+    this.methods = data.methods;
+    this.ea = ea;
+    this.ac = ac;
+    this.getCandidates();
+  }</code></pre>
+<p>the users and candidates are protected routes, and will fail if we attempt to read them if we are not authenticated.</p>
+<p>Now we can implement login/logout - which are considerably simplified:</p>
+<h2>src/services/donation-service.js</h2>
+<pre><code>  login(email, password) {
+    const user = {
+      email: email,
+      password: password
+    };
+    this.ac.authenticate(&#39;/api/users/authenticate&#39;, user);
+  }</code></pre>
+<pre><code>  logout() {
+    const status = {
+      success: false,
+      message: &#39;&#39;
+    };
+    this.ac.clearAuthentication();
+    this.ea.publish(new LoginStatus(new LoginStatus(status)));
+  }
+}</code></pre>
+<p>Try this now and see if it works as expected. In particular make sure you can successfully access protected routes.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Storing Tokens</h1>
+<p>We can save the tokens in <code>Local Storage</code> (in the browser), which might be useful in certain circumstances.</p>
+<p>In the authenticate method in <code>AsyncHttpClient</code> we can store the token:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code> authenticate(url, user) {
+    ...
+      if (status.success) {
+        localStorage.donation = JSON.stringify(response.content);
+        this.http.configure(configuration =&gt; {
+          configuration.withHeader(&#39;Authorization&#39;, &#39;bearer &#39; + response.content.token);
+        });
+    ...
+    ...
+  }</code></pre>
+<p>This stores the token in the key <code>donation</code>. We can inspect this in the browser developer tools:</p>
+<p><img src="img/01.png" alt=""></p>
+<p>We should takes steps to explicitly clear the token from local storage in our <code>clearAuthentication()</code> method:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  clearAuthentication() {
+    localStorage.donation = null;
+    this.http.configure(configuration =&gt; {
+      configuration.withHeader(&#39;Authorization&#39;, &#39;&#39;);
+    });
+  }</code></pre>
+<p>Try the following experiment. Log in to the service - and then exit the browser (without logging out). Open the browser again - and see if the token is still in local storage.</p>
+<p><img src="img/01.png" alt=""></p>
+<p>Because it should be - we can adapt the app to bypass the login screen in this situation (next step).</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Retrieving Tokens</h1>
+<p>We can then introduce a new method in <code>AsyncHttpClient</code> which can recover this token (if present), and install it in our default request headers for subsequent api access:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  isAuthenticated() {
+    let authenticated = false;
+    if (localStorage.donation !== &#39;null&#39;) {
+      authenticated = true;
+      this.http.configure(http =&gt; {
+        const auth = JSON.parse(localStorage.donation);
+        http.withHeader(&#39;Authorization&#39;, &#39;bearer &#39; + auth.token);
+      });
+    }
+    return authenticated;
+  }</code></pre>
+<p>This also returns true if it found a token. </p>
+<p>We introduce an accessor for this method in DonationService`:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  isAuthenticated() {
+    return this.ac.isAuthenticated();
+  }</code></pre>
+<p>This can be enable access to this facility from other components that can only see <code>DonationService</code>.</p>
+<p>Finally, if the token is found, we need to switch to the <code>home</code> router then the app launches.</p>
+<p>First, in the <code>App</code> class, change the constructor to the following:</p>
+<h2>src/spp.js</h2>
+<pre><code>import DonationService from &#39;./services/donation-service&#39;;
+
+@inject(DonationService, Aurelia, EventAggregator)
+export class App {
+
+  constructor(ds, au, ea) {
+    this.au = au;
+    this.ds = ds;
+    ea.subscribe(LoginStatus, msg =&gt; {
+      if (msg.status.success === true) {
+        au.setRoot(&#39;home&#39;).then(() =&gt; {
+          this.router.navigateToRoute(&#39;dashboard&#39;);
+        });
+      } else {
+        au.setRoot(&#39;app&#39;).then(() =&gt; {
+          this.router.navigateToRoute(&#39;login&#39;);
+        });
+      }
+    });
+  }
+...</code></pre>
+<p>The only major change in the above is that we are injecting a dependency on DonationService.</p>
+<p>Also in the App class, introduce the following function:</p>
+<pre><code>  attached() {
+    if (this.ds.isAuthenticated()) {
+      this.au.setRoot(&#39;home&#39;).then(() =&gt; {
+        this.router.navigateToRoute(&#39;dashboard&#39;);
+      });
+    }
+  }</code></pre>
+<p>This makes use of the DonationService to determine if the token is available in local storage. If it is, we load the <code>Home</code> router.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Map Unknown Routes</h1>
+<p>In each of the routers, we can introduce a modification to map unknown routes to known routes if the unexpected happens:</p>
+<h2>src/spp.js</h2>
+<pre><code>  ...
+  configureRouter(config, router) {
+    config.map([
+      { route: [&#39;&#39;, &#39;login&#39;], name: &#39;login&#39;, moduleId: &#39;viewmodels/login/login&#39;, nav: true, title: &#39;Login&#39; },
+      { route: &#39;signup&#39;, name: &#39;signup&#39;, moduleId: &#39;viewmodels/signup/signup&#39;, nav: true, title: &#39;Signup&#39; }
+    ]);
+
+    config.mapUnknownRoutes(instruction =&gt; {
+      return &#39;login&#39;;
+    });
+
+    this.router = router;
+  }
+  ...</code></pre>
+<p>src/home.js</p>
+<pre><code>  configureRouter(config, router) {
+    config.map([
+      { route: [&#39;&#39;, &#39;home&#39;], name: &#39;donate&#39;, moduleId: &#39;viewmodels/donate/donate&#39;, nav: true, title: &#39;Donate&#39; },
+      { route: &#39;report&#39;, name: &#39;report&#39;, moduleId: &#39;viewmodels/report/report&#39;, nav: true, title: &#39;Report&#39; },
+      { route: &#39;candidates&#39;, name: &#39;candidates&#39;, moduleId: &#39;viewmodels/candidates/candidates&#39;, nav: true, title: &#39;Candidates&#39; },
+      { route: &#39;stats&#39;, name: &#39;stats&#39;, moduleId: &#39;viewmodels/stats/stats&#39;, nav: true, title: &#39;Stats&#39; },
+      { route: &#39;dashboard&#39;, name: &#39;dashboard&#39;, moduleId: &#39;viewmodels/dashboard/dashboard&#39;, nav: true, title: &#39;Dashboard&#39; },
+      { route: &#39;logout&#39;, name: &#39;logout&#39;, moduleId: &#39;viewmodels/logout/logout&#39;, nav: true, title: &#39;Logout&#39; }
+    ]);
+
+    config.mapUnknownRoutes(instruction =&gt; {
+      return &#39;dashboard&#39;;
+    });
+
+    this.router = router;
+  }</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07.Exercises">
+        <p>Archive of the lab so far:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.5.end">https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.5.end</a></li>
+</ul>
+<h2>Exercise 1:</h2>
+<p>Deploy the donation-web &amp; donation-client apps. There are two potential scenarios:</p>
+<ul>
+<li>Deploy donation-web to heroku, and donation-client to github - gh-pages - as outlined in an earlier lab</li>
+<li>Deploy both apps to heroku, coping <code>index.html</code> + <code>scripts</code> to the public folder of the donation-web app</li>
+</ul>
+<p>Make sure that <code>src/sercices/fixtures.js</code> contains the correct url in each instance.</p>
+<h2>Learning Resources</h2>
+<p>If you are continuing your journey with Aurelia, these resources may be useful:</p>
+<p>The starting point for all things Aurelia:</p>
+<ul>
+<li><a href="http://aurelia.io/hub.html#/doc/persona/developer">http://aurelia.io/hub.html#/doc/persona/developer</a></li>
+</ul>
+<p>In particular this tutorial:</p>
+<ul>
+<li><a href="http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial">http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial</a></li>
+</ul>
+<p>This video here is a useful overview + background:</p>
+<ul>
+<li><a href="https://vimeo.com/153090562">https://vimeo.com/153090562</a></li>
+</ul>
+<p>If you would like a holistic view of ESNext - this video here from the same presenter:</p>
+<ul>
+<li><a href="https://vimeo.com/131191237">https://vimeo.com/131191237</a></li>
+</ul>
+<p>Finally, a book on aurelia:</p>
+<ul>
+<li><a href="https://leanpub.com/aurelia-for-real-world-applications">https://leanpub.com/aurelia-for-real-world-applications</a></li>
+</ul>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--<div class="ui bottom fixed borderless right menu">
+  <div class="ui right tiny menu">
+    <div class="ui mini message segment">
+      .
+      <a href="http://creativecommons.org/licenses/by-nc/4.0/"
+         title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+         target="_blank">Creative Commons License
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<script>
+  $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+</script>
+
+
+
+    <footer>
+
+    </footer>
+    <script>
+      $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
