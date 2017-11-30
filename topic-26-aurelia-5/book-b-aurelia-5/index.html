@@ -144,12 +144,8 @@ body
       05
     </a>
     
-    <a class="item" data-tab="06">
-      06
-    </a>
-    
-    <a class="item" data-tab="07.Exercises">
-      07.Exercises
+    <a class="item" data-tab="06.Exercises">
+      06.Exercises
     </a>
     
     <div class="item">
@@ -354,6 +350,12 @@ body
         </a>
       
     
+      
+        <a class="item" href="../../topic-26-aurelia-5/book-b-aurelia-5-ts/index.html">
+          Lab-Aurelia 5 TS
+        </a>
+      
+    
   </div>
   <div class="pusher" tabindex="-1">
     <div class="ui basic segment" id="labchat">
@@ -495,7 +497,7 @@ export default class AsyncHttpClient {
       message: &#39;&#39;
     };
     this.ac.clearAuthentication();
-    this.ea.publish(new LoginStatus(new LoginStatus(status)));
+   this.ea.publish(new LoginStatus(status));
   }
 }</code></pre>
 <p>Try this now and see if it works as expected. In particular make sure you can successfully access protected routes.</p>
@@ -550,7 +552,7 @@ export default class AsyncHttpClient {
   }</code></pre>
 <p>This also returns true if it found a token. </p>
 <p>We introduce an accessor for this method in DonationService`:</p>
-<h2>src/services/async-http-client.js</h2>
+<h2>src/services/donation-service.js</h2>
 <pre><code>  isAuthenticated() {
     return this.ac.isAuthenticated();
   }</code></pre>
@@ -567,19 +569,17 @@ export class App {
     this.au = au;
     this.ds = ds;
     ea.subscribe(LoginStatus, msg =&gt; {
-      if (msg.status.success === true) {
-        au.setRoot(&#39;home&#39;).then(() =&gt; {
-          this.router.navigateToRoute(&#39;dashboard&#39;);
-        });
+      this.router.navigate(&#39;/&#39;, { replace: true, trigger: false });
+      this.router.reset();
+      if (msg.status === true) {
+        au.setRoot(&#39;home&#39;);
       } else {
-        au.setRoot(&#39;app&#39;).then(() =&gt; {
-          this.router.navigateToRoute(&#39;login&#39;);
-        });
+        au.setRoot(&#39;app&#39;);
       }
     });
   }
 ...</code></pre>
-<p>The only major change in the above is that we are injecting a dependency on DonationService.</p>
+<p>This represents a slight simplification of our previous attempts.</p>
 <p>Also in the App class, introduce the following function:</p>
 <pre><code>  attached() {
     if (this.ds.isAuthenticated()) {
@@ -592,48 +592,10 @@ export class App {
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="06">
-        <h1>Map Unknown Routes</h1>
-<p>In each of the routers, we can introduce a modification to map unknown routes to known routes if the unexpected happens:</p>
-<h2>src/spp.js</h2>
-<pre><code>  ...
-  configureRouter(config, router) {
-    config.map([
-      { route: [&#39;&#39;, &#39;login&#39;], name: &#39;login&#39;, moduleId: &#39;viewmodels/login/login&#39;, nav: true, title: &#39;Login&#39; },
-      { route: &#39;signup&#39;, name: &#39;signup&#39;, moduleId: &#39;viewmodels/signup/signup&#39;, nav: true, title: &#39;Signup&#39; }
-    ]);
-
-    config.mapUnknownRoutes(instruction =&gt; {
-      return &#39;login&#39;;
-    });
-
-    this.router = router;
-  }
-  ...</code></pre>
-<p>src/home.js</p>
-<pre><code>  configureRouter(config, router) {
-    config.map([
-      { route: [&#39;&#39;, &#39;home&#39;], name: &#39;donate&#39;, moduleId: &#39;viewmodels/donate/donate&#39;, nav: true, title: &#39;Donate&#39; },
-      { route: &#39;report&#39;, name: &#39;report&#39;, moduleId: &#39;viewmodels/report/report&#39;, nav: true, title: &#39;Report&#39; },
-      { route: &#39;candidates&#39;, name: &#39;candidates&#39;, moduleId: &#39;viewmodels/candidates/candidates&#39;, nav: true, title: &#39;Candidates&#39; },
-      { route: &#39;stats&#39;, name: &#39;stats&#39;, moduleId: &#39;viewmodels/stats/stats&#39;, nav: true, title: &#39;Stats&#39; },
-      { route: &#39;dashboard&#39;, name: &#39;dashboard&#39;, moduleId: &#39;viewmodels/dashboard/dashboard&#39;, nav: true, title: &#39;Dashboard&#39; },
-      { route: &#39;logout&#39;, name: &#39;logout&#39;, moduleId: &#39;viewmodels/logout/logout&#39;, nav: true, title: &#39;Logout&#39; }
-    ]);
-
-    config.mapUnknownRoutes(instruction =&gt; {
-      return &#39;dashboard&#39;;
-    });
-
-    this.router = router;
-  }</code></pre>
-
-      </div>
-     
-      <div  class="ui tab segment lab" data-tab="07.Exercises">
+      <div  class="ui tab segment lab" data-tab="06.Exercises">
         <p>Archive of the lab so far:</p>
 <ul>
-<li><a href="https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.5.end">https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.5.end</a></li>
+<li><a href="https://github.com/edeleastar/donation-client/releases/tag/aurelia.5.end">https://github.com/edeleastar/donation-client/releases/tag/aurelia.5.end</a></li>
 </ul>
 <h2>Exercise 1:</h2>
 <p>Deploy the donation-web &amp; donation-client apps. There are two potential scenarios:</p>
@@ -644,13 +606,17 @@ export class App {
 <p>Make sure that <code>src/sercices/fixtures.js</code> contains the correct url in each instance.</p>
 <h2>Learning Resources</h2>
 <p>If you are continuing your journey with Aurelia, these resources may be useful:</p>
+<p>One of he best books on the framework:</p>
+<ul>
+<li><a href="https://www.manning.com/books/aurelia-in-action">https://www.manning.com/books/aurelia-in-action</a></li>
+</ul>
 <p>The starting point for all things Aurelia:</p>
 <ul>
-<li><a href="http://aurelia.io/hub.html#/doc/persona/developer">http://aurelia.io/hub.html#/doc/persona/developer</a></li>
+<li><a href="http://aurelia.io/docs">http://aurelia.io/docs</a></li>
 </ul>
 <p>In particular this tutorial:</p>
 <ul>
-<li><a href="http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial">http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial</a></li>
+<li><a href="http://aurelia.io/docs/tutorials/creating-a-contact-manager">http://aurelia.io/docs/tutorials/creating-a-contact-manager</a></li>
 </ul>
 <p>This video here is a useful overview + background:</p>
 <ul>
@@ -659,10 +625,6 @@ export class App {
 <p>If you would like a holistic view of ESNext - this video here from the same presenter:</p>
 <ul>
 <li><a href="https://vimeo.com/131191237">https://vimeo.com/131191237</a></li>
-</ul>
-<p>Finally, a book on aurelia:</p>
-<ul>
-<li><a href="https://leanpub.com/aurelia-for-real-world-applications">https://leanpub.com/aurelia-for-real-world-applications</a></li>
 </ul>
 
       </div>
